@@ -178,8 +178,50 @@ public class PlayerController : MonoBehaviour
 		if (passengerIndex != -1)
 		{
 			// Check what type of creature
-			passengerSpots[passengerIndex].sprite = frogSprite;
-			passengerSpots[passengerIndex].transform.localPosition = frogPositions[passengerIndex];
+			switch (grabbedObj.GetComponent<GenericEnemy>().enemyType)
+			{
+				case Constants.Enemy.EnemyType.Bunny:
+					passengerSpots[passengerIndex].sprite = bunnySprite;
+					passengerSpots[passengerIndex].transform.localPosition = bunnyPositions[passengerIndex];
+					numBunny += 1;
+					break;
+
+				case Constants.Enemy.EnemyType.Chicken:
+					passengerSpots[passengerIndex].sprite = chickenSprite;
+					passengerSpots[passengerIndex].transform.localPosition = chickenPositions[passengerIndex];
+					numChicken += 1;
+					break;
+
+				case Constants.Enemy.EnemyType.Crab:
+					passengerSpots[passengerIndex].sprite = crabSprite;
+					passengerSpots[passengerIndex].transform.localPosition = crabPositions[passengerIndex];
+					numCrab += 1;
+					break;
+
+				case Constants.Enemy.EnemyType.Frog:
+					passengerSpots[passengerIndex].sprite = frogSprite;
+					passengerSpots[passengerIndex].transform.localPosition = frogPositions[passengerIndex];
+					numFrog += 1;
+					break;
+
+				case Constants.Enemy.EnemyType.Hippo:
+					passengerSpots[passengerIndex].sprite = hippoSprite;
+					passengerSpots[passengerIndex].transform.localPosition = hippoPositions[passengerIndex];
+					numHippo += 1;
+					break;
+
+				case Constants.Enemy.EnemyType.Shark:
+					passengerSpots[passengerIndex].sprite = sharkSprite;
+					passengerSpots[passengerIndex].transform.localPosition = sharkPositions[passengerIndex];
+					numShark += 1;
+					break;
+
+				case Constants.Enemy.EnemyType.Squid:
+					passengerSpots[passengerIndex].sprite = squidSprite;
+					passengerSpots[passengerIndex].transform.localPosition = squidPositions[passengerIndex];
+					numSquid += 1;
+					break;
+			}
 		}
 
 		// Destroy grabbed object
