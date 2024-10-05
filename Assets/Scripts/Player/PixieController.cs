@@ -51,7 +51,7 @@ public class PixieController : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		// Test function for collisions
-		if (collision.tag == "Enemy" && !isInvulnerable && collision.gameObject != grabbedCreature)
+		if ((collision.GetComponent<EnemyAbstract>() != null || collision.tag == "Enemy") && !isInvulnerable && collision.gameObject != grabbedCreature)
 		{
 			eventBroker.Publish(this, new PlayerEvents.Damage(1));
 		}

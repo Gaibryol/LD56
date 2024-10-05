@@ -57,7 +57,7 @@ public class ClawController : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.GetComponent<GenericEnemy>() != null && isGrabbing)
+		if (collision.GetComponent<EnemyAbstract>() != null && isGrabbing)
 		{
 			// Collided with enemy
 			eventBroker.Publish(this, new PlayerEvents.UpdateClawState(Constants.Claw.States.Grabbed, collision.gameObject));
