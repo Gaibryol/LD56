@@ -14,7 +14,8 @@ public partial class Constants
             Crab,
             Bunny,
             Hippo,
-            Shark
+            Shark,
+			None
         }
 
 

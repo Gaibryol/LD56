@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Sprite sharkSprite;
 	[SerializeField] private Sprite squidSprite;
 	[SerializeField] private Sprite hippoSprite;
+	[SerializeField] private List<Constants.Enemy.EnemyType> passengers;
 
 	[SerializeField, Header("Passenger Positions")] private List<Vector2> bunnyPositions;
 	[SerializeField] private List<Vector2> chickenPositions;
@@ -35,11 +36,15 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private InputAction grab;
 
 	private bool isGrabbing;
-	private bool isInvulnerable;
 
 	private Rigidbody2D rbody;
 
 	private int health;
+	private float moveSpeed;
+	private float clawSpeed;
+	private float clawDistance;
+	private float invulnerabilityDuration;
+
 	private int numBunny;
 	private int numChicken;
 	private int numCrab;
@@ -51,8 +56,6 @@ public class PlayerController : MonoBehaviour
 	Vector3 baseClawScale;
 	Vector3 baseHeadScale;
 	private Coroutine grabCoroutine;
-
-	private GameObject grabbedCreature;
 
 	private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
 
@@ -68,8 +71,12 @@ public class PlayerController : MonoBehaviour
 	void Start()
     {
 		isGrabbing = false;
-		isInvulnerable = false;
+
 		health = Constants.Player.BaseHealth;
+		moveSpeed = Constants.Player.BaseMoveSpeed;
+		clawSpeed = Constants.Claw.BaseClawSpeed;
+		clawDistance = Constants.Claw.BaseClawDistance;
+		invulnerabilityDuration = Constants.Player.BaseInvulnerabilityDuration;
 
 		numBunny = 0;
 		numChicken = 0;
@@ -78,12 +85,19 @@ public class PlayerController : MonoBehaviour
 		numShark = 0;
 		numSquid = 0;
 		numHippo = 0;
+
+		// Clear passengers
+		for (int i = 0; i < passengerSpots.Count; i++)
+		{
+			passengerSpots[i].sprite = null;
+		}
+		passengers = new List<Constants.Enemy.EnemyType>() { Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None };
 	}
 
     // Update is called once per frame
     void Update()
     {
-		if (isGrabbing || isInvulnerable) return;
+		if (isGrabbing) return;
 
 		// Claw Rotation
 		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -99,14 +113,14 @@ public class PlayerController : MonoBehaviour
 	private void FixedUpdate()
 	{
 		// Stop movement if shooting
-		if (isGrabbing || isInvulnerable)
+		if (isGrabbing)
 		{
 			rbody.velocity = Vector2.zero;
 			return;
 		}
 
 		// Player Movement
-		rbody.velocity = move.ReadValue<Vector2>() * Constants.Player.Movespeed;
+		rbody.velocity = move.ReadValue<Vector2>() * moveSpeed;
 	}
 
 	private int GetNextOpenPassengerSpot()
@@ -122,15 +136,49 @@ public class PlayerController : MonoBehaviour
 		return -1;
 	}
 
+	private void Upgrade(Constants.Enemy.EnemyType enemyType)
+	{
+		switch (enemyType)
+		{
+			case Constants.Enemy.EnemyType.Bunny:
+				clawDistance += Constants.Claw.ClawDistanceIncrement;
+				break;
+
+			case Constants.Enemy.EnemyType.Chicken:
+				eventBroker.Publish(this, new GameEvents.EarnScoreMultiplier(Constants.Player.ScoreMultiplierIncrement));
+				break;
+
+			case Constants.Enemy.EnemyType.Crab:
+				eventBroker.Publish(this, new PlayerEvents.UpgradeBulletBlocks(Constants.Claw.NumBulletBlocksIncrement));
+				break;
+
+			case Constants.Enemy.EnemyType.Frog:
+				clawSpeed += Constants.Claw.ClawSpeedIncrement;
+				break;
+
+			case Constants.Enemy.EnemyType.Hippo:
+				health = Mathf.Min(health + Constants.Player.HealthIncrement, Constants.Player.BaseHealth);
+				break;
+
+			case Constants.Enemy.EnemyType.Shark:
+				moveSpeed += Constants.Player.MoveSpeedIncrement;
+				break;
+
+			case Constants.Enemy.EnemyType.Squid:
+				invulnerabilityDuration += Constants.Player.InvulnerabilityDurationIncrement;
+				break;
+		}
+	}
+
 	private IEnumerator ExtendCoroutine()
 	{
 		isGrabbing = true;
 		eventBroker.Publish(this, new PlayerEvents.UpdateClawState(Constants.Claw.States.Extending));
 
 		float clawScaleY = baseClawScale.y;
-		while (clawScaleY < baseClawScale.y + Constants.Claw.ClawDistance)
+		while (clawScaleY < baseClawScale.y + clawDistance)
 		{
-			clawScaleY += Time.deltaTime * Constants.Claw.ClawSpeed;
+			clawScaleY += Time.deltaTime * clawSpeed;
 			claw.transform.localScale = new Vector3(claw.transform.localScale.x, clawScaleY, claw.transform.localScale.z);
 			clawHead.transform.localScale = new Vector3(clawHead.transform.localScale.x, baseHeadScale.y / claw.transform.localScale.y, clawHead.transform.localScale.z);
 			yield return null;
@@ -141,7 +189,7 @@ public class PlayerController : MonoBehaviour
 		clawScaleY = claw.transform.localScale.y;
 		while (clawScaleY > baseClawScale.y)
 		{
-			clawScaleY -= Time.deltaTime * Constants.Claw.ClawSpeed;
+			clawScaleY -= Time.deltaTime * clawSpeed;
 			claw.transform.localScale = new Vector3(claw.transform.localScale.x, clawScaleY, claw.transform.localScale.z);
 			clawHead.transform.localScale = new Vector3(clawHead.transform.localScale.x, baseHeadScale.y / claw.transform.localScale.y, clawHead.transform.localScale.z);
 			yield return null;
@@ -161,7 +209,7 @@ public class PlayerController : MonoBehaviour
 		while (clawScaleY > baseClawScale.y)
 		{
 			// Scale claw
-			clawScaleY -= Time.deltaTime * Constants.Claw.ClawSpeed;
+			clawScaleY -= Time.deltaTime * clawSpeed;
 			claw.transform.localScale = new Vector3(claw.transform.localScale.x, clawScaleY, claw.transform.localScale.z);
 			clawHead.transform.localScale = new Vector3(clawHead.transform.localScale.x, baseHeadScale.y / claw.transform.localScale.y, clawHead.transform.localScale.z);
 
@@ -175,12 +223,15 @@ public class PlayerController : MonoBehaviour
 
 		isGrabbing = false;
 
-		// Add creature to passenger
+		// Check what type of creature
+		Constants.Enemy.EnemyType enemyType = grabbedObj.GetComponent<GenericEnemy>().enemyType;
+
+		// Check if open passenger spot
 		int passengerIndex = GetNextOpenPassengerSpot();
 		if (passengerIndex != -1)
 		{
-			// Check what type of creature
-			switch (grabbedObj.GetComponent<GenericEnemy>().enemyType)
+			// Add to passengers
+			switch (enemyType)
 			{
 				case Constants.Enemy.EnemyType.Bunny:
 					passengerSpots[passengerIndex].sprite = bunnySprite;
@@ -224,6 +275,90 @@ public class PlayerController : MonoBehaviour
 					numSquid += 1;
 					break;
 			}
+
+			passengers[passengerIndex] = enemyType;
+
+			// Get indexes of animal type
+			List<int> indexes = new List<int>();
+			for (int i = 0; i < passengers.Count; i++)
+			{
+				if (passengers[i] == enemyType)
+				{
+					indexes.Add(i);
+				}
+			}
+
+			// Check if enough to upgrade in passengers + current animal being grabbed
+			if (indexes.Count == Constants.Player.NumToUpgrade)
+			{
+				// Upgrade
+				Upgrade(enemyType);
+
+				// Remove passengers
+				foreach (int index in indexes)
+				{
+					passengers[index] = Constants.Enemy.EnemyType.None;
+					passengerSpots[index].sprite = null;
+				}
+			}
+		}
+		else
+		{
+			// No spots left in passengers
+			switch (enemyType)
+			{
+				case Constants.Enemy.EnemyType.Bunny:
+					numBunny += 1;
+					break;
+
+				case Constants.Enemy.EnemyType.Chicken:
+					numChicken += 1;
+					break;
+
+				case Constants.Enemy.EnemyType.Crab:
+					numCrab += 1;
+					break;
+
+				case Constants.Enemy.EnemyType.Frog:
+					numFrog += 1;
+					break;
+
+				case Constants.Enemy.EnemyType.Hippo:
+					numHippo += 1;
+					break;
+
+				case Constants.Enemy.EnemyType.Shark:
+					numShark += 1;
+					break;
+
+				case Constants.Enemy.EnemyType.Squid:
+					numSquid += 1;
+					break;
+			}
+
+			// Get indexes of animal type
+			List<int> indexes = new List<int>();
+			for (int i = 0; i < passengers.Count; i++)
+			{
+				if (passengers[i] == enemyType)
+				{
+					indexes.Add(i);
+				}
+			}
+
+			// Check if enough to upgrade in passengers + current animal being grabbed
+			if (indexes.Count + 1 == Constants.Player.NumToUpgrade)
+			{
+				// Upgrade
+				Upgrade(enemyType);
+
+				// Remove passengers
+				foreach (int index in indexes)
+				{
+					passengers[index] = Constants.Enemy.EnemyType.None;
+					passengerSpots[index].sprite = null;
+				}
+			}
 		}
 
 		// Destroy grabbed object
@@ -232,25 +367,35 @@ public class PlayerController : MonoBehaviour
 
 	private IEnumerator HitCoroutine()
 	{
-		isInvulnerable = true;
+		eventBroker.Publish(this, new PlayerEvents.UpdateInvulnerability(true));
 
 		float timer = 0f;
-		while (timer < Constants.Player.InvulnerableDuration)
+		while (timer < invulnerabilityDuration)
 		{
 			timer += Constants.Player.InvulnerableTick;
 
-			pixie.SetActive(!pixie.activeSelf);
+			pixieSR.color = new Color(pixieSR.color.r, pixieSR.color.g, pixieSR.color.b, pixieSR.color.a == 1f ? Constants.Player.InvulnerableAlpha : 1f);
+			for (int i = 0; i < passengerSpots.Count; i++)
+			{
+				passengerSpots[i].color = new Color(passengerSpots[i].color.r, passengerSpots[i].color.g, passengerSpots[i].color.b, passengerSpots[i].color.a == 1f ? Constants.Player.InvulnerableAlpha : 1f);
+			}
+
 			yield return new WaitForSeconds(Constants.Player.InvulnerableTick);
 		}
 
-		pixieSR.gameObject.SetActive(true);
-		isInvulnerable = false;
+		pixieSR.color = new Color(pixieSR.color.r, pixieSR.color.g, pixieSR.color.b, 1f);
+		for (int i = 0; i < passengerSpots.Count; i++)
+		{
+			passengerSpots[i].color = new Color(passengerSpots[i].color.r, passengerSpots[i].color.g, passengerSpots[i].color.b, 1f);
+		}
+
+		eventBroker.Publish(this, new PlayerEvents.UpdateInvulnerability(false));
 	}
 
 	private void OnMove(InputAction.CallbackContext context)
 	{
 		// Flip character sprite if moving left or right
-		if (context.ReadValue<Vector2>().x != 0 && !(isInvulnerable || isGrabbing))
+		if (context.ReadValue<Vector2>().x != 0 && !isGrabbing)
 		{
 			pixieSR.flipX = context.ReadValue<Vector2>().x < 0;
 		}
@@ -273,7 +418,6 @@ public class PlayerController : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("Hit");
 			StartCoroutine(HitCoroutine());
 		}
 	}
@@ -287,7 +431,6 @@ public class PlayerController : MonoBehaviour
 			{
 				StopCoroutine(grabCoroutine);
 				StartCoroutine(RetractCoroutine(inEvent.Payload.GrabbedObj.transform));
-				grabbedCreature = inEvent.Payload.GrabbedObj;
 			}
 		}
 	}
@@ -299,11 +442,17 @@ public class PlayerController : MonoBehaviour
 		{
 			passengerSpots[i].sprite = null;
 		}
+		passengers = new List<Constants.Enemy.EnemyType>() { Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None };
 
 		// Reset player
 		transform.position = Vector3.zero;
 		isGrabbing = false;
+
 		health = Constants.Player.BaseHealth;
+		moveSpeed = Constants.Player.BaseMoveSpeed;
+		clawSpeed = Constants.Claw.BaseClawSpeed;
+		clawDistance = Constants.Claw.BaseClawDistance;
+		invulnerabilityDuration = Constants.Player.BaseInvulnerabilityDuration;
 
 		numBunny = 0;
 		numChicken = 0;
@@ -338,14 +487,5 @@ public class PlayerController : MonoBehaviour
 		eventBroker.Unsubscribe<PlayerEvents.Damage>(HandlePlayerDamage);
 		eventBroker.Unsubscribe<PlayerEvents.UpdateClawState>(HandleUpdateClawState);
 		eventBroker.Unsubscribe<GameEvents.StartGame>(HandleStartGame);
-	}
-
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		// Test function for collisions
-		if (collision.tag == "Enemy" && !isInvulnerable && collision.gameObject != grabbedCreature)
-		{
-			eventBroker.Publish(this, new PlayerEvents.Damage(1));
-		}
 	}
 }
