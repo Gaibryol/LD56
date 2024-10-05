@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour
 	Vector3 baseHeadScale;
 	private Coroutine grabCoroutine;
 
+	private GameObject grabbedCreature;
+
 	private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
 
 	private void Awake()
@@ -285,6 +287,7 @@ public class PlayerController : MonoBehaviour
 			{
 				StopCoroutine(grabCoroutine);
 				StartCoroutine(RetractCoroutine(inEvent.Payload.GrabbedObj.transform));
+				grabbedCreature = inEvent.Payload.GrabbedObj;
 			}
 		}
 	}
@@ -340,7 +343,7 @@ public class PlayerController : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		// Test function for collisions
-		if (collision.tag == "Enemy" && !isInvulnerable)
+		if (collision.tag == "Enemy" && !isInvulnerable && collision.gameObject != grabbedCreature)
 		{
 			eventBroker.Publish(this, new PlayerEvents.Damage(1));
 		}
