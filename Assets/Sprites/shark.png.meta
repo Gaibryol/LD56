@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 629646734631f4349b72002b1a7cdace
+guid: f14d03f9d309c82439b4df4725b9c07b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1476454669654246979
-    second: testhook_0
+      213: 8861480726252175340
+    second: shark_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -49,8 +49,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 4
-  spritePivot: {x: 0, y: 0.5}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -152,22 +152,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: testhook_0
+      name: shark_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 40
-        height: 40
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: db9ba40fc44928be0800000000000000
-      internalID: -1476454669654246979
+      spriteID: cef3b3835cd4afa70800000000000000
+      internalID: 8861480726252175340
       vertices: []
       indices: 
       edges: []
@@ -175,15 +175,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c406e7e429a00a34e9b2672586886063
-    internalID: 206997792
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      testhook_0: -1476454669654246979
+      shark_0: 8861480726252175340
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
