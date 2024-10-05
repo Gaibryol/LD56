@@ -104,6 +104,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 2
+  difficultyRating: 2
+  gameTimesScale: 0
+  enemiesKilledScale: 0
+  enemiesOfSameTypeScale: 0
 --- !u!114 &7906827148919020310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,8 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  repetitions: 1
-  spiral: 1
+  repetitions: 5
+  spiral: 7
   size: 1
   startingAngle: 0
   randomDirection: 1

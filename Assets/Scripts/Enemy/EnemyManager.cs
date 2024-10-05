@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] private float maxNumberOfEnemies = 100;
+    [SerializeField] private float startingNumberOfEnemies = 10;
+    private float maxNumberOfEnemies = 10;
+    [SerializeField] private float enemiesKilledScaling = 1;
+    [SerializeField] private float timeScaling = 0.05f;
+
     [SerializeField] private List<EnemyAbstract> enemyTypesToSpawn;
 
 
     private float gameTime = 0;
     private int enemiesKilled = 0;
     private int enemiesSpawned = 0;
-    private int totalEnemiesSpawned;
+    private int currentDifficultyRating = 1;
 
     private Dictionary<EnemyAbstract, List<EnemyAbstract>> activeEnemies = new Dictionary<EnemyAbstract, List<EnemyAbstract>>();
 
@@ -26,8 +30,18 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gameTime += Time.deltaTime;
+        ScaleDifficulty();
         SpawnEnemies();
         CullOutOfBounds();
+    }
+
+    private void ScaleDifficulty()
+    {
+        // based on enemies killed, and game time
+        maxNumberOfEnemies = startingNumberOfEnemies + enemiesKilledScaling * enemiesKilled;
+        maxNumberOfEnemies += timeScaling * gameTime;
+        currentDifficultyRating = Mathf.RoundToInt(maxNumberOfEnemies / startingNumberOfEnemies);
     }
 
     private void CullOutOfBounds()
@@ -41,6 +55,7 @@ public class EnemyManager : MonoBehaviour
                 {
                     // Enemy has been destroyed by player.
                     keyValuePair.Value.RemoveAt(i);
+                    enemiesKilled++;
                     continue;
                 }
                 if (EnemyUtilities.OutOfBounds(enemy.transform.position, Constants.EnemyManager.maxValidDistanceAwayFromScreen))
@@ -59,12 +74,11 @@ public class EnemyManager : MonoBehaviour
         foreach (EnemyAbstract enemy in enemyTypesToSpawn)
         {
             float spawnChance = Random.value;
-            if (enemy.SpawnChance(gameTime, enemiesKilled, enemiesSpawned, activeEnemies[enemy].Count) >= spawnChance)
+            if (enemy.SpawnChance(gameTime, enemiesKilled, activeEnemies[enemy].Count, currentDifficultyRating) >= spawnChance)
             {
                 EnemyAbstract spawnedEnemy = Instantiate(enemy, DetermineSpawnLocation(), Quaternion.identity);
                 activeEnemies[enemy].Add(spawnedEnemy);
                 enemiesSpawned++;
-                totalEnemiesSpawned++;
             }
         }
     }

@@ -103,6 +103,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
+  difficultyRating: 2
+  gameTimesScale: 0
+  enemiesKilledScale: 0
+  enemiesOfSameTypeScale: 0
 --- !u!114 &8038213627856487545
 MonoBehaviour:
   m_ObjectHideFlags: 0

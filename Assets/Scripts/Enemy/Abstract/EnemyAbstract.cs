@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class EnemyAbstract : MonoBehaviour
 {
     public Constants.Enemy.EnemyType enemyType;
+    public int difficultyRating;
     protected EnemyMoveBehaviour moveBehaviour;
     protected EnemyAttackBehaviour attackBehaviour;
 
@@ -22,8 +23,8 @@ public abstract class EnemyAbstract : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        moveBehaviour.Move();
         attackBehaviour.Attack();
+        moveBehaviour.Move();
     }
 
     protected virtual void Captured()
@@ -31,7 +32,7 @@ public abstract class EnemyAbstract : MonoBehaviour
 
     }
 
-    public abstract float SpawnChance(float gameTime, int enemiesKilled, int enemiesRemaining, int sameEnemiesRemaining);
+    public abstract float SpawnChance(float gameTime, int enemiesKilled, int sameEnemiesRemaining, int difficultRating);
 }
 
 

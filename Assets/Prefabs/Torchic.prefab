@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7867587927180079772}
   - component: {fileID: 7284401985965002736}
   - component: {fileID: 1291527777645089176}
-  - component: {fileID: 1942330604621520965}
   - component: {fileID: -342906365832415651}
   - component: {fileID: 3448501806904791479}
+  - component: {fileID: 3467170986786781655}
   m_Layer: 0
   m_Name: Torchic
   m_TagString: Enemy
@@ -103,24 +103,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
---- !u!114 &1942330604621520965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8489498060365910747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d934df084e3fa74d8a94874c65a6501, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.1
-  repetitions: -0.7
-  spiral: 7
-  size: 3
-  startingAngle: 0
-  randomDirection: 1
+  difficultyRating: 1
+  gameTimesScale: 0
+  enemiesKilledScale: 0
+  enemiesOfSameTypeScale: 0
 --- !u!114 &-342906365832415651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +167,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.21, y: 0.23}
   m_EdgeRadius: 0
+--- !u!114 &3467170986786781655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8489498060365910747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7066ab73fa7b3459e40b6d98130507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.2
+  radius: 1

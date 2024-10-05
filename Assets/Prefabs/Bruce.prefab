@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 562507526833437429}
   - component: {fileID: -8562529041033831652}
   - component: {fileID: 223790731913446908}
-  - component: {fileID: -646708314898908191}
   - component: {fileID: 7500244063444422099}
+  - component: {fileID: 372651784827561934}
   m_Layer: 0
   m_Name: Bruce
   m_TagString: Enemy
@@ -103,6 +103,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 6
+  difficultyRating: 4
+  gameTimesScale: 0
+  enemiesKilledScale: 0
+  enemiesOfSameTypeScale: 0
 --- !u!114 &223790731913446908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,24 +125,6 @@ MonoBehaviour:
   angle: 90
   radius: 1
   delayBetweenProjectiles: 0.1
---- !u!114 &-646708314898908191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3656170740531303716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d934df084e3fa74d8a94874c65a6501, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.2
-  repetitions: 1
-  spiral: 1
-  size: 1
-  startingAngle: 0
-  randomDirection: 1
 --- !u!61 &7500244063444422099
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -185,3 +171,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.25, y: 0.26}
   m_EdgeRadius: 0
+--- !u!114 &372651784827561934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3656170740531303716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659a751900a65544fb48680d01e3ac6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.3
+  randomScale: 1
+  randomDirection: 1
+  scale: {x: 1, y: 1}
+  phase: 0
+  ratio: {x: 2, y: 3}
