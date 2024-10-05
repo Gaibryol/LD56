@@ -9,7 +9,7 @@ public class AO_SquidInk : AO_Persistent
     protected override void Start()
     {
         base.Start();
-        _renderer = GetComponent<SpriteRenderer>();
+        _renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
