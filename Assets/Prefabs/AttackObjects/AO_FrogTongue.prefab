@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tongue: {fileID: 2723000080495637577}
-  maxScale: 1
+  maxScale: 10
   attackTime: 1
 --- !u!1 &1642140518852693089
 GameObject:
