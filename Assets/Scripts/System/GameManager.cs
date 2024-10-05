@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-	private int score;
+	private float score;
+	private float scoreMultiplier;
 
 	private bool isPlaying;
 
@@ -17,7 +18,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 		isPlaying = false;
-		score = 0;
+		score = 0f;
+		scoreMultiplier = 1f;
 
 		eventBroker.Publish(this, new GameEvents.StartGame());
     }
@@ -26,21 +28,27 @@ public class GameManager : MonoBehaviour
 	{
 		while (isPlaying)
 		{
-			score += 1;
+			score += 1f;
 			yield return new WaitForSeconds(1f);
 		}
 	}
 
 	private void HandleStartGame(BrokerEvent<GameEvents.StartGame> inEvent)
 	{
-		score = 0;
+		score = 0f;
+		scoreMultiplier = 1f;
 		isPlaying = true;
 		scoreCoroutine = StartCoroutine(IncrementScore());
 	}
 
 	private void HandleEarnScore(BrokerEvent<GameEvents.EarnScore> inEvent)
 	{
-		score += inEvent.Payload.Amount;
+		score += inEvent.Payload.Amount * scoreMultiplier;
+	}
+
+	private void HandleEarnScoreMultiplier(BrokerEvent<GameEvents.EarnScoreMultiplier> inEvent)
+	{
+		scoreMultiplier += inEvent.Payload.Amount;
 	}
 
 	private void HandlePlayerDie(BrokerEvent<PlayerEvents.Die> inEvent)
@@ -55,6 +63,7 @@ public class GameManager : MonoBehaviour
 	private void OnEnable()
 	{
 		eventBroker.Subscribe<GameEvents.EarnScore>(HandleEarnScore);
+		eventBroker.Subscribe<GameEvents.EarnScoreMultiplier>(HandleEarnScoreMultiplier);
 		eventBroker.Subscribe<GameEvents.StartGame>(HandleStartGame);
 		eventBroker.Subscribe<PlayerEvents.Die>(HandlePlayerDie);
 	}
@@ -62,6 +71,7 @@ public class GameManager : MonoBehaviour
 	private void OnDisable()
 	{
 		eventBroker.Unsubscribe<GameEvents.EarnScore>(HandleEarnScore);
+		eventBroker.Unsubscribe<GameEvents.EarnScoreMultiplier>(HandleEarnScoreMultiplier);
 		eventBroker.Unsubscribe<GameEvents.StartGame>(HandleStartGame);
 		eventBroker.Unsubscribe<PlayerEvents.Die>(HandlePlayerDie);
 	}

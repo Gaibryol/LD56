@@ -48,4 +48,24 @@ public class PlayerEvents
 		public readonly Constants.Claw.States ClawState;
 		public readonly GameObject GrabbedObj;
 	}
+
+	public class UpdateInvulnerability
+	{
+		public UpdateInvulnerability(bool newState)
+		{
+			NewState = newState;
+		}
+
+		public readonly bool NewState;
+	}
+
+	public class UpgradeBulletBlocks
+	{
+		public UpgradeBulletBlocks(int amount)
+		{
+			Amount = amount;
+		}
+
+		public readonly int Amount;
+	}
 }

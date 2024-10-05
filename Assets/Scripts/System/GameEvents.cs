@@ -12,21 +12,31 @@ public class GameEvents
 
 	public class EndGame
 	{
-		public EndGame(int finalScore) 
+		public EndGame(float finalScore) 
 		{
 			FinalScore = finalScore;
 		}
 
-		public readonly int FinalScore;
+		public readonly float FinalScore;
 	}
 
 	public class EarnScore
 	{
-		public EarnScore(int amount)
+		public EarnScore(float amount)
 		{
 			Amount = amount;
 		}
 
-		public readonly int Amount;
+		public readonly float Amount;
+	}
+
+	public class EarnScoreMultiplier
+	{
+		public EarnScoreMultiplier(float amount)
+		{
+			Amount = amount;
+		}
+
+		public readonly float Amount;
 	}
 }

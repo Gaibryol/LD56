@@ -13,12 +13,20 @@ public class ClawController : MonoBehaviour
 
 	private bool isGrabbing;
 
+	private int numBulletBlocks;
+	private int bulletBlocksLeft;
+
 	private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
 
 	private void Awake()
 	{
 		coll = GetComponent<CircleCollider2D>();
 		sr = GetComponent<SpriteRenderer>();
+	}
+
+	private void Start()
+	{
+		numBulletBlocks = Constants.Claw.BaseNumBulletBlocks;
 		isGrabbing = false;
 	}
 
@@ -28,6 +36,7 @@ public class ClawController : MonoBehaviour
 		{
 			isGrabbing = true;
 			sr.sprite = clawOpenSprite;
+			bulletBlocksLeft = numBulletBlocks;
 		}
 		else if (inEvent.Payload.ClawState == Constants.Claw.States.Retracting)
 		{
@@ -35,31 +44,66 @@ public class ClawController : MonoBehaviour
 		}
 	}
 
+	private void HandleStartGame(BrokerEvent<GameEvents.StartGame> inEvent)
+	{
+		numBulletBlocks = Constants.Claw.BaseNumBulletBlocks;
+		isGrabbing = false;
+	}
+
+	private void HandleUpgradeBulletBlocks(BrokerEvent<PlayerEvents.UpgradeBulletBlocks> inEvent)
+	{
+		numBulletBlocks += inEvent.Payload.Amount;
+	}
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.tag == "Enemy" && isGrabbing)
+		if (collision.GetComponent<EnemyAbstract>() != null && isGrabbing)
 		{
+			// Collided with enemy
 			eventBroker.Publish(this, new PlayerEvents.UpdateClawState(Constants.Claw.States.Grabbed, collision.gameObject));
 			sr.sprite = clawClosedSprite;
+		}
+		
+		if (collision.GetComponentInParent<AO_Projectile>() != null && bulletBlocksLeft > 0)
+		{
+			// Collided with basic enemy projectile
+			Destroy(collision.gameObject);
+			bulletBlocksLeft -= 1;
+
+			Debug.Log("destroyed projectile");
 		}
 	}
 
 	private void OnTriggerStay2D(Collider2D collision)
 	{
-		if (collision.tag == "Enemy" && isGrabbing)
+		if (collision.GetComponent<GenericEnemy>() != null && isGrabbing)
 		{
+			// Collided with enemy
 			eventBroker.Publish(this, new PlayerEvents.UpdateClawState(Constants.Claw.States.Grabbed, collision.gameObject));
 			sr.sprite = clawClosedSprite;
+		}
+		
+		if (collision.GetComponentInParent<AO_Projectile>() != null && bulletBlocksLeft > 0)
+		{
+			// Collided with basic enemy projectile
+			Destroy(collision.gameObject);
+			bulletBlocksLeft -= 1;
+
+			Debug.Log("destroyed projectile trigger stay");
 		}
 	}
 
 	private void OnEnable()
 	{
 		eventBroker.Subscribe<PlayerEvents.UpdateClawState>(HandleUpdateClawState);
+		eventBroker.Subscribe<PlayerEvents.UpgradeBulletBlocks>(HandleUpgradeBulletBlocks);
+		eventBroker.Subscribe<GameEvents.StartGame>(HandleStartGame);
 	}
 
 	private void OnDisable()
 	{
 		eventBroker.Unsubscribe<PlayerEvents.UpdateClawState>(HandleUpdateClawState);
+		eventBroker.Unsubscribe<PlayerEvents.UpgradeBulletBlocks>(HandleUpgradeBulletBlocks);
+		eventBroker.Unsubscribe<GameEvents.StartGame>(HandleStartGame);
 	}
 }
