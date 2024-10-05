@@ -6,10 +6,23 @@ public class AB_FrogTongue : EnemyAttackBehaviour
 {
     [SerializeField] private AO_FrogTongue frogTongue;
 
-    public override bool Attack()
+
+
+    public override IEnumerator Attack(TriggerAnimation triggerAnimation)
     {
-        if(!base.Attack()) return false;
+        yield return base.Attack(triggerAnimation);
         frogTongue.Begin();
-        return true;
+
+
+        yield return null;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (CurrentlyAttacking)
+        {
+            CurrentlyAttacking = frogTongue.started;
+        }
     }
 }

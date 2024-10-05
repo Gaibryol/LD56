@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7906827148919020310}
   - component: {fileID: -555449802161174966}
   - component: {fileID: 2069618882585026240}
+  - component: {fileID: 4365706551414062916}
   m_Layer: 0
   m_Name: Keroppi
   m_TagString: Enemy
@@ -100,14 +101,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4312530582564925051}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e52c84a6784cf44899e778eebf3aa6e, type: 3}
+  m_Script: {fileID: 11500000, guid: e19fe606d01e1884f9c8a356737296c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 2
   difficultyRating: 2
-  gameTimesScale: 0
-  enemiesKilledScale: 0
-  enemiesOfSameTypeScale: 0
+  canMoveWhileAttacking: 0
 --- !u!114 &7906827148919020310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 2
+  CurrentlyAttacking: 0
   frogTongue: {fileID: 5651910766542815127}
 --- !u!114 &-555449802161174966
 MonoBehaviour:
@@ -186,6 +186,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.2, y: 0.21}
   m_EdgeRadius: 0
+--- !u!95 &4365706551414062916
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4312530582564925051}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cfb3517f416cdb94ea8901db85b36b9a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &5716234493094395491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -198,21 +220,73 @@ PrefabInstance:
       propertyPath: m_Name
       value: AO_FrogTongue
       objectReference: {fileID: 0}
+    - target: {fileID: 2723000080495637577, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379163757175190255, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379163757175190255, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379163757175190255, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.165
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379163757175190255, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379163757175190255, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379163757175190255, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379163757175190255, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379163757175190255, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400505514662726332, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400505514662726332, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400505514662726332, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5633a9766b039e04eb6521b30d664aae, type: 3}
     - target: {fileID: 3400505514662726332, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3400505514662726332, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6639531289066012905, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6639531289066012905, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6639531289066012905, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6639531289066012905, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
       propertyPath: m_LocalPosition.x

@@ -6,12 +6,14 @@ public class AB_Persistent : EnemyAttackBehaviour
 {
     [SerializeField] private EnemyAttackObject attackObjectToSpawn;
 
-    public override bool Attack()
+    public override IEnumerator Attack(TriggerAnimation triggerAnimation)
     {
-        if(!base.Attack()) return false;
+        yield return base.Attack(triggerAnimation);
 
         Instantiate(attackObjectToSpawn, transform.position, Quaternion.identity);
 
-        return true;
+        CurrentlyAttacking = false;
+
+        yield return null;
     }
 }

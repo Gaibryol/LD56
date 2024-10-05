@@ -8,7 +8,7 @@ public class AO_FrogTongue : EnemyAttackObject
     [SerializeField] private float maxScale;
     [SerializeField] private float attackTime;
     private float t = 0;
-    private bool started = false;
+    public bool started = false;
 
     private void Update()
     {

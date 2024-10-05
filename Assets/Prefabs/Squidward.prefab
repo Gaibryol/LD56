@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8038213627856487545}
   - component: {fileID: 6043642600570859790}
   - component: {fileID: 7993365209211514563}
+  - component: {fileID: 4685295330626325919}
   m_Layer: 0
   m_Name: Squidward
   m_TagString: Enemy
@@ -104,9 +105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 1
   difficultyRating: 2
-  gameTimesScale: 0
-  enemiesKilledScale: 0
-  enemiesOfSameTypeScale: 0
+  canMoveWhileAttacking: 1
+  animationAttackDelay: 0
 --- !u!114 &8038213627856487545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 1
+  CurrentlyAttacking: 0
   attackObjectToSpawn: {fileID: 2177052841048933805, guid: 7a562b2e38bc2224bafd6cf6b0bc3531, type: 3}
 --- !u!61 &7993365209211514563
 BoxCollider2D:
@@ -183,3 +184,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.15, y: 0.34}
   m_EdgeRadius: 0
+--- !u!95 &4685295330626325919
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846422449867251340}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 88081b27b47da1d4ba223c0702197e75, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

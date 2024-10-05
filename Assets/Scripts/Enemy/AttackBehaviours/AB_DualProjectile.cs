@@ -7,15 +7,16 @@ public class AB_DualProjectile : EnemyAttackBehaviour
     [SerializeField] private Transform[] spawnLocations;
     [SerializeField] private EnemyAttackObject attackObjectToSpawn;
 
-    public override bool Attack()
+    public override IEnumerator Attack(TriggerAnimation triggerAnimation)
     {
-        if (!base.Attack()) return false;
+        yield return base.Attack(triggerAnimation);
 
         SpawnProjectileAtLocation(spawnLocations[0]);
         SpawnProjectileAtLocation(spawnLocations[1]);
 
+        CurrentlyAttacking = false;
 
-        return true;
+        yield return null;
     }
 
     private void SpawnProjectileAtLocation(Transform position)

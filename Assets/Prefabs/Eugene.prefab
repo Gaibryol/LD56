@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980315470848849871}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.64712155, w: 0.76238686}
-  m_LocalPosition: {x: 0.157, y: 0.064, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.40157783, w: 0.9158249}
+  m_LocalPosition: {x: 0.24, y: 0.214, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 136673538207856616}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 80.65}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 47.354}
 --- !u!1 &1182084362600915898
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1149143868442687485}
   - component: {fileID: 3599461029825502825}
   - component: {fileID: 7280968668737448363}
+  - component: {fileID: 4810024968447357915}
   m_Layer: 0
   m_Name: Eugene
   m_TagString: Enemy
@@ -112,7 +113,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 65f3a9c7730f8214a9413429eec0a692, type: 3}
+  m_Sprite: {fileID: 2304805636567101613, guid: c9891594b3785c9429b6bbcad281f10c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,9 +138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 3
   difficultyRating: 3
-  gameTimesScale: 0
-  enemiesKilledScale: 0
-  enemiesOfSameTypeScale: 0
+  canMoveWhileAttacking: 1
+  animationAttackDelay: 0.1
 --- !u!114 &1149143868442687485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.5
+  CurrentlyAttacking: 0
   spawnLocations:
   - {fileID: 3238143069799531630}
   - {fileID: 8126364286495017912}
@@ -209,8 +210,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.37, y: 0.2}
+    pivot: {x: 0.5, y: 0.29411766}
+    oldSize: {x: 0.51, y: 0.34}
     newSize: {x: 0.37, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -218,6 +219,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.37, y: 0.2}
   m_EdgeRadius: 0
+--- !u!95 &4810024968447357915
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182084362600915898}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0db11a4754562dc4fa6745a99224ea50, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6586967278422636985
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,10 +265,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6586967278422636985}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.7914345, w: 0.611254}
-  m_LocalPosition: {x: -0.16, y: 0.071, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.8499155, w: 0.526919}
+  m_LocalPosition: {x: -0.232, y: 0.226, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 136673538207856616}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 104.64}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 116.405}
