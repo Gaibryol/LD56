@@ -13,10 +13,6 @@ public class EnemyManager : MonoBehaviour
     private int enemiesSpawned = 0;
     private int totalEnemiesSpawned;
 
-    private Vector2 screenSpawnBuffer = new Vector2(5, 5);
-    private Vector2 maxSpawnDistanceFromBuffer = new Vector2(10, 10);
-    private Vector2 maxValidDistanceAwayFromScreen = new Vector2(15, 15);
-
     private Dictionary<EnemyAbstract, List<EnemyAbstract>> activeEnemies = new Dictionary<EnemyAbstract, List<EnemyAbstract>>();
 
     void Start()
@@ -47,7 +43,7 @@ public class EnemyManager : MonoBehaviour
                     keyValuePair.Value.RemoveAt(i);
                     continue;
                 }
-                if (EnemyOutOfBounds(enemy))
+                if (EnemyUtilities.OutOfBounds(enemy.transform.position, Constants.EnemyManager.maxValidDistanceAwayFromScreen))
                 {
                     Destroy(enemy.gameObject);
                     keyValuePair.Value.RemoveAt(i);
@@ -59,7 +55,7 @@ public class EnemyManager : MonoBehaviour
 
     private void SpawnEnemies()
     {
-        if (enemiesSpawned > maxNumberOfEnemies) return;
+        if (enemiesSpawned >= maxNumberOfEnemies) return;
         foreach (EnemyAbstract enemy in enemyTypesToSpawn)
         {
             float spawnChance = Random.value;
@@ -83,53 +79,42 @@ public class EnemyManager : MonoBehaviour
         Vector3 topRightBoundPosition = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.nearClipPlane));
         
         // Add an offset because we don't want to spawn on edge of the screen
-        bottomLeftBoundPosition -= (Vector3) screenSpawnBuffer;
-        topRightBoundPosition += (Vector3) screenSpawnBuffer;
+        bottomLeftBoundPosition -= (Vector3) Constants.EnemyManager.screenSpawnBuffer;
+        topRightBoundPosition += (Vector3) Constants.EnemyManager.screenSpawnBuffer;
 
-        // Pick a random spawn point
+        // Pick a random spawn edge
         float rand_edge = Random.value;
 
         Vector3 spawnPosition = new Vector3();
 
+        Vector2 maxSpawnDistanceFromBuffer = Constants.EnemyManager.maxSpawnDistanceFromBuffer;
         float x_spawnOffset = Random.Range(0, maxSpawnDistanceFromBuffer.x);
         float y_spawnOffset = Random.Range(0, maxSpawnDistanceFromBuffer.y);
+        float x_randSpawnValue = Random.Range(bottomLeftBoundPosition.x - maxSpawnDistanceFromBuffer.x, topRightBoundPosition.x + maxSpawnDistanceFromBuffer.x);
+        float y_randSpawnValue = Random.Range(bottomLeftBoundPosition.y - maxSpawnDistanceFromBuffer.y, topRightBoundPosition.y + maxSpawnDistanceFromBuffer.y);
 
         if (rand_edge < 0.25)
         {
             // pick to spawn left edge of screen
             spawnPosition.x = bottomLeftBoundPosition.x - x_spawnOffset;
-            spawnPosition.y = Random.Range(bottomLeftBoundPosition.y - maxSpawnDistanceFromBuffer.y, topRightBoundPosition.y + maxSpawnDistanceFromBuffer.y);
+            spawnPosition.y = y_randSpawnValue;
         } else if (rand_edge < 0.5)
         {
             // spawn on right edge of screen
             spawnPosition.x = topRightBoundPosition.x + x_spawnOffset;
-            spawnPosition.y = Random.Range(bottomLeftBoundPosition.y - maxSpawnDistanceFromBuffer.y, topRightBoundPosition.y + maxSpawnDistanceFromBuffer.y);
+            spawnPosition.y = y_randSpawnValue;
         }
         else if  (rand_edge < 0.75)
         {
             // spawn on top edge of screen
-            spawnPosition.x = Random.Range(bottomLeftBoundPosition.x - maxSpawnDistanceFromBuffer.x, topRightBoundPosition.x + maxSpawnDistanceFromBuffer.x);
+            spawnPosition.x = x_randSpawnValue;
             spawnPosition.y = topRightBoundPosition.y + y_spawnOffset;
         } else
         {
             // spawn bottom edge of screen
-            spawnPosition.x = Random.Range(bottomLeftBoundPosition.x - maxSpawnDistanceFromBuffer.x, topRightBoundPosition.x + maxSpawnDistanceFromBuffer.x);
+            spawnPosition.x = x_randSpawnValue;
             spawnPosition.y = bottomLeftBoundPosition.y - y_spawnOffset;
         }
         return spawnPosition;
-    }
-
-    private bool EnemyOutOfBounds(EnemyAbstract enemy)
-    {
-        // Determine what the player can see
-        Vector3 bottomLeftBoundPosition = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane));
-        Vector3 topRightBoundPosition = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.nearClipPlane));
-
-        bottomLeftBoundPosition -= (Vector3)maxValidDistanceAwayFromScreen;
-        topRightBoundPosition += (Vector3)maxValidDistanceAwayFromScreen;
-
-        float x = enemy.transform.position.x;
-        float y = enemy.transform.position.y;
-        return x < bottomLeftBoundPosition.x || x > topRightBoundPosition.x || y > topRightBoundPosition.y || y < bottomLeftBoundPosition.y;
     }
 }

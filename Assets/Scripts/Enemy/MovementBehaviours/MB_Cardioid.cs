@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class MB_Cardioid : EnemyMoveBehaviour
 {
-    [SerializeField] private Direction cardioidDirection;
     [SerializeField] private float repetitions = 1; // leaves
     [SerializeField] private float spiral = 1;
     [SerializeField] private float size = 1;
@@ -40,11 +39,5 @@ public class MB_Cardioid : EnemyMoveBehaviour
         float y = size * Mathf.Sin(angle * spiral) * (1 - Mathf.Cos(angle * repetitions)) * randomYDirection;
         
         transform.position = new Vector3(x + startingLocation.x, y + startingLocation.y, transform.position.z);
-    }
-
-    public enum Direction
-    {
-        Horizontal,
-        Vertical
     }
 }

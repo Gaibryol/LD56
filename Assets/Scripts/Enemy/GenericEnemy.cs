@@ -10,10 +10,6 @@ public class GenericEnemy : EnemyAbstract
         return 1f;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     
 

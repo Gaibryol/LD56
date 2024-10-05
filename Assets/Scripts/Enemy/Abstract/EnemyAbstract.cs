@@ -1,32 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.InputSystem.OnScreen.OnScreenStick;
 
 public abstract class EnemyAbstract : MonoBehaviour
 {
-    public EnemyType enemyType;
+    public Constants.Enemy.EnemyType enemyType;
     protected EnemyMoveBehaviour moveBehaviour;
+    protected EnemyAttackBehaviour attackBehaviour;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         moveBehaviour = GetComponent<EnemyMoveBehaviour>();
+        attackBehaviour = GetComponent<EnemyAttackBehaviour>();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
 
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         moveBehaviour.Move();
-    }
-
-    protected virtual void Attack()
-    {
-
+        attackBehaviour.Attack();
     }
 
     protected virtual void Captured()
@@ -37,8 +34,4 @@ public abstract class EnemyAbstract : MonoBehaviour
     public abstract float SpawnChance(float gameTime, int enemiesKilled, int enemiesRemaining, int sameEnemiesRemaining);
 }
 
-public enum EnemyType
-{
-    Chicken,
-    Octopus
-}
+
