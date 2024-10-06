@@ -248,6 +248,7 @@ public class PlayerController : MonoBehaviour
 	{
 		isGrabbing = true;
 		eventBroker.Publish(this, new PlayerEvents.UpdateClawState(Constants.Claw.States.Extending));
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ClawExtend));
 
 		float clawScaleY = baseClawScale.y;
 		while (clawScaleY < baseClawScale.y + clawDistance)
@@ -259,6 +260,7 @@ public class PlayerController : MonoBehaviour
 		}
 
 		eventBroker.Publish(this, new PlayerEvents.UpdateClawState(Constants.Claw.States.Retracting));
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ClawRetract));
 
 		clawScaleY = claw.transform.localScale.y;
 		while (clawScaleY > baseClawScale.y)
@@ -278,6 +280,7 @@ public class PlayerController : MonoBehaviour
 	private IEnumerator RetractCoroutine(Transform grabbedObj)
 	{
 		eventBroker.Publish(this, new PlayerEvents.UpdateClawState(Constants.Claw.States.Retracting));
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ClawGrab));
 
 		float clawScaleY = claw.transform.localScale.y;
 		while (clawScaleY > baseClawScale.y)
@@ -525,10 +528,12 @@ public class PlayerController : MonoBehaviour
 
 			isPlaying = false;
 			eventBroker.Publish(this, new PlayerEvents.Die(numBunny, numChicken, numCrab, numFrog, numShark, numSquid, numHippo));
+			eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.PlayerDie));
 		}
 		else
 		{
 			StartCoroutine(HitCoroutine());
+			eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.PlayerHit));
 		}
 	}
 

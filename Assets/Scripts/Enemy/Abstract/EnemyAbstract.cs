@@ -14,6 +14,8 @@ public abstract class EnemyAbstract : MonoBehaviour
     protected Animator animator;
     protected SpriteRenderer spriteRenderer;
 
+	private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
+
     protected virtual void Awake()
     {
         moveBehaviour = GetComponent<EnemyMoveBehaviour>();
@@ -56,6 +58,26 @@ public abstract class EnemyAbstract : MonoBehaviour
     public virtual float OnAttack()
     {
         spriteRenderer.flipX = transform.position.x < Camera.main.transform.position.x;
+
+		switch (enemyType)
+		{
+			case Constants.Enemy.EnemyType.Bunny:
+				eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.BunnyShoot));
+				break;
+
+			case Constants.Enemy.EnemyType.Frog:
+				eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.FrogTongue));
+				break;
+
+			case Constants.Enemy.EnemyType.Hippo:
+				eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.HippoBurst));
+				break;
+
+			case Constants.Enemy.EnemyType.Squid:
+				eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.SquidInk));
+				break;
+		}
+
         return 0;
     }
 }

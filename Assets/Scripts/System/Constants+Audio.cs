@@ -24,6 +24,19 @@ public partial class Constants
 		public class SFX
 		{
 			public const string ButtonPress = "ButtonPress";
+
+			// Enemy
+			public const string BunnyShoot = "BunnyShoot";
+			public const string FrogTongue = "FrogTongue";
+			public const string HippoBurst = "HippoBurst";
+			public const string SquidInk = "SquidInk";
+
+			// Player
+			public const string ClawExtend = "ClawExtend";
+			public const string ClawGrab = "ClawGrab";
+			public const string ClawRetract = "ClawRetract";
+			public const string PlayerDie = "PlayerDie";
+			public const string PlayerHit = "PlayerHit";
 		}
 	}
 }
