@@ -9,7 +9,8 @@ public class UIManager : MonoBehaviour
 {
 	[SerializeField, Header("Main Menu UI")] private GameObject mainMenuPanel;
 	[SerializeField] private Button mainMenuStartButton;
-	[SerializeField] private Button mainMenuCreditsButton;
+	[SerializeField] private Button mainMenuAchievementButton;
+    [SerializeField] private Button mainMenuCreditsButton;
 
 	[SerializeField, Header("Credits UI")] private GameObject creditsPanel;
 	[SerializeField] private Button creditsMainMenuButton;
@@ -56,6 +57,13 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private Sprite sharkSprite;
 	[SerializeField] private Sprite squidSprite;
 
+	[SerializeField, Header("Achievements")] private GameObject achievementPanel;
+	[SerializeField] private Button achievementCloseButton;
+	[SerializeField] private Button achievementHardButton;
+	[SerializeField] private Button achievementEasyButton;
+	[SerializeField] private GameObject achievementListContent;
+	[SerializeField] private GameObject achievementListItemPrefab;
+
 	private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
 
     // Start is called before the first frame update
@@ -68,6 +76,7 @@ public class UIManager : MonoBehaviour
 		creditsPanel.SetActive(false);
 		gameplayPanel.SetActive(false);
 		endPanel.SetActive(false);
+		achievementPanel.SetActive(false);
 	}
 
 	private void Update()
@@ -108,8 +117,9 @@ public class UIManager : MonoBehaviour
 		creditsPanel.SetActive(false);
 		gameplayPanel.SetActive(true);
 		endPanel.SetActive(false);
+        achievementPanel.SetActive(false);
 
-		eventBroker.Publish(this, new GameEvents.StartGame());
+        eventBroker.Publish(this, new GameEvents.StartGame());
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
 
@@ -119,6 +129,7 @@ public class UIManager : MonoBehaviour
 		creditsPanel.SetActive(false);
 		gameplayPanel.SetActive(false);
 		endPanel.SetActive(false);
+		achievementPanel.SetActive(false);
 
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
@@ -129,9 +140,21 @@ public class UIManager : MonoBehaviour
 		creditsPanel.SetActive(true);
 		gameplayPanel.SetActive(false);
 		endPanel.SetActive(false);
+		achievementPanel.SetActive(false);
 
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
+
+	private void OnAchievementsButton()
+	{
+        mainMenuPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+        gameplayPanel.SetActive(false);
+        endPanel.SetActive(false);
+        achievementPanel.SetActive(true);
+
+        eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
+    }
 
 	private void OnRestartButton()
 	{
@@ -139,8 +162,9 @@ public class UIManager : MonoBehaviour
 		creditsPanel.SetActive(false);
 		gameplayPanel.SetActive(true);
 		endPanel.SetActive(false);
+        achievementPanel.SetActive(false);
 
-		eventBroker.Publish(this, new GameEvents.StartGame());
+        eventBroker.Publish(this, new GameEvents.StartGame());
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
 
@@ -268,8 +292,10 @@ public class UIManager : MonoBehaviour
 		eventBroker.Subscribe<PlayerEvents.Upgrade>(HandlePlayerUpgrade);
 
 		mainMenuStartButton.onClick.AddListener(OnStartButton);
-		mainMenuCreditsButton.onClick.AddListener(OnCreditsButton);
+        mainMenuAchievementButton.onClick.AddListener(OnAchievementsButton);
+        mainMenuCreditsButton.onClick.AddListener(OnCreditsButton);
 		creditsMainMenuButton.onClick.AddListener(OnMainMenuButton);
+		achievementCloseButton.onClick.AddListener(OnMainMenuButton);
 		endMainMenuButton.onClick.AddListener(OnMainMenuButton);
 		endRestartButton.onClick.AddListener(OnRestartButton);
 
@@ -288,9 +314,11 @@ public class UIManager : MonoBehaviour
 		eventBroker.Unsubscribe<PlayerEvents.Upgrade>(HandlePlayerUpgrade);
 
 		mainMenuStartButton.onClick.RemoveListener(OnStartButton);
-		mainMenuCreditsButton.onClick.RemoveListener(OnCreditsButton);
+        mainMenuAchievementButton.onClick.RemoveListener(OnAchievementsButton);
+        mainMenuCreditsButton.onClick.RemoveListener(OnCreditsButton);
 		creditsMainMenuButton.onClick.RemoveListener(OnMainMenuButton);
-		endMainMenuButton.onClick.RemoveListener(OnMainMenuButton);
+        achievementCloseButton.onClick.RemoveListener(OnMainMenuButton);
+        endMainMenuButton.onClick.RemoveListener(OnMainMenuButton);
 		endRestartButton.onClick.RemoveListener(OnRestartButton);
 
 		gameplayPauseButton.onClick.RemoveListener(OnPauseButton);

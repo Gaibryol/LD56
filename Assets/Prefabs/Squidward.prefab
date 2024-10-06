@@ -164,13 +164,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8846422449867251340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e52c84a6784cf44899e778eebf3aa6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 301f8878f87ba3e4ca1a915ee8fd190d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
   difficultyRating: 2
   canMoveWhileAttacking: 1
   animationAttackDelay: 0
+  targetTransform: {fileID: 8434127491072830357}
 --- !u!114 &8038213627856487545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,9 +184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ab5e2ded51dd246b013c7634f38aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.2
-  circleRadius: 0.4
-  loops: 8
+  speed: 0.06
+  circleRadius: 3.1
+  loops: -1.4
   xDirection: 1
   yDirection: 0
 --- !u!61 &7993365209211514563
@@ -268,12 +269,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c19cb3a19b46044a27703796c1530b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 0.1
   CurrentlyAttacking: 0
   attackObjectToSpawn: {fileID: 2177052841048933805, guid: 7a562b2e38bc2224bafd6cf6b0bc3531, type: 3}
   numberOfProjectiles: 4
   angle: 30
-  radius: 0.1
+  radius: -0.3
   delayBetweenProjectiles: 0
   originTransform: {fileID: 4443497879249171092}
   targetTransform: {fileID: 8434127491072830357}

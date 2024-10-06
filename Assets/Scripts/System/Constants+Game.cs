@@ -22,4 +22,13 @@ public partial class Constants
 			public const string LevelUp = "LevelUp";
 		}
 	}
+
+	public static class Achievements
+	{
+		public enum Difficulty
+		{
+			Easy,
+			Hard
+		}
+	}
 }
