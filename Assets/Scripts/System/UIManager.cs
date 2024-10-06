@@ -188,7 +188,7 @@ public class UIManager : MonoBehaviour
 		List<int> indexes = inEvent.Payload.Indexes;
 		for (int i = 0; i < indexes.Count; i++)
 		{
-			gameplayAnims[i].SetTrigger(Constants.Game.UpgradeAnimTrigger);
+			gameplayAnims[indexes[i]].SetTrigger(Constants.Game.UpgradeAnimTrigger);
 		}
 
 		StartCoroutine(UpgradePopup(inEvent.Payload.Type));

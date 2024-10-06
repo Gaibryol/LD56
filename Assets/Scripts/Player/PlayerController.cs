@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,11 +34,14 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private List<Vector2> squidPositions;
 	[SerializeField] private List<Vector2> hippoPositions;
 
+	[SerializeField, Header("Rainbow Attack")] private GameObject rainbowAttackPrefab;
+
 	[SerializeField, Header("Inputs")] private InputAction move;
 	[SerializeField] private InputAction grab;
 
 	private bool isPlaying;
 	private bool isGrabbing;
+	private bool isRainbowAttacking;
 
 	private Rigidbody2D rbody;
 
@@ -75,6 +79,7 @@ public class PlayerController : MonoBehaviour
     {
 		isPlaying = false;
 		isGrabbing = false;
+		isRainbowAttacking = false;
 
 		health = Constants.Player.BaseHealth;
 		moveSpeed = Constants.Player.BaseMoveSpeed;
@@ -101,7 +106,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (isGrabbing || health <= 0 || !isPlaying) return;
+		if (isGrabbing || isRainbowAttacking || health <= 0 || !isPlaying) return;
 
 		// Claw Rotation
 		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -112,12 +117,18 @@ public class PlayerController : MonoBehaviour
 
 		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 		claw.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90f));
+
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			// Rainbow attack
+			StartCoroutine(RainbowAttack());
+		}
     }
 
 	private void FixedUpdate()
 	{
 		// Stop movement if shooting
-		if (isGrabbing || health <= 0 || !isPlaying)
+		if (isGrabbing || isRainbowAttacking || health <= 0 || !isPlaying)
 		{
 			rbody.velocity = Vector2.zero;
 			return;
@@ -125,6 +136,60 @@ public class PlayerController : MonoBehaviour
 
 		// Player Movement
 		rbody.velocity = move.ReadValue<Vector2>() * moveSpeed;
+	}
+
+	private IEnumerator RainbowAttack()
+	{
+		StartCoroutine(RainbowMoveLockout());
+		eventBroker.Publish(this, new GameEvents.EarnScore(Constants.RainbowAttack.ScoreEarnedOnAttack));
+
+		// Rainbow attack
+		for (int i = 0; i < Constants.RainbowAttack.NumWaves; i++)
+		{
+			float step = 360f / Constants.RainbowAttack.NumProjectiles;
+			float rainbowAngle = 0f;
+
+			int colorIndex = 0;
+			for (int j = 0; j < Constants.RainbowAttack.NumProjectiles; j++)
+			{
+				float rainbowDirX = Mathf.Cos(rainbowAngle * Mathf.Deg2Rad);
+				float rainbowDirY = Mathf.Sin(rainbowAngle * Mathf.Deg2Rad);
+
+				Vector2 rainbowDirection = new Vector2(rainbowDirX, rainbowDirY).normalized;
+
+				Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 90) * rainbowDirection;
+				Quaternion targetRotation = Quaternion.LookRotation(forward: Vector3.forward, upwards: rotatedVectorToTarget);
+
+				GameObject rainbowProjectile = Instantiate(rainbowAttackPrefab, transform.position, targetRotation);
+				rainbowProjectile.GetComponent<Rigidbody2D>().velocity = rainbowDirection * Constants.RainbowAttack.MoveSpeed;
+				rainbowProjectile.GetComponent<SpriteRenderer>().color = Constants.RainbowAttack.Colors[colorIndex];
+				rainbowProjectile.GetComponent<Light2D>().color = Constants.RainbowAttack.Colors[colorIndex];
+
+				colorIndex += 1;
+				if (colorIndex >= Constants.RainbowAttack.Colors.Count)
+				{
+					colorIndex = 0;
+				}
+
+				rainbowAngle += step;
+			}
+
+			yield return new WaitForSeconds(Constants.RainbowAttack.WaveDelayTime);
+		}
+
+		// Clear passengers
+		for (int i = 0; i < passengerSpots.Count; i++)
+		{
+			passengerSpots[i].sprite = null;
+		}
+		passengers = new List<Constants.Enemy.EnemyType>() { Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None };
+	}
+
+	private IEnumerator RainbowMoveLockout()
+	{
+		isRainbowAttacking = true;
+		yield return new WaitForSeconds(Constants.RainbowAttack.ProjectileLifespan);
+		isRainbowAttacking = false;
 	}
 
 	private int GetNextOpenPassengerSpot()
@@ -332,7 +397,7 @@ public class PlayerController : MonoBehaviour
 			if (hasBunny && hasChicken && hasCrab && hasFrog && hasHippo && hasShark && hasSquid)
 			{
 				// Rainbow attack
-				Debug.Log("rainbow attack");
+				StartCoroutine(RainbowAttack());
 			}
 		}
 		else
@@ -441,7 +506,7 @@ public class PlayerController : MonoBehaviour
 
 	private void OnGrab(InputAction.CallbackContext context)
 	{
-		if (isGrabbing || health <= 0 || !isPlaying || IsPointerOverUIElement()) return;
+		if (isGrabbing || isRainbowAttacking || health <= 0 || !isPlaying || IsPointerOverUIElement()) return;
 
 		grabCoroutine = StartCoroutine(ExtendCoroutine());
 	}
@@ -491,6 +556,7 @@ public class PlayerController : MonoBehaviour
 		// Reset player
 		transform.position = Vector3.zero;
 		isGrabbing = false;
+		isRainbowAttacking = false;
 
 		health = Constants.Player.BaseHealth;
 		moveSpeed = Constants.Player.BaseMoveSpeed;

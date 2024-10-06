@@ -68,7 +68,7 @@ public class ClawController : MonoBehaviour
 		if (collision.GetComponentInParent<AO_Projectile>() != null && bulletBlocksLeft > 0)
 		{
 			// Collided with basic enemy projectile
-			Destroy(collision.gameObject);
+			Destroy(collision.transform.parent.gameObject);
 			bulletBlocksLeft -= 1;
 		}
 	}
@@ -86,7 +86,7 @@ public class ClawController : MonoBehaviour
 		if (collision.GetComponentInParent<AO_Projectile>() != null && bulletBlocksLeft > 0)
 		{
 			// Collided with basic enemy projectile
-			Destroy(collision.gameObject);
+			Destroy(collision.transform.parent.gameObject);
 			bulletBlocksLeft -= 1;
 		}
 	}
