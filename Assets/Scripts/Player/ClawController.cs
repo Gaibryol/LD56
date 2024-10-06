@@ -69,8 +69,6 @@ public class ClawController : MonoBehaviour
 			// Collided with basic enemy projectile
 			Destroy(collision.gameObject);
 			bulletBlocksLeft -= 1;
-
-			Debug.Log("destroyed projectile");
 		}
 	}
 

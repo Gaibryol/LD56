@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
 	private Rigidbody2D rbody;
 
-	private int health;
+	public int health;
 	private float moveSpeed;
 	private float clawSpeed;
 	private float clawDistance;
@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (isGrabbing) return;
+		if (isGrabbing || health <= 0) return;
 
 		// Claw Rotation
 		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
 	private void FixedUpdate()
 	{
 		// Stop movement if shooting
-		if (isGrabbing)
+		if (isGrabbing || health <= 0)
 		{
 			rbody.velocity = Vector2.zero;
 			return;
@@ -157,7 +157,11 @@ public class PlayerController : MonoBehaviour
 				break;
 
 			case Constants.Enemy.EnemyType.Hippo:
-				health = Mathf.Min(health + Constants.Player.HealthIncrement, Constants.Player.BaseHealth);
+				if (health < Constants.Player.BaseHealth)
+				{
+					health += Constants.Player.HealthIncrement;
+					eventBroker.Publish(this, new PlayerEvents.Heal(Constants.Player.HealthIncrement));
+				}
 				break;
 
 			case Constants.Enemy.EnemyType.Shark:
@@ -363,6 +367,9 @@ public class PlayerController : MonoBehaviour
 
 		// Destroy grabbed object
 		Destroy(grabbedObj.gameObject);
+
+		// Get score
+		eventBroker.Publish(this, new GameEvents.EarnScore(Constants.Player.ScoreEarnedOnGrab));
 	}
 
 	private IEnumerator HitCoroutine()
@@ -403,7 +410,7 @@ public class PlayerController : MonoBehaviour
 
 	private void OnGrab(InputAction.CallbackContext context)
 	{
-		if (isGrabbing) return;
+		if (isGrabbing || health <= 0) return;
 
 		grabCoroutine = StartCoroutine(ExtendCoroutine());
 	}

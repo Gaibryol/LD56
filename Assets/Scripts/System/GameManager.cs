@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-	private float score;
-	private float scoreMultiplier;
+	public float score;
+	public float scoreMultiplier;
 
 	private bool isPlaying;
 
@@ -19,8 +19,12 @@ public class GameManager : MonoBehaviour
     {
 		isPlaying = false;
 		score = 0f;
-		scoreMultiplier = 1f;
+		scoreMultiplier = Constants.Player.BaseScoreMultiplier;
 
+		// TEMPORARY - UNCOMMENT ONCE MAIN MENU MUSIC IS PUT IN
+		// eventBroker.Publish(this, new AudioEvents.PlayMusic(Constants.Audio.Music.MainMenuTheme));
+
+		// TEMPORARY - REMOVE LATER ONCE MAIN MENU IS PUT IN
 		eventBroker.Publish(this, new GameEvents.StartGame());
     }
 
@@ -28,7 +32,7 @@ public class GameManager : MonoBehaviour
 	{
 		while (isPlaying)
 		{
-			score += 1f;
+			score += 1f * scoreMultiplier;
 			yield return new WaitForSeconds(1f);
 		}
 	}
@@ -36,7 +40,7 @@ public class GameManager : MonoBehaviour
 	private void HandleStartGame(BrokerEvent<GameEvents.StartGame> inEvent)
 	{
 		score = 0f;
-		scoreMultiplier = 1f;
+		scoreMultiplier = Constants.Player.BaseScoreMultiplier;
 		isPlaying = true;
 		scoreCoroutine = StartCoroutine(IncrementScore());
 	}
@@ -53,11 +57,23 @@ public class GameManager : MonoBehaviour
 
 	private void HandlePlayerDie(BrokerEvent<PlayerEvents.Die> inEvent)
 	{
+		// End game
 		StopCoroutine(scoreCoroutine);
 		isPlaying = false;
 
-		eventBroker.Publish(this, new GameEvents.EndGame(score));
-		Debug.Log("Final Score: " + score);
+		// Check for highscore
+		if (PlayerPrefs.GetFloat(Constants.Game.HighscorePP, 0f) > score)
+		{
+			// New highscore
+			PlayerPrefs.SetFloat(Constants.Game.HighscorePP, score);
+			PlayerPrefs.Save();
+
+			eventBroker.Publish(this, new GameEvents.EndGame(score, true));
+		}
+		else
+		{
+			eventBroker.Publish(this, new GameEvents.EndGame(score, false));
+		}
 	}
 
 	private void OnEnable()
