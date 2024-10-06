@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 	{
 		while (isPlaying)
 		{
-			score += 10f * scoreMultiplier;
+			score += Constants.Player.ScoreEarnedPerSecond * scoreMultiplier;
 			yield return new WaitForSeconds(1f);
 		}
 	}

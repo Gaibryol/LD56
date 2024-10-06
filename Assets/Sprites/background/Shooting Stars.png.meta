@@ -1,0 +1,3341 @@
+fileFormatVersion: 2
+guid: c70fe00b3ae8fe848b13a4503aa40bc6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8077509826026335524
+    second: Shooting Stars_0
+  - first:
+      213: 8333700575026245909
+    second: Shooting Stars_1
+  - first:
+      213: 50612685550263571
+    second: Shooting Stars_2
+  - first:
+      213: -2967627938666501212
+    second: Shooting Stars_3
+  - first:
+      213: 8995227871649045381
+    second: Shooting Stars_4
+  - first:
+      213: 6399969667210897818
+    second: Shooting Stars_5
+  - first:
+      213: -27822910025461419
+    second: Shooting Stars_6
+  - first:
+      213: -9064001709725291371
+    second: Shooting Stars_7
+  - first:
+      213: 9031973903304199512
+    second: Shooting Stars_8
+  - first:
+      213: 5441590951086271581
+    second: Shooting Stars_9
+  - first:
+      213: -7834823070719806755
+    second: Shooting Stars_10
+  - first:
+      213: -7159249326963044086
+    second: Shooting Stars_11
+  - first:
+      213: -6319665628010989963
+    second: Shooting Stars_12
+  - first:
+      213: 4074971477868526375
+    second: Shooting Stars_13
+  - first:
+      213: 1822896294787073688
+    second: Shooting Stars_14
+  - first:
+      213: -7074425118313604260
+    second: Shooting Stars_15
+  - first:
+      213: 6364536432566812328
+    second: Shooting Stars_16
+  - first:
+      213: -8008872097648311050
+    second: Shooting Stars_17
+  - first:
+      213: -3433462097649552303
+    second: Shooting Stars_18
+  - first:
+      213: -4392722971464869973
+    second: Shooting Stars_19
+  - first:
+      213: 6882442637603032238
+    second: Shooting Stars_20
+  - first:
+      213: -5611446130706279572
+    second: Shooting Stars_21
+  - first:
+      213: -4415615938432477157
+    second: Shooting Stars_22
+  - first:
+      213: 9209504062320145677
+    second: Shooting Stars_23
+  - first:
+      213: -4050584909538990427
+    second: Shooting Stars_24
+  - first:
+      213: 3930333684401928995
+    second: Shooting Stars_25
+  - first:
+      213: 11386344767504398
+    second: Shooting Stars_26
+  - first:
+      213: -846846930470566968
+    second: Shooting Stars_27
+  - first:
+      213: 610866770884904777
+    second: Shooting Stars_28
+  - first:
+      213: 540213453805336595
+    second: Shooting Stars_29
+  - first:
+      213: -6064415222224887766
+    second: Shooting Stars_30
+  - first:
+      213: -1678062363452885426
+    second: Shooting Stars_31
+  - first:
+      213: 4675271640072214580
+    second: Shooting Stars_32
+  - first:
+      213: 4088594764695094827
+    second: Shooting Stars_33
+  - first:
+      213: 1071016463314261114
+    second: Shooting Stars_34
+  - first:
+      213: 666513800544991771
+    second: Shooting Stars_35
+  - first:
+      213: -6765065147160392285
+    second: Shooting Stars_36
+  - first:
+      213: -1829065791702422874
+    second: Shooting Stars_37
+  - first:
+      213: 1857614061277690066
+    second: Shooting Stars_38
+  - first:
+      213: -2470512428440502995
+    second: Shooting Stars_39
+  - first:
+      213: 7849819220142508654
+    second: Shooting Stars_40
+  - first:
+      213: 7971722454903925274
+    second: Shooting Stars_41
+  - first:
+      213: 8301600959350070913
+    second: Shooting Stars_42
+  - first:
+      213: -4121637218576056193
+    second: Shooting Stars_43
+  - first:
+      213: -4388479970170571894
+    second: Shooting Stars_44
+  - first:
+      213: 1093266065295302474
+    second: Shooting Stars_45
+  - first:
+      213: -7530536419245555722
+    second: Shooting Stars_46
+  - first:
+      213: -9061063864740906291
+    second: Shooting Stars_47
+  - first:
+      213: -1380297254499835447
+    second: Shooting Stars_48
+  - first:
+      213: 5293656438711157917
+    second: Shooting Stars_49
+  - first:
+      213: -5831160315716420838
+    second: Shooting Stars_50
+  - first:
+      213: -8376186514981245943
+    second: Shooting Stars_51
+  - first:
+      213: 116497054698966837
+    second: Shooting Stars_52
+  - first:
+      213: -8872986642464293117
+    second: Shooting Stars_53
+  - first:
+      213: 7548372919007922454
+    second: Shooting Stars_54
+  - first:
+      213: -1042448210375496917
+    second: Shooting Stars_55
+  - first:
+      213: -537738919839124029
+    second: Shooting Stars_56
+  - first:
+      213: -3954048759450491514
+    second: Shooting Stars_57
+  - first:
+      213: -8132521622750545450
+    second: Shooting Stars_58
+  - first:
+      213: -4407220371134582060
+    second: Shooting Stars_59
+  - first:
+      213: -8226071730649602867
+    second: Shooting Stars_60
+  - first:
+      213: -1592479449896717061
+    second: Shooting Stars_61
+  - first:
+      213: 157590136087453366
+    second: Shooting Stars_62
+  - first:
+      213: -3921116395396816769
+    second: Shooting Stars_63
+  - first:
+      213: -7759504083489240174
+    second: Shooting Stars_64
+  - first:
+      213: -3899678658495284506
+    second: Shooting Stars_65
+  - first:
+      213: 6226845651535123089
+    second: Shooting Stars_66
+  - first:
+      213: 6123266744873530975
+    second: Shooting Stars_67
+  - first:
+      213: 4607286989421969820
+    second: Shooting Stars_68
+  - first:
+      213: -6586332700467627736
+    second: Shooting Stars_69
+  - first:
+      213: -7169210085105540280
+    second: Shooting Stars_70
+  - first:
+      213: -2469622926175836250
+    second: Shooting Stars_71
+  - first:
+      213: 472997883325819702
+    second: Shooting Stars_72
+  - first:
+      213: -5436046897303979653
+    second: Shooting Stars_73
+  - first:
+      213: 6654717913809300083
+    second: Shooting Stars_74
+  - first:
+      213: -7196188548482035068
+    second: Shooting Stars_75
+  - first:
+      213: -2214941555352450633
+    second: Shooting Stars_76
+  - first:
+      213: -5227498755481839485
+    second: Shooting Stars_77
+  - first:
+      213: 3416810075481826656
+    second: Shooting Stars_78
+  - first:
+      213: 3343907760208978033
+    second: Shooting Stars_79
+  - first:
+      213: 5960131078803397498
+    second: Shooting Stars_80
+  - first:
+      213: -3883638485029264586
+    second: Shooting Stars_81
+  - first:
+      213: 6733916006884684307
+    second: Shooting Stars_82
+  - first:
+      213: 4073181462561501523
+    second: Shooting Stars_83
+  - first:
+      213: -8992108553542640531
+    second: Shooting Stars_84
+  - first:
+      213: -2271067687340047472
+    second: Shooting Stars_85
+  - first:
+      213: -4136293799938164610
+    second: Shooting Stars_86
+  - first:
+      213: 3010524380896389351
+    second: Shooting Stars_87
+  - first:
+      213: -2736245265225961212
+    second: Shooting Stars_88
+  - first:
+      213: 6725273054356837662
+    second: Shooting Stars_89
+  - first:
+      213: -2625085786851728668
+    second: Shooting Stars_90
+  - first:
+      213: -1973535183463378400
+    second: Shooting Stars_91
+  - first:
+      213: 5626185494180469684
+    second: Shooting Stars_92
+  - first:
+      213: 8216050624298465772
+    second: Shooting Stars_93
+  - first:
+      213: 8732962280404494233
+    second: Shooting Stars_94
+  - first:
+      213: -201494353700414125
+    second: Shooting Stars_95
+  - first:
+      213: 8887373125365809690
+    second: Shooting Stars_96
+  - first:
+      213: -6366912945608223548
+    second: Shooting Stars_97
+  - first:
+      213: 5064935374737182793
+    second: Shooting Stars_98
+  - first:
+      213: 6476400879331341767
+    second: Shooting Stars_99
+  - first:
+      213: -6790905692568061186
+    second: Shooting Stars_100
+  - first:
+      213: 3726969243934752370
+    second: Shooting Stars_101
+  - first:
+      213: 2457057026213348232
+    second: Shooting Stars_102
+  - first:
+      213: 8862865361521192019
+    second: Shooting Stars_103
+  - first:
+      213: -8795063811971497097
+    second: Shooting Stars_104
+  - first:
+      213: -6764531899709583496
+    second: Shooting Stars_105
+  - first:
+      213: 7383337523128850276
+    second: Shooting Stars_106
+  - first:
+      213: -2105444836499347809
+    second: Shooting Stars_107
+  - first:
+      213: -4031928924755686399
+    second: Shooting Stars_108
+  - first:
+      213: 4273768073572774310
+    second: Shooting Stars_109
+  - first:
+      213: 3029010258713723584
+    second: Shooting Stars_110
+  - first:
+      213: 3469449935759634573
+    second: Shooting Stars_111
+  - first:
+      213: -6675426041807954002
+    second: Shooting Stars_112
+  - first:
+      213: -3318852630732411628
+    second: Shooting Stars_113
+  - first:
+      213: 6178241452392486694
+    second: Shooting Stars_114
+  - first:
+      213: -5062448390080511970
+    second: Shooting Stars_115
+  - first:
+      213: -1720579865462066795
+    second: Shooting Stars_116
+  - first:
+      213: -8684248229367907190
+    second: Shooting Stars_117
+  - first:
+      213: -6031040860748041235
+    second: Shooting Stars_118
+  - first:
+      213: 7067043537163490165
+    second: Shooting Stars_119
+  - first:
+      213: -8109331444225364466
+    second: Shooting Stars_120
+  - first:
+      213: -6519630994668282779
+    second: Shooting Stars_121
+  - first:
+      213: -5497973878416223360
+    second: Shooting Stars_122
+  - first:
+      213: 1686355715570698260
+    second: Shooting Stars_123
+  - first:
+      213: 4732235772223072989
+    second: Shooting Stars_124
+  - first:
+      213: -8362652283704780371
+    second: Shooting Stars_125
+  - first:
+      213: -3189125552009546968
+    second: Shooting Stars_126
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Shooting Stars_0
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 988
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd219f51c9be6ef80800000000000000
+      internalID: -8077509826026335524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_1
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 995
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51178e6e48047a370800000000000000
+      internalID: 8333700575026245909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_2
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 975
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31d1a5728ffc3b000800000000000000
+      internalID: 50612685550263571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_3
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 982
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ab224aec1ed0d6d0800000000000000
+      internalID: -2967627938666501212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_4
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 962
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58b955b271875dc70800000000000000
+      internalID: 8995227871649045381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_5
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 969
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a99616bf08241d850800000000000000
+      internalID: 6399969667210897818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_6
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 948
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5519053f5372d9ff0800000000000000
+      internalID: -27822910025461419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_7
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 955
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59c6a48d772363280800000000000000
+      internalID: -9064001709725291371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_8
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 935
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85d8b0f5964085d70800000000000000
+      internalID: 9031973903304199512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_9
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 942
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5c2a74a32a648b40800000000000000
+      internalID: 5441590951086271581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_10
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 910
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd2f5b78ded154390800000000000000
+      internalID: -7834823070719806755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_11
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 923
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a01d9ef1bac35ac90800000000000000
+      internalID: -7159249326963044086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_12
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 929
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 576b82728990c48a0800000000000000
+      internalID: -6319665628010989963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_13
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 918
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72bb33018f43d8830800000000000000
+      internalID: 4074971477868526375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_14
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 914
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 896c821a58a3c4910800000000000000
+      internalID: 1822896294787073688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_15
+      rect:
+        serializedVersion: 2
+        x: 1106
+        y: 921
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5b11d836d792dd90800000000000000
+      internalID: -7074425118313604260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_16
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 906
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ae3d272a20635850800000000000000
+      internalID: 6364536432566812328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_17
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 912
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f482209245cad090800000000000000
+      internalID: -8008872097648311050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_18
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 908
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 154b4d7d964e950d0800000000000000
+      internalID: -3433462097649552303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_19
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 877
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba753292bb9e903c0800000000000000
+      internalID: -4392722971464869973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_20
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 900
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eacc4593d19538f50800000000000000
+      internalID: 6882442637603032238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_21
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 894
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c63130f89732022b0800000000000000
+      internalID: -5611446130706279572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_22
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 900
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b18dd2de2b498b2c0800000000000000
+      internalID: -4415615938432477157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_23
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 895
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d05fb10962bbecf70800000000000000
+      internalID: 9209504062320145677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_24
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 901
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a6ee565c7e69c7c0800000000000000
+      internalID: -4050584909538990427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_25
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 882
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32b778389a95b8630800000000000000
+      internalID: 3930333684401928995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_26
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 888
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e00482bf1d3782000800000000000000
+      internalID: 11386344767504398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_27
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 881
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c30c2a14356f34f0800000000000000
+      internalID: -846846930470566968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_28
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 888
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9474fa3771c3a7800800000000000000
+      internalID: 610866770884904777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_29
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 869
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31834f826493f7700800000000000000
+      internalID: 540213453805336595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_30
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 870
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2060dc6c7ed6dba0800000000000000
+      internalID: -6064415222224887766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_31
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 876
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e463073db2356b8e0800000000000000
+      internalID: -1678062363452885426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_32
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 874
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43856f639c6e1e040800000000000000
+      internalID: 4675271640072214580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_33
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 865
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b264c24b64b9db830800000000000000
+      internalID: 4088594764695094827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_34
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 864
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7411748cc30dde00800000000000000
+      internalID: 1071016463314261114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_35
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 861
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1a316f25ceef3900800000000000000
+      internalID: 666513800544991771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_36
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 868
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ad012d6719ad12a0800000000000000
+      internalID: -6765065147160392285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_37
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 848
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aa22ce6a5add96e0800000000000000
+      internalID: -1829065791702422874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_38
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 852
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d83a3c852297c910800000000000000
+      internalID: 1857614061277690066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_39
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 858
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2dbd91290af6bdd0800000000000000
+      internalID: -2470512428440502995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_40
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 855
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6ac0a79df820fc60800000000000000
+      internalID: 7849819220142508654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_41
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 826
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1aad84365f31ae60800000000000000
+      internalID: 7971722454903925274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_42
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 844
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18e5a19b616353370800000000000000
+      internalID: 8301600959350070913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_43
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 849
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f70cebd79c00dc6c0800000000000000
+      internalID: -4121637218576056193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_44
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 838
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a83f012e7bcf813c0800000000000000
+      internalID: -4388479970170571894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_45
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 834
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4f5aeaa1bf0c2f00800000000000000
+      internalID: 1093266065295302474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_46
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 841
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fff9b276092e7790800000000000000
+      internalID: -7530536419245555722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_47
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 827
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca7dfe2c62a04280800000000000000
+      internalID: -9061063864740906291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_48
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 826
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c1271dc5f238dce0800000000000000
+      internalID: -1380297254499835447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_49
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 832
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d948658eb78d67940800000000000000
+      internalID: 5293656438711157917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_50
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 828
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1b3e51769e831fa0800000000000000
+      internalID: -5831160315716420838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_51
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 814
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90c202a5ebec1cb80800000000000000
+      internalID: -8376186514981245943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_52
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 820
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53f06ba3471ed9100800000000000000
+      internalID: 116497054698966837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_53
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 814
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30f3127e8a1dcd480800000000000000
+      internalID: -8872986642464293117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_54
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 820
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61945a54d2531c860800000000000000
+      internalID: 7548372919007922454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_55
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 815
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2ba3d330ea7881f0800000000000000
+      internalID: -1042448210375496917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_56
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 821
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c5361d2d419988f0800000000000000
+      internalID: -537738919839124029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_57
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 801
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 685216c4a956029c0800000000000000
+      internalID: -3954048759450491514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_58
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 807
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d935cb0caa732f80800000000000000
+      internalID: -8132521622750545450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_59
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 802
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d278a34c6866d2c0800000000000000
+      internalID: -4407220371134582060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_60
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 808
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc46fb5385f17dd80800000000000000
+      internalID: -8226071730649602867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_61
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 801
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf4fbcca06066e9e0800000000000000
+      internalID: -1592479449896717061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_62
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 808
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6be1991d46fdf2200800000000000000
+      internalID: 157590136087453366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_63
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 794
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f70a961d9656599c0800000000000000
+      internalID: -3921116395396816769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_64
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 790
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29b4e6ec524b05490800000000000000
+      internalID: -7759504083489240174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_65
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 796
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ea7736ebee81e9c0800000000000000
+      internalID: -3899678658495284506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_66
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 794
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 192dfeaf0233a6650800000000000000
+      internalID: 6226845651535123089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_67
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 787
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f56362979a63af450800000000000000
+      internalID: 6123266744873530975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_68
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 784
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9186ce3b1f50ff30800000000000000
+      internalID: 4607286989421969820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_69
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 781
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82976180e45a894a0800000000000000
+      internalID: -6586332700467627736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_70
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 788
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 843e2256969d18c90800000000000000
+      internalID: -7169210085105540280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_71
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 774
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7e02488032abdd0800000000000000
+      internalID: -2469622926175836250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_72
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 780
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63ba52f911d609600800000000000000
+      internalID: 472997883325819702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_73
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 778
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b79f4d7f5284f84b0800000000000000
+      internalID: -5436046897303979653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_74
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 775
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37a28053fae4a5c50800000000000000
+      internalID: 6654717913809300083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_75
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 773
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4829ef664a0022c90800000000000000
+      internalID: -7196188548482035068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_76
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 767
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b947f20462f241e0800000000000000
+      internalID: -2214941555352450633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_77
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 764
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38855bf04913477b0800000000000000
+      internalID: -5227498755481839485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_78
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 769
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 065e11e19a2fa6f20800000000000000
+      internalID: 3416810075481826656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_79
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 766
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 170ade02462f76e20800000000000000
+      internalID: 3343907760208978033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_80
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 755
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7b97d653a3a6b250800000000000000
+      internalID: 5960131078803397498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_81
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 761
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6336bcfcf5b8a1ac0800000000000000
+      internalID: -3883638485029264586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_82
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 758
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 312bda13eeca37d50800000000000000
+      internalID: 6733916006884684307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_83
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 760
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3513fa5a5f8d68830800000000000000
+      internalID: 4073181462561501523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_84
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 750
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6cd65ca9ec953380800000000000000
+      internalID: -8992108553542640531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_85
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 746
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0938a3398fb8b70e0800000000000000
+      internalID: -2271067687340047472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_86
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 752
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e78f80834bee896c0800000000000000
+      internalID: -4136293799938164610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_87
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 747
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e86bf659f787c920800000000000000
+      internalID: 3010524380896389351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_88
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 753
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 401bcd3bd67e60ad0800000000000000
+      internalID: -2736245265225961212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_89
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 738
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e15127ef538f45d50800000000000000
+      internalID: 6725273054356837662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_90
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 744
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e2a6c99262d19bd0800000000000000
+      internalID: -2625085786851728668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_91
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 740
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0221ee5f4389c94e0800000000000000
+      internalID: -1973535183463378400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_92
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 740
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bb151de5e9341e40800000000000000
+      internalID: 5626185494180469684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_93
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 732
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce9bfe52386450270800000000000000
+      internalID: 8216050624298465772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_94
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 728
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9972560cce6b13970800000000000000
+      internalID: 8732962280404494233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_95
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 734
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35d907fe3f5243df0800000000000000
+      internalID: -201494353700414125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_96
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 733
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1248cb25ca465b70800000000000000
+      internalID: 8887373125365809690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_97
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 720
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c49f29c86e24a7a0800000000000000
+      internalID: -6366912945608223548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_98
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 726
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 940158d53e34a4640800000000000000
+      internalID: 5064935374737182793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_99
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 722
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c5729b494cc0e950800000000000000
+      internalID: 6476400879331341767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_100
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 720
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efa7d4b904bd1c1a0800000000000000
+      internalID: -6790905692568061186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_101
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 726
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27e7981f7cad8b330800000000000000
+      internalID: 3726969243934752370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_102
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 714
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8830358e858391220800000000000000
+      internalID: 2457057026213348232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_103
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 710
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35ca59db6193ffa70800000000000000
+      internalID: 8862865361521192019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_104
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 716
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 773cb8eaf08a1f580800000000000000
+      internalID: -8795063811971497097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_105
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 713
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87f0306c31e8f12a0800000000000000
+      internalID: -6764531899709583496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_106
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 702
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46758e2db52e67660800000000000000
+      internalID: 7383337523128850276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_107
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 708
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f96a64a8315f7c2e0800000000000000
+      internalID: -2105444836499347809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_108
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 704
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c80584106bb08c0800000000000000
+      internalID: -4031928924755686399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_109
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 701
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a1f5b56b697f4b30800000000000000
+      internalID: 4273768073572774310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_110
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 707
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c245ab28c4390a20800000000000000
+      internalID: 3029010258713723584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_111
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 696
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8074faa556f52030800000000000000
+      internalID: 3469449935759634573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_112
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 698
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaf15a5026f1c53a0800000000000000
+      internalID: -6675426041807954002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_113
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 696
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41de25bcd1111f1d0800000000000000
+      internalID: -3318852630732411628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_114
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 684
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62792720ed58db550800000000000000
+      internalID: 6178241452392486694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_115
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 690
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e10c08fd2029eb9b0800000000000000
+      internalID: -5062448390080511970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_116
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 684
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 591b1777ab54f18e0800000000000000
+      internalID: -1720579865462066795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_117
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 690
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8cf53b1f3a5b7780800000000000000
+      internalID: -8684248229367907190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_118
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 672
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de33f3d7a407d4ca0800000000000000
+      internalID: -6031040860748041235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_119
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 678
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57399dc77ae231260800000000000000
+      internalID: 7067043537163490165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_120
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 660
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0eaa0d340ed57f80800000000000000
+      internalID: -8109331444225364466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_121
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 666
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56c9b20272e9585a0800000000000000
+      internalID: -6519630994668282779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_122
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 648
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 083df9813e543b3b0800000000000000
+      internalID: -5497973878416223360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_123
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 654
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4188a8fa693276710800000000000000
+      internalID: 1686355715570698260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_124
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 636
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddaa0c4cc574ca140800000000000000
+      internalID: 4732235772223072989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_125
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 642
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da9daa12e04e1fb80800000000000000
+      internalID: -8362652283704780371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting Stars_126
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 630
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82379580533fdb3d0800000000000000
+      internalID: -3189125552009546968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Shooting Stars_0: -8077509826026335524
+      Shooting Stars_1: 8333700575026245909
+      Shooting Stars_10: -7834823070719806755
+      Shooting Stars_100: -6790905692568061186
+      Shooting Stars_101: 3726969243934752370
+      Shooting Stars_102: 2457057026213348232
+      Shooting Stars_103: 8862865361521192019
+      Shooting Stars_104: -8795063811971497097
+      Shooting Stars_105: -6764531899709583496
+      Shooting Stars_106: 7383337523128850276
+      Shooting Stars_107: -2105444836499347809
+      Shooting Stars_108: -4031928924755686399
+      Shooting Stars_109: 4273768073572774310
+      Shooting Stars_11: -7159249326963044086
+      Shooting Stars_110: 3029010258713723584
+      Shooting Stars_111: 3469449935759634573
+      Shooting Stars_112: -6675426041807954002
+      Shooting Stars_113: -3318852630732411628
+      Shooting Stars_114: 6178241452392486694
+      Shooting Stars_115: -5062448390080511970
+      Shooting Stars_116: -1720579865462066795
+      Shooting Stars_117: -8684248229367907190
+      Shooting Stars_118: -6031040860748041235
+      Shooting Stars_119: 7067043537163490165
+      Shooting Stars_12: -6319665628010989963
+      Shooting Stars_120: -8109331444225364466
+      Shooting Stars_121: -6519630994668282779
+      Shooting Stars_122: -5497973878416223360
+      Shooting Stars_123: 1686355715570698260
+      Shooting Stars_124: 4732235772223072989
+      Shooting Stars_125: -8362652283704780371
+      Shooting Stars_126: -3189125552009546968
+      Shooting Stars_13: 4074971477868526375
+      Shooting Stars_14: 1822896294787073688
+      Shooting Stars_15: -7074425118313604260
+      Shooting Stars_16: 6364536432566812328
+      Shooting Stars_17: -8008872097648311050
+      Shooting Stars_18: -3433462097649552303
+      Shooting Stars_19: -4392722971464869973
+      Shooting Stars_2: 50612685550263571
+      Shooting Stars_20: 6882442637603032238
+      Shooting Stars_21: -5611446130706279572
+      Shooting Stars_22: -4415615938432477157
+      Shooting Stars_23: 9209504062320145677
+      Shooting Stars_24: -4050584909538990427
+      Shooting Stars_25: 3930333684401928995
+      Shooting Stars_26: 11386344767504398
+      Shooting Stars_27: -846846930470566968
+      Shooting Stars_28: 610866770884904777
+      Shooting Stars_29: 540213453805336595
+      Shooting Stars_3: -2967627938666501212
+      Shooting Stars_30: -6064415222224887766
+      Shooting Stars_31: -1678062363452885426
+      Shooting Stars_32: 4675271640072214580
+      Shooting Stars_33: 4088594764695094827
+      Shooting Stars_34: 1071016463314261114
+      Shooting Stars_35: 666513800544991771
+      Shooting Stars_36: -6765065147160392285
+      Shooting Stars_37: -1829065791702422874
+      Shooting Stars_38: 1857614061277690066
+      Shooting Stars_39: -2470512428440502995
+      Shooting Stars_4: 8995227871649045381
+      Shooting Stars_40: 7849819220142508654
+      Shooting Stars_41: 7971722454903925274
+      Shooting Stars_42: 8301600959350070913
+      Shooting Stars_43: -4121637218576056193
+      Shooting Stars_44: -4388479970170571894
+      Shooting Stars_45: 1093266065295302474
+      Shooting Stars_46: -7530536419245555722
+      Shooting Stars_47: -9061063864740906291
+      Shooting Stars_48: -1380297254499835447
+      Shooting Stars_49: 5293656438711157917
+      Shooting Stars_5: 6399969667210897818
+      Shooting Stars_50: -5831160315716420838
+      Shooting Stars_51: -8376186514981245943
+      Shooting Stars_52: 116497054698966837
+      Shooting Stars_53: -8872986642464293117
+      Shooting Stars_54: 7548372919007922454
+      Shooting Stars_55: -1042448210375496917
+      Shooting Stars_56: -537738919839124029
+      Shooting Stars_57: -3954048759450491514
+      Shooting Stars_58: -8132521622750545450
+      Shooting Stars_59: -4407220371134582060
+      Shooting Stars_6: -27822910025461419
+      Shooting Stars_60: -8226071730649602867
+      Shooting Stars_61: -1592479449896717061
+      Shooting Stars_62: 157590136087453366
+      Shooting Stars_63: -3921116395396816769
+      Shooting Stars_64: -7759504083489240174
+      Shooting Stars_65: -3899678658495284506
+      Shooting Stars_66: 6226845651535123089
+      Shooting Stars_67: 6123266744873530975
+      Shooting Stars_68: 4607286989421969820
+      Shooting Stars_69: -6586332700467627736
+      Shooting Stars_7: -9064001709725291371
+      Shooting Stars_70: -7169210085105540280
+      Shooting Stars_71: -2469622926175836250
+      Shooting Stars_72: 472997883325819702
+      Shooting Stars_73: -5436046897303979653
+      Shooting Stars_74: 6654717913809300083
+      Shooting Stars_75: -7196188548482035068
+      Shooting Stars_76: -2214941555352450633
+      Shooting Stars_77: -5227498755481839485
+      Shooting Stars_78: 3416810075481826656
+      Shooting Stars_79: 3343907760208978033
+      Shooting Stars_8: 9031973903304199512
+      Shooting Stars_80: 5960131078803397498
+      Shooting Stars_81: -3883638485029264586
+      Shooting Stars_82: 6733916006884684307
+      Shooting Stars_83: 4073181462561501523
+      Shooting Stars_84: -8992108553542640531
+      Shooting Stars_85: -2271067687340047472
+      Shooting Stars_86: -4136293799938164610
+      Shooting Stars_87: 3010524380896389351
+      Shooting Stars_88: -2736245265225961212
+      Shooting Stars_89: 6725273054356837662
+      Shooting Stars_9: 5441590951086271581
+      Shooting Stars_90: -2625085786851728668
+      Shooting Stars_91: -1973535183463378400
+      Shooting Stars_92: 5626185494180469684
+      Shooting Stars_93: 8216050624298465772
+      Shooting Stars_94: 8732962280404494233
+      Shooting Stars_95: -201494353700414125
+      Shooting Stars_96: 8887373125365809690
+      Shooting Stars_97: -6366912945608223548
+      Shooting Stars_98: 5064935374737182793
+      Shooting Stars_99: 6476400879331341767
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
