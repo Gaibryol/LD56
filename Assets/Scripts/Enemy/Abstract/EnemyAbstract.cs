@@ -40,6 +40,7 @@ public abstract class EnemyAbstract : MonoBehaviour
     public virtual void Captured()
     {
         captured = true;
+        attackBehaviour.StopAttack();
     }
 
     public virtual float SpawnChance(float gameTime, int enemiesKilled, int sameEnemiesRemaining, int worldDifficultyRating)

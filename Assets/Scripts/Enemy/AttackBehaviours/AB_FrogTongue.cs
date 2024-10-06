@@ -6,13 +6,10 @@ public class AB_FrogTongue : EnemyAttackBehaviour
 {
     [SerializeField] private AO_FrogTongue frogTongue;
 
-
-
     public override IEnumerator Attack(TriggerAnimation triggerAnimation)
     {
         yield return base.Attack(triggerAnimation);
         frogTongue.Begin();
-
 
         yield return null;
     }
@@ -20,9 +17,13 @@ public class AB_FrogTongue : EnemyAttackBehaviour
     protected override void Update()
     {
         base.Update();
-        if (CurrentlyAttacking)
-        {
-            CurrentlyAttacking = frogTongue.started;
-        }
+        CurrentlyAttacking = frogTongue.started;
+    }
+
+    public override void StopAttack()
+    {
+        base.StopAttack();
+        frogTongue.started = false;
+        frogTongue.GetComponentInChildren<Collider2D>().enabled = false;
     }
 }

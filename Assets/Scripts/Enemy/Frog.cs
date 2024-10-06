@@ -23,4 +23,9 @@ public class Frog : EnemyAbstract
         base.Update();
         animator.SetBool("Attack", attackBehaviour.CurrentlyAttacking);
     }
+
+    public override void Captured()
+    {
+        base.Captured();
+    }
 }

@@ -28,7 +28,7 @@ public class MB_Cardioid : EnemyMoveBehaviour
             startingAngle = UnityEngine.Random.value * 360;
             size = UnityEngine.Random.value * 5;
         }
-        angle = Mathf.Deg2Rad * startingAngle;
+        angle = 0;
     }
 
     public override void Move()

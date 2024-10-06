@@ -19,6 +19,11 @@ public abstract class EnemyAttackBehaviour : MonoBehaviour
     {
     }
 
+    public virtual void StopAttack()
+    {
+        StopAllCoroutines();
+    }
+
     public delegate float TriggerAnimation();
 
     public virtual void QueueAttack(TriggerAnimation triggerAnimation)
