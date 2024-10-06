@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField, Header("Inputs")] private InputAction move;
 	[SerializeField] private InputAction grab;
 
+	private bool isPlaying;
 	private bool isGrabbing;
 
 	private Rigidbody2D rbody;
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
 	Vector3 baseClawScale;
 	Vector3 baseHeadScale;
 	private Coroutine grabCoroutine;
+	private Coroutine retractCoroutine;
 
 	private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
 
@@ -70,6 +72,7 @@ public class PlayerController : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
+		isPlaying = false;
 		isGrabbing = false;
 
 		health = Constants.Player.BaseHealth;
@@ -97,7 +100,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (isGrabbing || health <= 0) return;
+		if (isGrabbing || health <= 0 || !isPlaying) return;
 
 		// Claw Rotation
 		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -113,7 +116,7 @@ public class PlayerController : MonoBehaviour
 	private void FixedUpdate()
 	{
 		// Stop movement if shooting
-		if (isGrabbing || health <= 0)
+		if (isGrabbing || health <= 0 || !isPlaying)
 		{
 			rbody.velocity = Vector2.zero;
 			return;
@@ -228,7 +231,7 @@ public class PlayerController : MonoBehaviour
 		isGrabbing = false;
 
 		// Check what type of creature
-		Constants.Enemy.EnemyType enemyType = grabbedObj.GetComponent<GenericEnemy>().enemyType;
+		Constants.Enemy.EnemyType enemyType = grabbedObj.GetComponent<EnemyAbstract>().enemyType;
 
 		// Check if open passenger spot
 		int passengerIndex = GetNextOpenPassengerSpot();
@@ -410,7 +413,7 @@ public class PlayerController : MonoBehaviour
 
 	private void OnGrab(InputAction.CallbackContext context)
 	{
-		if (isGrabbing || health <= 0) return;
+		if (isGrabbing || health <= 0 || !isPlaying) return;
 
 		grabCoroutine = StartCoroutine(ExtendCoroutine());
 	}
@@ -421,6 +424,12 @@ public class PlayerController : MonoBehaviour
 
 		if (health <= 0)
 		{
+			if (retractCoroutine != null)
+			{
+				StopCoroutine(retractCoroutine);
+			}
+
+			isPlaying = false;
 			eventBroker.Publish(this, new PlayerEvents.Die(numBunny, numChicken, numCrab, numFrog, numShark, numSquid, numHippo));
 		}
 		else
@@ -437,7 +446,7 @@ public class PlayerController : MonoBehaviour
 			if (grabCoroutine != null)
 			{
 				StopCoroutine(grabCoroutine);
-				StartCoroutine(RetractCoroutine(inEvent.Payload.GrabbedObj.transform));
+				retractCoroutine = StartCoroutine(RetractCoroutine(inEvent.Payload.GrabbedObj.transform));
 			}
 		}
 	}
@@ -468,6 +477,8 @@ public class PlayerController : MonoBehaviour
 		numShark = 0;
 		numSquid = 0;
 		numHippo = 0;
+
+		isPlaying = true;
 	}
 
 	private void OnEnable()
