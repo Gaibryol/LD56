@@ -7,6 +7,13 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+	[SerializeField, Header("Main Menu UI")] private GameObject mainMenuPanel;
+	[SerializeField] private Button mainMenuStartButton;
+	[SerializeField] private Button mainMenuCreditsButton;
+
+	[SerializeField, Header("Credits UI")] private GameObject creditsPanel;
+	[SerializeField] private Button creditsMainMenuButton;
+
 	[SerializeField, Header("Gameplay UI")] private GameObject gameplayPanel;
 	[SerializeField] private TMP_Text scoreText;
 	[SerializeField] private TMP_Text scoreMultiplierText;
@@ -23,7 +30,8 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private TMP_Text endNumHippo;
 	[SerializeField] private TMP_Text endNumShark;
 	[SerializeField] private TMP_Text endNumSquid;
-	[SerializeField] private Button restartButton;
+	[SerializeField] private Button endRestartButton;
+	[SerializeField] private Button endMainMenuButton;
 
 	[SerializeField, Header("References")] private GameManager game;
 	[SerializeField] private PlayerController player;
@@ -71,18 +79,46 @@ public class UIManager : MonoBehaviour
 		HandleHealthbar();
 	}
 
-	private void OnRestartButton()
+	private void OnStartButton()
 	{
+		mainMenuPanel.SetActive(false);
+		creditsPanel.SetActive(false);
+		gameplayPanel.SetActive(true);
+		endPanel.SetActive(false);
+
 		eventBroker.Publish(this, new GameEvents.StartGame());
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
 
-	private void HandleStartGame(BrokerEvent<GameEvents.StartGame> inEvent)
+	private void OnMainMenuButton()
 	{
-		InitHealthbar();
-
+		mainMenuPanel.SetActive(true);
+		creditsPanel.SetActive(false);
+		gameplayPanel.SetActive(false);
 		endPanel.SetActive(false);
+
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
+	}
+
+	private void OnCreditsButton()
+	{
+		mainMenuPanel.SetActive(false);
+		creditsPanel.SetActive(true);
+		gameplayPanel.SetActive(false);
+		endPanel.SetActive(false);
+
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
+	}
+
+	private void OnRestartButton()
+	{
+		mainMenuPanel.SetActive(false);
+		creditsPanel.SetActive(false);
 		gameplayPanel.SetActive(true);
+		endPanel.SetActive(false);
+
+		eventBroker.Publish(this, new GameEvents.StartGame());
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
 
 	private void HandleEndGame(BrokerEvent<GameEvents.EndGame> inEvent)
@@ -106,19 +142,25 @@ public class UIManager : MonoBehaviour
 
 	private void OnEnable()
 	{
-		eventBroker.Subscribe<GameEvents.StartGame>(HandleStartGame);
 		eventBroker.Subscribe<GameEvents.EndGame>(HandleEndGame);
 		eventBroker.Subscribe<PlayerEvents.Die>(HandlePlayerDie);
 
-		restartButton.onClick.AddListener(OnRestartButton);
+		mainMenuStartButton.onClick.AddListener(OnStartButton);
+		mainMenuCreditsButton.onClick.AddListener(OnCreditsButton);
+		creditsMainMenuButton.onClick.AddListener(OnMainMenuButton);
+		endMainMenuButton.onClick.AddListener(OnMainMenuButton);
+		endRestartButton.onClick.AddListener(OnRestartButton);
 	}
 
 	private void OnDisable()
 	{
-		eventBroker.Unsubscribe<GameEvents.StartGame>(HandleStartGame);
 		eventBroker.Unsubscribe<GameEvents.EndGame>(HandleEndGame);
 		eventBroker.Unsubscribe<PlayerEvents.Die>(HandlePlayerDie);
 
-		restartButton.onClick.RemoveListener(OnRestartButton);
+		mainMenuStartButton.onClick.RemoveListener(OnStartButton);
+		mainMenuCreditsButton.onClick.RemoveListener(OnCreditsButton);
+		creditsMainMenuButton.onClick.RemoveListener(OnMainMenuButton);
+		endMainMenuButton.onClick.RemoveListener(OnMainMenuButton);
+		endRestartButton.onClick.RemoveListener(OnRestartButton);
 	}
 }

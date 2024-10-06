@@ -18,7 +18,7 @@ public partial class Constants
 
 		public const int NumToUpgrade = 3;
 
-		public const float ScoreEarnedOnGrab = 10f;
+		public const float ScoreEarnedOnGrab = 100f;
 	}
 
 	public static class Claw

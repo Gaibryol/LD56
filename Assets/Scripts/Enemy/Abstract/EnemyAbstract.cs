@@ -33,7 +33,7 @@ public abstract class EnemyAbstract : MonoBehaviour
         }
     }
 
-    protected virtual void Captured()
+    public virtual void Captured()
     {
         captured = true;
     }

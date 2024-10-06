@@ -61,6 +61,7 @@ public class ClawController : MonoBehaviour
 		{
 			// Collided with enemy
 			eventBroker.Publish(this, new PlayerEvents.UpdateClawState(Constants.Claw.States.Grabbed, collision.gameObject));
+			collision.GetComponent<EnemyAbstract>().Captured();
 			sr.sprite = clawClosedSprite;
 		}
 		
@@ -78,6 +79,7 @@ public class ClawController : MonoBehaviour
 		{
 			// Collided with enemy
 			eventBroker.Publish(this, new PlayerEvents.UpdateClawState(Constants.Claw.States.Grabbed, collision.gameObject));
+			collision.GetComponent<EnemyAbstract>().Captured();
 			sr.sprite = clawClosedSprite;
 		}
 		

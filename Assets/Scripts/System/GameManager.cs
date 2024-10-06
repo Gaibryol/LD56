@@ -23,16 +23,13 @@ public class GameManager : MonoBehaviour
 
 		// TEMPORARY - UNCOMMENT ONCE MAIN MENU MUSIC IS PUT IN
 		// eventBroker.Publish(this, new AudioEvents.PlayMusic(Constants.Audio.Music.MainMenuTheme));
-
-		// TEMPORARY - REMOVE LATER ONCE MAIN MENU IS PUT IN
-		eventBroker.Publish(this, new GameEvents.StartGame());
     }
 
 	private IEnumerator IncrementScore()
 	{
 		while (isPlaying)
 		{
-			score += 1f * scoreMultiplier;
+			score += 10f * scoreMultiplier;
 			yield return new WaitForSeconds(1f);
 		}
 	}
