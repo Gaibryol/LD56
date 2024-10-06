@@ -43,6 +43,7 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!gameStarted) return;
         gameTime += Time.deltaTime;
         ScaleDifficulty();
         SpawnEnemies();
