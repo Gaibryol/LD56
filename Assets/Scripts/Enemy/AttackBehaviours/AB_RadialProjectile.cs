@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AB_RadialProjectile : EnemyAttackBehaviour
@@ -9,6 +8,21 @@ public class AB_RadialProjectile : EnemyAttackBehaviour
     [SerializeField] private float angle = 180;
     [SerializeField] private float radius = 1;
     [SerializeField] private float delayBetweenProjectiles = 0;
+    [SerializeField] private Transform originTransform;
+    [SerializeField] private Transform targetTransform;
+    protected override void Start()
+    {
+        base.Start();
+        if (originTransform == null)
+        {
+            originTransform = transform;
+        }
+
+        if (targetTransform == null)
+        {
+            targetTransform = Camera.main.transform;
+        }
+    }
 
     public override IEnumerator Attack(TriggerAnimation triggerAnimation)
     {
@@ -19,9 +33,10 @@ public class AB_RadialProjectile : EnemyAttackBehaviour
         yield return null;
     }
 
+
     private IEnumerator SpawnProjectile()
     {
-        Vector3 direction = Camera.main.transform.position - transform.position;
+        Vector3 direction = targetTransform.position - originTransform.position;
         direction.z = 0;
         Vector3 directionNormalized = Vector3.Normalize(direction);
 
@@ -39,7 +54,7 @@ public class AB_RadialProjectile : EnemyAttackBehaviour
             Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 90) * spawnPosition;
             Quaternion targetRotation = Quaternion.LookRotation(forward: Vector3.forward, upwards: rotatedVectorToTarget);
 
-            Instantiate(attackObjectToSpawn, transform.position + spawnPosition, targetRotation);
+            Instantiate(attackObjectToSpawn, originTransform.position + spawnPosition, targetRotation);
         }
 
         CurrentlyAttacking = false;

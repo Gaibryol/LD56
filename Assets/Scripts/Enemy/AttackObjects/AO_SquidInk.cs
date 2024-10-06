@@ -6,6 +6,8 @@ public class AO_SquidInk : AO_Persistent
 {
     private SpriteRenderer _renderer;
     private Collider2D _collider;
+    [SerializeField] private float inkSpeed;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -18,6 +20,7 @@ public class AO_SquidInk : AO_Persistent
     protected override void Update()
     {
         base.Update();
+        transform.position = transform.position + transform.right * inkSpeed * Time.deltaTime;
         Color newColor = _renderer.color;
         float alpha = Mathf.Lerp(1, 0, timer / lifeTime);
         newColor.a = alpha;
