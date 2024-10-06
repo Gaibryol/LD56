@@ -107,6 +107,24 @@ public class AudioManager : MonoBehaviour
 		musicSource.Stop();
 	}
 
+	private void ToggleSFXHandler(BrokerEvent<AudioEvents.ToggleSFX> inEvent)
+	{
+		musicSource.mute = !musicSource.mute;
+		PlayerPrefs.SetFloat(Constants.Audio.MusicVolumePP, musicSource.mute ? 0 : musicSource.volume);
+		PlayerPrefs.Save();
+
+		inEvent.Payload.ProcessNewState.DynamicInvoke(musicSource.mute);
+	}
+
+	private void ToggleMusicHandler(BrokerEvent<AudioEvents.ToggleMusic> inEvent)
+	{
+		sfxSource.mute = !sfxSource.mute;
+		PlayerPrefs.SetFloat(Constants.Audio.SFXVolumePP, sfxSource.mute ? 0 : sfxSource.volume);
+		PlayerPrefs.Save();
+
+		inEvent.Payload.ProcessNewState.DynamicInvoke(sfxSource.mute);
+	}
+
 	private void PlayMusic(string song, float time = 0f, bool loop = true)
 	{
 		if (music.ContainsKey(song))
@@ -176,6 +194,8 @@ public class AudioManager : MonoBehaviour
 		eventBrokerComponent.Subscribe<AudioEvents.StopTemporaryMusic>(StopTemporaryMusicHandler);
 		eventBrokerComponent.Subscribe<AudioEvents.GetSongLength>(GetSongLengthHandler);
 		eventBrokerComponent.Subscribe<AudioEvents.StopMusic>(StopMusicHandler);
+		eventBrokerComponent.Subscribe<AudioEvents.ToggleMusic>(ToggleMusicHandler);
+		eventBrokerComponent.Subscribe<AudioEvents.ToggleSFX>(ToggleSFXHandler);
 
 		float musicLevel = PlayerPrefs.GetFloat(Constants.Audio.MusicVolumePP, Constants.Audio.DefaultMusicVolume);
 		float sfxLevel = PlayerPrefs.GetFloat(Constants.Audio.SFXVolumePP, Constants.Audio.DefaultSFXVolume);
@@ -196,5 +216,7 @@ public class AudioManager : MonoBehaviour
 		eventBrokerComponent.Unsubscribe<AudioEvents.StopTemporaryMusic>(StopTemporaryMusicHandler);
 		eventBrokerComponent.Unsubscribe<AudioEvents.GetSongLength>(GetSongLengthHandler);
 		eventBrokerComponent.Unsubscribe<AudioEvents.StopMusic>(StopMusicHandler);
+		eventBrokerComponent.Unsubscribe<AudioEvents.ToggleMusic>(ToggleMusicHandler);
+		eventBrokerComponent.Unsubscribe<AudioEvents.ToggleSFX>(ToggleSFXHandler);
 	}
 }

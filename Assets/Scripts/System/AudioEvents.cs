@@ -78,4 +78,24 @@ public class AudioEvents
 	{
 		public StopMusic() { }
 	}
+
+	public class ToggleMusic
+	{
+		public ToggleMusic(Action<bool> processNewState) 
+		{
+			ProcessNewState = processNewState;
+		}
+
+		public readonly Action<bool> ProcessNewState;
+	}
+
+	public class ToggleSFX
+	{
+		public ToggleSFX(Action<bool> processNewState) 
+		{
+			ProcessNewState = processNewState;
+		}
+
+		public readonly Action<bool> ProcessNewState;
+	}
 }

@@ -78,4 +78,14 @@ public class PlayerEvents
 
 		public readonly int Amount;
 	}
+
+	public class Upgrade
+	{
+		public Upgrade(List<int> indexes)
+		{
+			Indexes = indexes;
+		}
+
+		public readonly List<int> Indexes;
+	}
 }

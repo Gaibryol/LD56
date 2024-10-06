@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Sprite sharkSprite;
 	[SerializeField] private Sprite squidSprite;
 	[SerializeField] private Sprite hippoSprite;
-	[SerializeField] private List<Constants.Enemy.EnemyType> passengers;
+	[SerializeField] public List<Constants.Enemy.EnemyType> passengers;
 
 	[SerializeField, Header("Passenger Positions")] private List<Vector2> bunnyPositions;
 	[SerializeField] private List<Vector2> chickenPositions;
@@ -301,6 +302,8 @@ public class PlayerController : MonoBehaviour
 				// Upgrade
 				Upgrade(enemyType);
 
+				eventBroker.Publish(this, new PlayerEvents.Upgrade(indexes));
+
 				// Remove passengers
 				foreach (int index in indexes)
 				{
@@ -382,6 +385,8 @@ public class PlayerController : MonoBehaviour
 				// Upgrade
 				Upgrade(enemyType);
 
+				eventBroker.Publish(this, new PlayerEvents.Upgrade(indexes));
+
 				// Remove passengers
 				foreach (int index in indexes)
 				{
@@ -436,7 +441,7 @@ public class PlayerController : MonoBehaviour
 
 	private void OnGrab(InputAction.CallbackContext context)
 	{
-		if (isGrabbing || health <= 0 || !isPlaying) return;
+		if (isGrabbing || health <= 0 || !isPlaying || IsPointerOverUIElement()) return;
 
 		grabCoroutine = StartCoroutine(ExtendCoroutine());
 	}
@@ -528,5 +533,30 @@ public class PlayerController : MonoBehaviour
 		eventBroker.Unsubscribe<PlayerEvents.Damage>(HandlePlayerDamage);
 		eventBroker.Unsubscribe<PlayerEvents.UpdateClawState>(HandleUpdateClawState);
 		eventBroker.Unsubscribe<GameEvents.StartGame>(HandleStartGame);
+	}
+
+	public bool IsPointerOverUIElement()
+	{
+		return IsPointerOverUIElement(GetEventSystemRaycastResults());
+	}
+
+	private bool IsPointerOverUIElement(List<RaycastResult> eventSystemRaysastResults)
+	{
+		for (int index = 0; index < eventSystemRaysastResults.Count; index++)
+		{
+			RaycastResult curRaysastResult = eventSystemRaysastResults[index];
+			if (curRaysastResult.gameObject.layer == LayerMask.NameToLayer("UI"))
+				return true;
+		}
+		return false;
+	}
+
+	static List<RaycastResult> GetEventSystemRaycastResults()
+	{
+		PointerEventData eventData = new PointerEventData(EventSystem.current);
+		eventData.position = Input.mousePosition;
+		List<RaycastResult> raysastResults = new List<RaycastResult>();
+		EventSystem.current.RaycastAll(eventData, raysastResults);
+		return raysastResults;
 	}
 }
