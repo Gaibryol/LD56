@@ -123,7 +123,7 @@ MonoBehaviour:
   CurrentlyAttacking: 0
   attackObjectToSpawn: {fileID: 396430095683714208, guid: 976c40aab3d62b54095cb1c8ec3e39db, type: 3}
   numberOfProjectiles: 10
-  angle: 90
+  angle: 60
   radius: 0.4
   delayBetweenProjectiles: 0.1
 --- !u!61 &7500244063444422099
