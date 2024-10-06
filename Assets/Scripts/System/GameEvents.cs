@@ -12,12 +12,14 @@ public class GameEvents
 
 	public class EndGame
 	{
-		public EndGame(float finalScore, bool isHighscore) 
+		public EndGame(float finalScore, bool isHighscore, float totalGameTime) 
 		{
 			FinalScore = finalScore;
 			IsHighscore = isHighscore;
+			TotalGameTime = totalGameTime;
 		}
 
+		public readonly float TotalGameTime;
 		public readonly float FinalScore;
 		public readonly bool IsHighscore;
 	}
