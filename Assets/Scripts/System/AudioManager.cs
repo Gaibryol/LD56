@@ -28,7 +28,7 @@ public class AudioManager : MonoBehaviour
 	private void Awake()
 	{
 		// Set up music and sfx dictionaries
-		//music.Add(Constants.Audio.Music.MainMenuTheme, mainMenu);
+		music.Add(Constants.Audio.Music.MainMenuTheme, mainMenu);
 
 		sfx.Add(Constants.Audio.SFX.ButtonPress, buttonPress);
 	}

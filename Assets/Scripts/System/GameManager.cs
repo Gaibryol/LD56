@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 		score = 0f;
 		scoreMultiplier = Constants.Player.BaseScoreMultiplier;
 
+		eventBroker.Publish(this, new AudioEvents.PlayMusic(Constants.Audio.Music.MainMenuTheme));
+
 		// TEMPORARY - UNCOMMENT ONCE MAIN MENU MUSIC IS PUT IN
 		// eventBroker.Publish(this, new AudioEvents.PlayMusic(Constants.Audio.Music.MainMenuTheme));
     }

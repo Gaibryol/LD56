@@ -2749,7 +2749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 624845506}
   sfxSource: {fileID: 624845505}
-  mainMenu: {fileID: 0}
+  mainMenu: {fileID: 8300000, guid: 3ea00c77a130ad64e9014d6d8b28e21c, type: 3}
   buttonPress: {fileID: 8300000, guid: e326c760a19ce7947823bc2c207e2e9a, type: 3}
 --- !u!1 &625984632
 GameObject:
