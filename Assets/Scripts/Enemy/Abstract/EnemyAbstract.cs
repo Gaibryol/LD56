@@ -9,6 +9,7 @@ public abstract class EnemyAbstract : MonoBehaviour
     protected EnemyMoveBehaviour moveBehaviour;
     protected EnemyAttackBehaviour attackBehaviour;
     [SerializeField] private bool canMoveWhileAttacking = true;
+    private bool captured;
 
     protected virtual void Awake()
     {
@@ -24,6 +25,7 @@ public abstract class EnemyAbstract : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+        if (captured) return;
         attackBehaviour.QueueAttack(OnAttack);
         if (canMoveWhileAttacking || (!canMoveWhileAttacking && !attackBehaviour.CurrentlyAttacking))
         {
@@ -33,7 +35,7 @@ public abstract class EnemyAbstract : MonoBehaviour
 
     protected virtual void Captured()
     {
-
+        captured = true;
     }
 
     public virtual float SpawnChance(float gameTime, int enemiesKilled, int sameEnemiesRemaining, int worldDifficultyRating)

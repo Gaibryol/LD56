@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 3
   CurrentlyAttacking: 0
-  attackObjectToSpawn: {fileID: 2001750452402265594, guid: 502a97dcd6d92104dbf0067f659bba13, type: 3}
+  attackObjectToSpawn: {fileID: 396430095683714208, guid: 2111948fcb63d52488c3e3abc033c605, type: 3}
   projectileSpawnTransform: {fileID: 606020478106799658}
 --- !u!114 &7629610668001879577
 MonoBehaviour:

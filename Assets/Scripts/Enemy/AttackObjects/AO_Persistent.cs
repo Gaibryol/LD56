@@ -6,6 +6,7 @@ public class AO_Persistent : EnemyAttackObject
 {
     [SerializeField] protected float lifeTime = 30f;
     protected float timer = 0;
+    private bool pendingDestroy;
     protected virtual void Start()
     {
 
@@ -15,8 +16,9 @@ public class AO_Persistent : EnemyAttackObject
     protected virtual void Update()
     {
         timer += Time.deltaTime;
-        if (timer > lifeTime)
+        if (timer > lifeTime && !pendingDestroy)
         {
+            pendingDestroy = true;
             OnLifeSpanEnded();
         }
     }

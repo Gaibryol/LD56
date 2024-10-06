@@ -157,7 +157,7 @@ MonoBehaviour:
   spawnLocations:
   - {fileID: 3238143069799531630}
   - {fileID: 8126364286495017912}
-  attackObjectToSpawn: {fileID: 2001750452402265594, guid: 502a97dcd6d92104dbf0067f659bba13, type: 3}
+  attackObjectToSpawn: {fileID: 396430095683714208, guid: 8989e37eba44a4e4095f297916c9feaf, type: 3}
 --- !u!114 &3599461029825502825
 MonoBehaviour:
   m_ObjectHideFlags: 0

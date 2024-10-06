@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 2
   CurrentlyAttacking: 0
-  attackObjectToSpawn: {fileID: 2001750452402265594, guid: 502a97dcd6d92104dbf0067f659bba13, type: 3}
+  attackObjectToSpawn: {fileID: 396430095683714208, guid: a1021f01279ed4b49ae9bc694d10ff09, type: 3}
   numberOfProjectiles: 10
   angle: 360
   radius: 0.2

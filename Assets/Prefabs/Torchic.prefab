@@ -122,6 +122,8 @@ MonoBehaviour:
   timeBetweenAttacks: 3
   CurrentlyAttacking: 0
   attackObjectToSpawn: {fileID: 285674239214367731, guid: 1c19281541c662f4fa2415b7d69d76aa, type: 3}
+  projectileSpawnTransform: {fileID: 7867587927180079772}
+  forceUpright: 1
 --- !u!61 &3448501806904791479
 BoxCollider2D:
   m_ObjectHideFlags: 0
