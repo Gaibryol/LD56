@@ -31,6 +31,8 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private List<Image> gameplaySlots;
 	[SerializeField] private List<Animator> gameplayAnims;
 	[SerializeField] private Animator upgradePopup;
+	[SerializeField] private Animator levelUpPopup;
+	[SerializeField] private Animator levelUpPopup2;
 
 	[SerializeField, Header("End UI")] private GameObject endPanel;
 	[SerializeField] private TMP_Text endFinalScore;
@@ -189,6 +191,8 @@ public class UIManager : MonoBehaviour
 		Color onColor = upgradePopup.GetComponent<Image>().color;
 		onColor.a = 1f;
 		upgradePopup.GetComponent<Image>().color = onColor;
+		levelUpPopup.GetComponent<Image>().color = onColor;
+		levelUpPopup2.GetComponent<Image>().color = onColor;
 
 		switch (enemyType)
 		{
@@ -221,11 +225,16 @@ public class UIManager : MonoBehaviour
 				break;
 		}
 
+		levelUpPopup.SetTrigger(Constants.UI.UpgradePopups.LevelUp);
+		levelUpPopup2.SetTrigger(Constants.UI.UpgradePopups.LevelUp);
+
 		yield return new WaitForSeconds(0.5f);
 
 		Color offColor = upgradePopup.GetComponent<Image>().color;
 		offColor.a = 0f;
 		upgradePopup.GetComponent<Image>().color = offColor;
+		levelUpPopup.GetComponent<Image>().color = offColor;
+		levelUpPopup2.GetComponent<Image>().color = onColor;
 	}
 
 	private void HandleEndGame(BrokerEvent<GameEvents.EndGame> inEvent)
