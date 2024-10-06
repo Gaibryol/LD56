@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +10,7 @@ public class EnemyManager : MonoBehaviour
 
     [SerializeField] private List<EnemyAbstract> enemyTypesToSpawn;
 
+    private bool gameStarted = false;
 
     private float gameTime = 0;
     private int enemiesKilled = 0;
@@ -18,14 +18,27 @@ public class EnemyManager : MonoBehaviour
     private int currentDifficultyRating = 1;
 
     private Dictionary<EnemyAbstract, List<EnemyAbstract>> activeEnemies = new Dictionary<EnemyAbstract, List<EnemyAbstract>>();
+    private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
 
     void Start()
     {
-        foreach (EnemyAbstract enemy in enemyTypesToSpawn)
-        {
-            activeEnemies[enemy] = new List<EnemyAbstract>();
-        }
+        
     }
+
+    private void OnEnable()
+    {
+        eventBroker.Subscribe<GameEvents.StartGame>(StartGameHandler);
+        eventBroker.Subscribe<GameEvents.EndGame>(EndGameHandler);
+        eventBroker.Subscribe<PlayerEvents.Die>(PlayerDieHandler);
+    }
+    private void OnDisable()
+    {
+        eventBroker.Unsubscribe<GameEvents.StartGame>(StartGameHandler);
+        eventBroker.Unsubscribe<GameEvents.EndGame>(EndGameHandler);
+        eventBroker.Unsubscribe<PlayerEvents.Die>(PlayerDieHandler);
+    }
+
+   
 
     // Update is called once per frame
     void Update()
@@ -35,6 +48,48 @@ public class EnemyManager : MonoBehaviour
         SpawnEnemies();
         CullOutOfBounds();
     }
+
+    private void EndGameHandler(BrokerEvent<GameEvents.EndGame> @event)
+    {
+        gameStarted = false;
+    }
+
+    private void PlayerDieHandler(BrokerEvent<PlayerEvents.Die> @event)
+    {
+        CleanUp();
+        gameStarted = false;
+    }
+
+    private void StartGameHandler(BrokerEvent<GameEvents.StartGame> @event)
+    {
+        enemiesKilled = 0;
+        gameTime = 0;
+        enemiesSpawned = 0;
+        activeEnemies = new Dictionary<EnemyAbstract, List<EnemyAbstract>>();
+
+        foreach (EnemyAbstract enemy in enemyTypesToSpawn)
+        {
+            activeEnemies[enemy] = new List<EnemyAbstract>();
+        }
+
+        CleanUp();
+        
+        gameStarted = true;
+    }
+
+    private void CleanUp()
+    {
+        foreach (EnemyAbstract enemy in FindObjectsByType<EnemyAbstract>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID))
+        {
+            Destroy(enemy.gameObject);
+        }
+
+        foreach (EnemyAttackObject enemy in FindObjectsByType<EnemyAttackObject>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID))
+        {
+            Destroy(enemy.gameObject);
+        }
+    }
+    
 
     private void ScaleDifficulty()
     {
