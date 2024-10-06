@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private Animator upgradePopup;
 	[SerializeField] private Animator levelUpPopup;
 	[SerializeField] private Animator levelUpPopup2;
+	[SerializeField] private GameObject pausePanel;
 
 	[SerializeField, Header("End UI")] private GameObject endPanel;
 	[SerializeField] private TMP_Text endFinalScore;
@@ -165,12 +166,14 @@ public class UIManager : MonoBehaviour
 		if (Time.timeScale == 1f)
 		{
 			gameplayPauseButton.GetComponent<Image>().sprite = pauseOff;
+			pausePanel.SetActive(true);
 			Time.timeScale = 0f;
 			
 		}
 		else
 		{
 			gameplayPauseButton.GetComponent<Image>().sprite = pauseOn;
+			pausePanel.SetActive(false);
 			Time.timeScale = 1f;
 		}
 	}
