@@ -15,6 +15,16 @@ public class PlayerEvents
 		public readonly int Amount;
 	}
 
+	public class Heal
+	{
+		public Heal(int amount)
+		{
+			Amount = amount;
+		}
+
+		public readonly int Amount;
+	}
+
 	public class Die
 	{
 		public Die(int numBunny, int numChicken, int numCrab, int numFrog, int numShark, int numSquid, int numHippo)

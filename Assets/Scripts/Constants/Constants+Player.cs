@@ -1,5 +1,4 @@
 
-
 public partial class Constants
 {
 	public static class Player
@@ -18,6 +17,8 @@ public partial class Constants
 		public const float ScoreMultiplierIncrement = 0.25f;
 
 		public const int NumToUpgrade = 3;
+
+		public const float ScoreEarnedOnGrab = 10f;
 	}
 
 	public static class Claw
