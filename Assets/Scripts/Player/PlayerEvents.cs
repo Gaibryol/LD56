@@ -81,11 +81,13 @@ public class PlayerEvents
 
 	public class Upgrade
 	{
-		public Upgrade(List<int> indexes)
+		public Upgrade(List<int> indexes, Constants.Enemy.EnemyType type)
 		{
 			Indexes = indexes;
+			Type = type;
 		}
 
 		public readonly List<int> Indexes;
+		public readonly Constants.Enemy.EnemyType Type;
 	}
 }

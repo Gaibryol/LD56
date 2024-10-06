@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
 		isPlaying = false;
 
 		// Check for highscore
-		if (PlayerPrefs.GetFloat(Constants.Game.HighscorePP, 0f) > score)
+		if (PlayerPrefs.GetFloat(Constants.Game.HighscorePP, 0f) < score)
 		{
 			// New highscore
 			PlayerPrefs.SetFloat(Constants.Game.HighscorePP, score);
