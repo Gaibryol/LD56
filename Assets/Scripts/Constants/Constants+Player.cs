@@ -23,7 +23,7 @@ public partial class Constants
 
 	public static class Claw
 	{
-		public const int BaseNumBulletBlocks = 1;
+		public const int BaseNumBulletBlocks = 0;
 		public const float BaseClawDistance = 3f;
 		public const float BaseClawSpeed = 5f;
 

@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
 		{
 			passengerSpots[i].sprite = null;
 		}
-		passengers = new List<Constants.Enemy.EnemyType>() { Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None };
+		passengers = new List<Constants.Enemy.EnemyType>() { Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None };
 	}
 
     // Update is called once per frame
@@ -308,6 +308,29 @@ public class PlayerController : MonoBehaviour
 					passengerSpots[index].sprite = null;
 				}
 			}
+
+			// Check for big rainbow attack
+			bool hasBunny = false;
+			bool hasChicken = false;
+			bool hasCrab = false;
+			bool hasFrog = false;
+			bool hasHippo = false;
+			bool hasShark = false;
+			bool hasSquid = false;
+
+			hasBunny = passengers.Contains(Constants.Enemy.EnemyType.Bunny);
+			hasChicken = passengers.Contains(Constants.Enemy.EnemyType.Chicken);
+			hasCrab = passengers.Contains(Constants.Enemy.EnemyType.Crab);
+			hasFrog = passengers.Contains(Constants.Enemy.EnemyType.Frog);
+			hasHippo = passengers.Contains(Constants.Enemy.EnemyType.Hippo);
+			hasShark = passengers.Contains(Constants.Enemy.EnemyType.Shark);
+			hasSquid = passengers.Contains(Constants.Enemy.EnemyType.Squid);
+
+			if (hasBunny && hasChicken && hasCrab && hasFrog && hasHippo && hasShark && hasSquid)
+			{
+				// Rainbow attack
+				Debug.Log("rainbow attack");
+			}
 		}
 		else
 		{
@@ -458,7 +481,7 @@ public class PlayerController : MonoBehaviour
 		{
 			passengerSpots[i].sprite = null;
 		}
-		passengers = new List<Constants.Enemy.EnemyType>() { Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None };
+		passengers = new List<Constants.Enemy.EnemyType>() { Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None, Constants.Enemy.EnemyType.None };
 
 		// Reset player
 		transform.position = Vector3.zero;

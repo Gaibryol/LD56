@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c19cb3a19b46044a27703796c1530b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 3
   CurrentlyAttacking: 0
   attackObjectToSpawn: {fileID: 396430095683714208, guid: a1021f01279ed4b49ae9bc694d10ff09, type: 3}
   numberOfProjectiles: 10

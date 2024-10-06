@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24cbb746fbe6ddf47895b86441203a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 30
+  lifeTime: 15
   EnemyAttackBehaviour: {fileID: 1844134365622346857}
   animator: {fileID: 3512051724706057254}
 --- !u!58 &3479421745748644379

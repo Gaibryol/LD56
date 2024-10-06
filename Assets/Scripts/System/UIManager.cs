@@ -42,6 +42,11 @@ public class UIManager : MonoBehaviour
     void Start()
     {
 		InitHealthbar();
+
+		mainMenuPanel.SetActive(true);
+		creditsPanel.SetActive(false);
+		gameplayPanel.SetActive(false);
+		endPanel.SetActive(false);
 	}
 
 	private void InitHealthbar()

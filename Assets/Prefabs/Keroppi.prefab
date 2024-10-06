@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d934df084e3fa74d8a94874c65a6501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 0.09
   repetitions: 5
   spiral: 7
   size: 1
@@ -216,6 +216,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8455439794779411769}
     m_Modifications:
+    - target: {fileID: 88869238097609204, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
+      propertyPath: maxScale
+      value: 7.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1180174350477264375, guid: e3fb35d27a6c5de44a3fa141f5c0efa0, type: 3}
       propertyPath: m_Name
       value: AO_FrogTongue
