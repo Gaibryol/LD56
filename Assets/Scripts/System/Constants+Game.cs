@@ -30,5 +30,28 @@ public partial class Constants
 			Easy,
 			Hard
 		}
+
+		public static class LoverSeries
+		{
+			public static int CountThreshold = 30;
+			public static string Key = "A_LS_";
+			public static string GetKeyForEnemyType(Enemy.EnemyType enemyType)
+			{
+				return Key + enemyType.ToString();
+			}
+		}
+
+		public static class SurvivalSeries
+		{
+			public static int FirstThreshold = 5000;
+			public static int SecondThreshold = 10000;
+			public static int ThirdThreshold = 20000;
+
+			public static string ThresholdKey = "A_SS_";
+			public static string GetKeyFromThreshold(int threshold)
+			{
+				return ThresholdKey + threshold.ToString();
+			}
+		}
 	}
 }

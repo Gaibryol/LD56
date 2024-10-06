@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
 	private Coroutine scoreCoroutine;
 
+	private float startTime;
+
 	private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
 
     // Start is called before the first frame update
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
 		isPlaying = false;
 		score = 0f;
+        startTime = 0;
 		scoreMultiplier = Constants.Player.BaseScoreMultiplier;
 
 		eventBroker.Publish(this, new AudioEvents.PlayMusic(Constants.Audio.Music.MainMenuTheme));
@@ -38,6 +41,7 @@ public class GameManager : MonoBehaviour
 		score = 0f;
 		scoreMultiplier = Constants.Player.BaseScoreMultiplier;
 		isPlaying = true;
+		startTime = Time.time;
 		scoreCoroutine = StartCoroutine(IncrementScore());
 	}
 
@@ -64,11 +68,11 @@ public class GameManager : MonoBehaviour
 			PlayerPrefs.SetFloat(Constants.Game.HighscorePP, score);
 			PlayerPrefs.Save();
 
-			eventBroker.Publish(this, new GameEvents.EndGame(score, true));
+			eventBroker.Publish(this, new GameEvents.EndGame(score, true, Time.time - startTime));
 		}
 		else
 		{
-			eventBroker.Publish(this, new GameEvents.EndGame(score, false));
+			eventBroker.Publish(this, new GameEvents.EndGame(score, false, Time.time - startTime));
 		}
 	}
 
