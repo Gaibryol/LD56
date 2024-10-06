@@ -142,6 +142,7 @@ public class PlayerController : MonoBehaviour
 	{
 		StartCoroutine(RainbowMoveLockout());
 		eventBroker.Publish(this, new GameEvents.EarnScore(Constants.RainbowAttack.ScoreEarnedOnAttack));
+		eventBroker.Publish(this, new PlayerEvents.RainbowAttack());
 
 		// Rainbow attack
 		for (int i = 0; i < Constants.RainbowAttack.NumWaves; i++)

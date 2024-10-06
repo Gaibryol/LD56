@@ -293,11 +293,20 @@ public class UIManager : MonoBehaviour
 		endNumSquid.text = "x " + inEvent.Payload.NumSquid.ToString();
 	}
 
+	private void HandleRainbowAttack(BrokerEvent<PlayerEvents.RainbowAttack> inEvent)
+	{
+		for (int i = 0; i < gameplayAnims.Count; i++)
+		{
+			gameplayAnims[i].SetTrigger(Constants.Game.UpgradeAnimTrigger);
+		}
+	}
+
 	private void OnEnable()
 	{
 		eventBroker.Subscribe<GameEvents.EndGame>(HandleEndGame);
 		eventBroker.Subscribe<PlayerEvents.Die>(HandlePlayerDie);
 		eventBroker.Subscribe<PlayerEvents.Upgrade>(HandlePlayerUpgrade);
+		eventBroker.Subscribe<PlayerEvents.RainbowAttack>(HandleRainbowAttack);
 
 		mainMenuStartButton.onClick.AddListener(OnStartButton);
         mainMenuAchievementButton.onClick.AddListener(OnAchievementsButton);
@@ -320,6 +329,7 @@ public class UIManager : MonoBehaviour
 		eventBroker.Unsubscribe<GameEvents.EndGame>(HandleEndGame);
 		eventBroker.Unsubscribe<PlayerEvents.Die>(HandlePlayerDie);
 		eventBroker.Unsubscribe<PlayerEvents.Upgrade>(HandlePlayerUpgrade);
+		eventBroker.Unsubscribe<PlayerEvents.RainbowAttack>(HandleRainbowAttack);
 
 		mainMenuStartButton.onClick.RemoveListener(OnStartButton);
         mainMenuAchievementButton.onClick.RemoveListener(OnAchievementsButton);

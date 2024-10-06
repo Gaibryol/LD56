@@ -90,4 +90,9 @@ public class PlayerEvents
 		public readonly List<int> Indexes;
 		public readonly Constants.Enemy.EnemyType Type;
 	}
+
+	public class RainbowAttack
+	{
+		public RainbowAttack() { }
+	}
 }
