@@ -69,6 +69,7 @@ public class UIManager : MonoBehaviour
 		creditsPanel.SetActive(false);
 		gameplayPanel.SetActive(false);
 		endPanel.SetActive(false);
+		pausePanel.SetActive(false);
 	}
 
 	private void Update()
@@ -109,6 +110,7 @@ public class UIManager : MonoBehaviour
 		creditsPanel.SetActive(false);
 		gameplayPanel.SetActive(true);
 		endPanel.SetActive(false);
+		pausePanel.SetActive(false);
 
 		eventBroker.Publish(this, new GameEvents.StartGame());
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
@@ -120,6 +122,7 @@ public class UIManager : MonoBehaviour
 		creditsPanel.SetActive(false);
 		gameplayPanel.SetActive(false);
 		endPanel.SetActive(false);
+		pausePanel.SetActive(false);
 
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
@@ -130,6 +133,7 @@ public class UIManager : MonoBehaviour
 		creditsPanel.SetActive(true);
 		gameplayPanel.SetActive(false);
 		endPanel.SetActive(false);
+		pausePanel.SetActive(false);
 
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
@@ -140,6 +144,7 @@ public class UIManager : MonoBehaviour
 		creditsPanel.SetActive(false);
 		gameplayPanel.SetActive(true);
 		endPanel.SetActive(false);
+		pausePanel.SetActive(false);
 
 		eventBroker.Publish(this, new GameEvents.StartGame());
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
