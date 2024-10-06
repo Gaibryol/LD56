@@ -11,6 +11,9 @@ public abstract class EnemyAbstract : MonoBehaviour
     [SerializeField] private bool canMoveWhileAttacking = true;
     private bool captured;
 
+    protected Animator animator;
+    protected SpriteRenderer spriteRenderer;
+
     protected virtual void Awake()
     {
         moveBehaviour = GetComponent<EnemyMoveBehaviour>();
@@ -19,7 +22,8 @@ public abstract class EnemyAbstract : MonoBehaviour
 
     protected virtual void Start()
     {
-
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -50,6 +54,7 @@ public abstract class EnemyAbstract : MonoBehaviour
 
     public virtual float OnAttack()
     {
+        spriteRenderer.flipX = transform.position.x < Camera.main.transform.position.x;
         return 0;
     }
 }

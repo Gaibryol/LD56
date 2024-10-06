@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class Frog : EnemyAbstract
 {
-    private Animator animator;
 
 
     protected override void Start()
     {
         base.Start();
-        animator = GetComponent<Animator>();
     }
 
 
     public override float OnAttack()
     {
+        base.OnAttack();
         return .8f;
     }
 
