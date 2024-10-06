@@ -302,7 +302,7 @@ public class PlayerController : MonoBehaviour
 				// Upgrade
 				Upgrade(enemyType);
 
-				eventBroker.Publish(this, new PlayerEvents.Upgrade(indexes));
+				eventBroker.Publish(this, new PlayerEvents.Upgrade(indexes, enemyType));
 
 				// Remove passengers
 				foreach (int index in indexes)
@@ -385,7 +385,7 @@ public class PlayerController : MonoBehaviour
 				// Upgrade
 				Upgrade(enemyType);
 
-				eventBroker.Publish(this, new PlayerEvents.Upgrade(indexes));
+				eventBroker.Publish(this, new PlayerEvents.Upgrade(indexes, enemyType));
 
 				// Remove passengers
 				foreach (int index in indexes)

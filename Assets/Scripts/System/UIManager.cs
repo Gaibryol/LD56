@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private TMP_Text scoreText;
 	[SerializeField] private TMP_Text scoreMultiplierText;
 	[SerializeField] private TMP_Text heartsText;
+	[SerializeField] private TMP_Text highscoreText;
 	[SerializeField] private Button gameplayPauseButton;
 	[SerializeField] private Button gameplayMusicButton;
 	[SerializeField] private Button gameplaySFXButton;
@@ -29,6 +30,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private Sprite sfxOff;
 	[SerializeField] private List<Image> gameplaySlots;
 	[SerializeField] private List<Animator> gameplayAnims;
+	[SerializeField] private Animator upgradePopup;
 
 	[SerializeField, Header("End UI")] private GameObject endPanel;
 	[SerializeField] private TMP_Text endFinalScore;
@@ -57,6 +59,9 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		float highscore = PlayerPrefs.GetFloat(Constants.Game.HighscorePP, 0f);
+		highscoreText.text = highscore.ToString();
+
 		mainMenuPanel.SetActive(true);
 		creditsPanel.SetActive(false);
 		gameplayPanel.SetActive(false);
@@ -94,6 +99,9 @@ public class UIManager : MonoBehaviour
 
 	private void OnStartButton()
 	{
+		float highscore = PlayerPrefs.GetFloat(Constants.Game.HighscorePP, 0f);
+		highscoreText.text = highscore.ToString();
+
 		mainMenuPanel.SetActive(false);
 		creditsPanel.SetActive(false);
 		gameplayPanel.SetActive(true);
@@ -172,11 +180,62 @@ public class UIManager : MonoBehaviour
 		{
 			gameplayAnims[i].SetTrigger(Constants.Game.UpgradeAnimTrigger);
 		}
+
+		StartCoroutine(UpgradePopup(inEvent.Payload.Type));
+	}
+
+	private IEnumerator UpgradePopup(Constants.Enemy.EnemyType enemyType)
+	{
+		Color onColor = upgradePopup.GetComponent<Image>().color;
+		onColor.a = 1f;
+		upgradePopup.GetComponent<Image>().color = onColor;
+
+		switch (enemyType)
+		{
+			case Constants.Enemy.EnemyType.Bunny:
+				upgradePopup.SetTrigger(Constants.UI.UpgradePopups.ClawLength);
+				break;
+
+			case Constants.Enemy.EnemyType.Chicken:
+				upgradePopup.SetTrigger(Constants.UI.UpgradePopups.ScoreMultiplier);
+				break;
+
+			case Constants.Enemy.EnemyType.Crab:
+				upgradePopup.SetTrigger(Constants.UI.UpgradePopups.ClawDefense);
+				break;
+
+			case Constants.Enemy.EnemyType.Frog:
+				upgradePopup.SetTrigger(Constants.UI.UpgradePopups.ClawSpeed);
+				break;
+
+			case Constants.Enemy.EnemyType.Hippo:
+				upgradePopup.SetTrigger(Constants.UI.UpgradePopups.Hearts);
+				break;
+
+			case Constants.Enemy.EnemyType.Shark:
+				upgradePopup.SetTrigger(Constants.UI.UpgradePopups.MoveSpeed);
+				break;
+
+			case Constants.Enemy.EnemyType.Squid:
+				upgradePopup.SetTrigger(Constants.UI.UpgradePopups.Invulnerability);
+				break;
+		}
+
+		yield return new WaitForSeconds(0.5f);
+
+		Color offColor = upgradePopup.GetComponent<Image>().color;
+		offColor.a = 0f;
+		upgradePopup.GetComponent<Image>().color = offColor;
 	}
 
 	private void HandleEndGame(BrokerEvent<GameEvents.EndGame> inEvent)
 	{
 		endFinalScore.text = inEvent.Payload.FinalScore.ToString();
+
+		if (inEvent.Payload.IsHighscore)
+		{
+			highscoreText.text = inEvent.Payload.FinalScore.ToString();
+		}
 
 		endPanel.SetActive(true);
 		gameplayPanel.SetActive(false);
