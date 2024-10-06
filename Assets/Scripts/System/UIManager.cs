@@ -148,7 +148,7 @@ public class UIManager : MonoBehaviour
 	{
 		eventBroker.Publish(this, new AudioEvents.ToggleSFX((newState) => 
 		{
-			gameplaySFXButton.GetComponent<Image>().sprite = newState ? sfxOn : sfxOff;
+			gameplaySFXButton.GetComponent<Image>().sprite = newState ? sfxOff : sfxOn;
 		}));
 	}
 
@@ -156,7 +156,7 @@ public class UIManager : MonoBehaviour
 	{
 		eventBroker.Publish(this, new AudioEvents.ToggleMusic((newState) => 
 		{
-			gameplayMusicButton.GetComponent<Image>().sprite = newState ? musicOn : musicOff;
+			gameplayMusicButton.GetComponent<Image>().sprite = newState ? musicOff : musicOn;
 		}));
 	}
 
@@ -277,8 +277,8 @@ public class UIManager : MonoBehaviour
 		gameplayMusicButton.onClick.AddListener(OnMusicButton);
 		gameplaySFXButton.onClick.AddListener(OnSFXButton);
 
-		gameplayMusicButton.GetComponent<Image>().sprite = PlayerPrefs.GetFloat(Constants.Audio.MusicVolumePP, Constants.Audio.DefaultMusicVolume) != 0 ? musicOn : musicOff;
-		gameplaySFXButton.GetComponent<Image>().sprite = PlayerPrefs.GetFloat(Constants.Audio.SFXVolumePP, Constants.Audio.DefaultSFXVolume) != 0 ? sfxOn : sfxOff;
+		gameplayMusicButton.GetComponent<Image>().sprite = PlayerPrefs.GetInt(Constants.Audio.MusicMutedPP, 0) == 1 ? musicOff : musicOn;
+		gameplaySFXButton.GetComponent<Image>().sprite = PlayerPrefs.GetInt(Constants.Audio.SFXMutedPP, 0) == 1 ? sfxOff : sfxOn;
 	}
 
 	private void OnDisable()

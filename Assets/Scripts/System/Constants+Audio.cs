@@ -8,6 +8,8 @@ public partial class Constants
 	{
 		public const string MusicVolumePP = "Music";
 		public const string SFXVolumePP = "SFX";
+		public const string MusicMutedPP = "MusicMuted";
+		public const string SFXMutedPP = "SFXMuted";
 
 		public const float DefaultMusicVolume = 0.25f;
 		public const float DefaultSFXVolume = 0.25f;

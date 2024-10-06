@@ -109,20 +109,20 @@ public class AudioManager : MonoBehaviour
 
 	private void ToggleSFXHandler(BrokerEvent<AudioEvents.ToggleSFX> inEvent)
 	{
-		musicSource.mute = !musicSource.mute;
-		PlayerPrefs.SetFloat(Constants.Audio.MusicVolumePP, musicSource.mute ? 0 : musicSource.volume);
+		sfxSource.mute = !sfxSource.mute;
+		PlayerPrefs.SetInt(Constants.Audio.SFXMutedPP, sfxSource.mute ? 1 : 0);
 		PlayerPrefs.Save();
 
-		inEvent.Payload.ProcessNewState.DynamicInvoke(musicSource.mute);
+		inEvent.Payload.ProcessNewState.DynamicInvoke(sfxSource.mute);
 	}
 
 	private void ToggleMusicHandler(BrokerEvent<AudioEvents.ToggleMusic> inEvent)
 	{
-		sfxSource.mute = !sfxSource.mute;
-		PlayerPrefs.SetFloat(Constants.Audio.SFXVolumePP, sfxSource.mute ? 0 : sfxSource.volume);
+		musicSource.mute = !musicSource.mute;
+		PlayerPrefs.SetInt(Constants.Audio.MusicMutedPP, musicSource.mute ? 1 : 0);
 		PlayerPrefs.Save();
 
-		inEvent.Payload.ProcessNewState.DynamicInvoke(sfxSource.mute);
+		inEvent.Payload.ProcessNewState.DynamicInvoke(musicSource.mute);
 	}
 
 	private void PlayMusic(string song, float time = 0f, bool loop = true)
@@ -197,13 +197,16 @@ public class AudioManager : MonoBehaviour
 		eventBrokerComponent.Subscribe<AudioEvents.ToggleMusic>(ToggleMusicHandler);
 		eventBrokerComponent.Subscribe<AudioEvents.ToggleSFX>(ToggleSFXHandler);
 
-		float musicLevel = PlayerPrefs.GetFloat(Constants.Audio.MusicVolumePP, Constants.Audio.DefaultMusicVolume);
-		float sfxLevel = PlayerPrefs.GetFloat(Constants.Audio.SFXVolumePP, Constants.Audio.DefaultSFXVolume);
+		//float musicLevel = PlayerPrefs.GetFloat(Constants.Audio.MusicVolumePP, Constants.Audio.DefaultMusicVolume);
+		//float sfxLevel = PlayerPrefs.GetFloat(Constants.Audio.SFXVolumePP, Constants.Audio.DefaultSFXVolume);
 
-		musicVolume = musicLevel;
-		sfxVolume = sfxLevel;
-		musicSource.volume = musicLevel;
-		sfxSource.volume = sfxLevel;
+		//musicVolume = musicLevel;
+		//sfxVolume = sfxLevel;
+		musicSource.volume = Constants.Audio.DefaultMusicVolume;
+		sfxSource.volume = Constants.Audio.DefaultSFXVolume;
+
+		musicSource.mute = PlayerPrefs.GetInt(Constants.Audio.MusicMutedPP) == 1;
+		sfxSource.mute = PlayerPrefs.GetInt(Constants.Audio.SFXMutedPP) == 1;
 	}
 
 	private void OnDisable()
