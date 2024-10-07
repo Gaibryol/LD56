@@ -150,6 +150,7 @@ public class EnemyManager : MonoBehaviour
 					{
 						enemiesKilled++;
 					}
+                    enemiesSpawned--;
                     continue;
                 }
                 if (EnemyUtilities.OutOfBounds(enemy.transform.position, Constants.EnemyManager.maxValidDistanceAwayFromScreen))
@@ -158,9 +159,11 @@ public class EnemyManager : MonoBehaviour
                     keyValuePair.Value.RemoveAt(i);
                     enemiesSpawned--;
                 }
+
             }
         }
     }
+
 
     private void SpawnEnemies()
     {
