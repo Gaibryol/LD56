@@ -3,13 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Achivement : MonoBehaviour
 {
     protected Constants.Difficulty achievementDifficulty;
     [SerializeField] protected string achievementKey;
     [SerializeField] private bool displayMax;
-    [SerializeField] private GameObject obtainedBadge;
+
+    [SerializeField] TMP_Text scoreText;
+
+    [SerializeField] private Image rowImage;
+    [SerializeField] private Sprite rowSpriteLocked;
+    [SerializeField] private Sprite rowSpriteUnlocked;
 
     [SerializeField] private Image icon;
     [SerializeField] private Sprite iconEmpty;
@@ -33,6 +39,7 @@ public class Achivement : MonoBehaviour
     private void OnAchievementButtonPressed(BrokerEvent<GameEvents.NotifyAchievementButtonPressed> @event)
     {
         achievementDifficulty = @event.Payload.Difficulty;
+        UpdateAchievement();
     }
 
     private void UpdateAchievement()
@@ -41,20 +48,23 @@ public class Achivement : MonoBehaviour
         bool hasKey = PlayerPrefs.HasKey(key);
         if (!hasKey)
         {
+            rowImage.sprite = rowSpriteLocked;
             icon.sprite = iconEmpty;
-            if (obtainedBadge != null)
-            {
-                obtainedBadge.SetActive(false);
-            }
+            scoreText.text = "";
             return;
         }
 
-        icon.sprite = iconFilled;
-        if (obtainedBadge != null)
+        float value = PlayerPrefs.GetFloat(key);
+        if (displayMax)
         {
-            obtainedBadge.SetActive(true);
+            scoreText.text = "Score " + value;
+        } else
+        {
+            scoreText.text = "";
         }
 
-        float value = PlayerPrefs.GetFloat(key);
+        rowImage.sprite = rowSpriteUnlocked;
+        icon.sprite = iconFilled;
+
     }
 }

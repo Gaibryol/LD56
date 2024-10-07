@@ -72,8 +72,12 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private Button achievementEasyButton;
 	[SerializeField] private GameObject achievementListContent;
 	[SerializeField] private GameObject achievementListItemPrefab;
+	[SerializeField] private Sprite normalButton;
+	[SerializeField] private Sprite normalButtonActive;
+    [SerializeField] private Sprite hardButton;
+    [SerializeField] private Sprite hardButtonActive;
 
-	private Coroutine healthWarningCoroutine;
+    private Coroutine healthWarningCoroutine;
 	private Coroutine upgradeCoroutine;
 
 	private Constants.Difficulty lastDifficulty;
@@ -264,12 +268,16 @@ public class UIManager : MonoBehaviour
 
 	private void OnAchievementsEasyButtion()
 	{
+		achievementEasyButton.GetComponent<Image>().sprite = normalButtonActive;
+		achievementHardButton.GetComponent<Image>().sprite = hardButton;
         eventBroker.Publish(this, new GameEvents.NotifyAchievementButtonPressed(Constants.Difficulty.Easy));
         eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
     }
 
     private void OnAchievementsHardButtion()
     {
+        achievementEasyButton.GetComponent<Image>().sprite = normalButton;
+        achievementHardButton.GetComponent<Image>().sprite = hardButtonActive;
         eventBroker.Publish(this, new GameEvents.NotifyAchievementButtonPressed(Constants.Difficulty.Hard));
         eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
     }
