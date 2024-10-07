@@ -7,6 +7,9 @@ public class AO_ChickenEgg : AO_Persistent
     [SerializeField] private EnemyAttackBehaviour EnemyAttackBehaviour;
     [SerializeField] private Animator animator;
     private bool exploded;
+
+	private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
+
     protected override void Start()
     {
         base.Start();
@@ -17,7 +20,8 @@ public class AO_ChickenEgg : AO_Persistent
         base.Update();
         if (exploded && !EnemyAttackBehaviour.CurrentlyAttacking)
         {
-            Destroy(gameObject);
+			eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.EggCountdown));
+			Destroy(gameObject);
         }
     }
     protected override void OnLifeSpanEnded()
@@ -25,12 +29,13 @@ public class AO_ChickenEgg : AO_Persistent
         // Explode
         EnemyAttackBehaviour.QueueAttack(StartAnimation);
         exploded = true;
-        //base.OnLifeSpanEnded();
-    }
+		//base.OnLifeSpanEnded();
+	}
 
     private float StartAnimation()
     {
         animator.SetTrigger("Explode");
-        return .5f;
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.EggCountdown));
+		return .5f;
     }
 }
