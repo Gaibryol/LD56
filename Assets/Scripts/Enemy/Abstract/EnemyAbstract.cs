@@ -65,12 +65,24 @@ public abstract class EnemyAbstract : MonoBehaviour
 				eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.BunnyShoot));
 				break;
 
+			case Constants.Enemy.EnemyType.Chicken:
+				eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.EggLaid));
+				break;
+
+			case Constants.Enemy.EnemyType.Crab:
+				eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.CrabGun));
+				break;
+
 			case Constants.Enemy.EnemyType.Frog:
 				eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.FrogTongue));
 				break;
 
 			case Constants.Enemy.EnemyType.Hippo:
 				eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.HippoBurst));
+				break;
+
+			case Constants.Enemy.EnemyType.Shark:
+				eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.SharkSpray));
 				break;
 
 			case Constants.Enemy.EnemyType.Squid:

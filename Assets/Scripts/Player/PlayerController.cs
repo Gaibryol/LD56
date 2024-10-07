@@ -162,6 +162,7 @@ public class PlayerController : MonoBehaviour
 		StartCoroutine(RainbowMoveLockout());
 		eventBroker.Publish(this, new GameEvents.EarnScore(Constants.RainbowAttack.ScoreEarnedOnAttack));
 		eventBroker.Publish(this, new PlayerEvents.RainbowAttack());
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.RainbowAttack));
 
 		// Rainbow attack
 		for (int i = 0; i < Constants.RainbowAttack.NumWaves; i++)
@@ -395,6 +396,7 @@ public class PlayerController : MonoBehaviour
 				// Upgrade
 				Upgrade(enemyType);
 
+				eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.Upgrade));
 				eventBroker.Publish(this, new PlayerEvents.Upgrade(indexes, enemyType));
 
 				// Remove passengers
@@ -478,6 +480,7 @@ public class PlayerController : MonoBehaviour
 				// Upgrade
 				Upgrade(enemyType);
 
+				eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.Upgrade));
 				eventBroker.Publish(this, new PlayerEvents.Upgrade(indexes, enemyType));
 
 				// Remove passengers

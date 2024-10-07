@@ -21,6 +21,13 @@ public class AudioManager : MonoBehaviour
 	[SerializeField] private AudioClip playerDie;
 	[SerializeField] private AudioClip playerHit;
 	[SerializeField] private AudioClip squidInk;
+	[SerializeField] private AudioClip sharkSpray;
+	[SerializeField] private AudioClip crabGun;
+	[SerializeField] private AudioClip eggLaid;
+	[SerializeField] private AudioClip eggsplosion;
+	[SerializeField] private AudioClip eggCountdown;
+	[SerializeField] private AudioClip upgrade;
+	[SerializeField] private AudioClip rainbowAttack;
 
 	private float musicVolume;
 	private float sfxVolume;
@@ -50,6 +57,13 @@ public class AudioManager : MonoBehaviour
 		sfx.Add(Constants.Audio.SFX.PlayerDie, playerDie);
 		sfx.Add(Constants.Audio.SFX.PlayerHit, playerHit);
 		sfx.Add(Constants.Audio.SFX.SquidInk, squidInk);
+		sfx.Add(Constants.Audio.SFX.SharkSpray, sharkSpray);
+		sfx.Add(Constants.Audio.SFX.CrabGun, crabGun);
+		sfx.Add(Constants.Audio.SFX.EggLaid, eggLaid);
+		sfx.Add(Constants.Audio.SFX.Eggsplosion, eggsplosion);
+		sfx.Add(Constants.Audio.SFX.EggCountdown, eggCountdown);
+		sfx.Add(Constants.Audio.SFX.Upgrade, upgrade);
+		sfx.Add(Constants.Audio.SFX.RainbowAttack, rainbowAttack);
 	}
 
 	private void ChangeMusicVolumeHandler(BrokerEvent<AudioEvents.ChangeMusicVolume> inEvent)

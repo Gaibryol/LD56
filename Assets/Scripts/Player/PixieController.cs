@@ -56,4 +56,12 @@ public class PixieController : MonoBehaviour
 			eventBroker.Publish(this, new PlayerEvents.Damage(1));
 		}
 	}
+
+	private void OnTriggerStay2D(Collider2D collision)
+	{
+		if ((collision.GetComponent<EnemyAbstract>() != null || collision.tag == "Enemy") && !isInvulnerable && collision.gameObject != grabbedCreature)
+		{
+			eventBroker.Publish(this, new PlayerEvents.Damage(1));
+		}
+	}
 }

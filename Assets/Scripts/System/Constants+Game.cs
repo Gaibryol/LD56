@@ -33,6 +33,10 @@ public partial class Constants
 			public const string ScoreMultiplier = "ScoreMultiplier";
 			public const string LevelUp = "LevelUp";
 		}
+
+		public const float HealthWarningFlashSpeed = 0.8f;
+		public const float HealthWarningMinAlpha = 0.25f;
+		public const float HealthWarningMaxAlpha = 0.75f;
 	}
 
 	public static class Achievements
