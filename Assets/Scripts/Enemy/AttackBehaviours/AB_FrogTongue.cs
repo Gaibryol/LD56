@@ -6,12 +6,14 @@ public class AB_FrogTongue : EnemyAttackBehaviour
 {
     [SerializeField] private AO_FrogTongue frogTongue;
 
+	private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
+
     public override IEnumerator Attack(TriggerAnimation triggerAnimation)
     {
         yield return base.Attack(triggerAnimation);
         frogTongue.Begin();
-
-        yield return null;
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.FrogTongue));
+		yield return null;
     }
 
     protected override void Update()
