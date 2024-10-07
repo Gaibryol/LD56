@@ -117,17 +117,6 @@ public class PlayerController : MonoBehaviour
 
 		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 		claw.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90f));
-
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			// Rainbow attack
-			StartCoroutine(RainbowAttack());
-		}
-		if (Input.GetKeyDown(KeyCode.Alpha1))
-		{
-			health += Constants.Player.HealthIncrement;
-			eventBroker.Publish(this, new PlayerEvents.Heal(Constants.Player.HealthIncrement));
-		}
     }
 
 	private void FixedUpdate()
