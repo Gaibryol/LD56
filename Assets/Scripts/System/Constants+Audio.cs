@@ -11,8 +11,8 @@ public partial class Constants
 		public const string MusicMutedPP = "MusicMuted";
 		public const string SFXMutedPP = "SFXMuted";
 
-		public const float DefaultMusicVolume = 0.25f;
-		public const float DefaultSFXVolume = 0.25f;
+		public const float DefaultMusicVolume = 0.05f;
+		public const float DefaultSFXVolume = 0.05f;
 
 		public const float MusicFadeSpeed = 0.1f;
 

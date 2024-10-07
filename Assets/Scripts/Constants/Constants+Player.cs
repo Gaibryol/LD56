@@ -10,6 +10,7 @@ public partial class Constants
 		public const float BaseMoveSpeed = 3f;
 		public const float BaseInvulnerabilityDuration = 1.5f;
 		public const float BaseScoreMultiplier = 1f;
+		public const float BaseScoreMultiplierHard = 2f;
 
 		public const float InvulnerableTick = 0.2f;
 		public const float InvulnerableAlpha = 0.25f;

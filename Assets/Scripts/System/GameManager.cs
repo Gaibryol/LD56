@@ -39,7 +39,16 @@ public class GameManager : MonoBehaviour
 	private void HandleStartGame(BrokerEvent<GameEvents.StartGame> inEvent)
 	{
 		score = 0f;
-		scoreMultiplier = Constants.Player.BaseScoreMultiplier;
+		
+		if (inEvent.Payload.Difficulty == Constants.Difficulty.Easy)
+		{
+			scoreMultiplier = Constants.Player.BaseScoreMultiplier;
+		}
+		else if (inEvent.Payload.Difficulty == Constants.Difficulty.Hard)
+		{
+			scoreMultiplier = Constants.Player.BaseScoreMultiplierHard;
+		}
+
 		isPlaying = true;
 		startTime = Time.time;
 		scoreCoroutine = StartCoroutine(IncrementScore());

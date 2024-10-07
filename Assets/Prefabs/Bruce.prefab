@@ -122,10 +122,12 @@ MonoBehaviour:
   timeBetweenAttacks: 2
   CurrentlyAttacking: 0
   attackObjectToSpawn: {fileID: 396430095683714208, guid: 976c40aab3d62b54095cb1c8ec3e39db, type: 3}
-  numberOfProjectiles: 10
+  numberOfProjectiles: 8
   angle: 60
   radius: 0.4
-  delayBetweenProjectiles: 0.1
+  delayBetweenProjectiles: 0.12
+  originTransform: {fileID: 0}
+  targetTransform: {fileID: 0}
 --- !u!61 &7500244063444422099
 BoxCollider2D:
   m_ObjectHideFlags: 0
