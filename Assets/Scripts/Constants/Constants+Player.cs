@@ -23,6 +23,9 @@ public partial class Constants
 
 		public const float ScoreEarnedOnGrab = 500f;
 		public const float ScoreEarnedPerSecond = 100f;
+
+		public const float ScreenShakeAmount = 0.02f;
+		public const float ScreenShakeDuration = 0.5f;
 	}
 
 	public static class Claw

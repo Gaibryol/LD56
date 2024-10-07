@@ -138,6 +138,25 @@ public class PlayerController : MonoBehaviour
 		rbody.velocity = move.ReadValue<Vector2>() * moveSpeed;
 	}
 
+	private IEnumerator ShakeCamera()
+	{
+		Vector3 originalPosition = Camera.main.transform.localPosition;
+
+		float timer = 0f;
+		while (timer < Constants.Player.ScreenShakeDuration)
+		{
+			Vector3 randomPosition = UnityEngine.Random.insideUnitCircle * Constants.Player.ScreenShakeAmount;
+			randomPosition.z = originalPosition.z;
+
+			Camera.main.transform.localPosition = randomPosition;
+
+			timer += Time.deltaTime;
+			yield return null;
+		}
+
+		Camera.main.transform.localPosition = originalPosition;
+	}
+	
 	private IEnumerator RainbowAttack()
 	{
 		StartCoroutine(RainbowMoveLockout());
@@ -253,6 +272,7 @@ public class PlayerController : MonoBehaviour
 	{
 		isGrabbing = true;
 		eventBroker.Publish(this, new PlayerEvents.UpdateClawState(Constants.Claw.States.Extending));
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ClawExtend));
 
 		float clawScaleY = baseClawScale.y;
 		while (clawScaleY < baseClawScale.y + clawDistance)
@@ -264,6 +284,7 @@ public class PlayerController : MonoBehaviour
 		}
 
 		eventBroker.Publish(this, new PlayerEvents.UpdateClawState(Constants.Claw.States.Retracting));
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ClawRetract));
 
 		clawScaleY = claw.transform.localScale.y;
 		while (clawScaleY > baseClawScale.y)
@@ -283,6 +304,7 @@ public class PlayerController : MonoBehaviour
 	private IEnumerator RetractCoroutine(Transform grabbedObj)
 	{
 		eventBroker.Publish(this, new PlayerEvents.UpdateClawState(Constants.Claw.States.Retracting));
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ClawGrab));
 
 		float clawScaleY = claw.transform.localScale.y;
 		while (clawScaleY > baseClawScale.y)
@@ -530,10 +552,13 @@ public class PlayerController : MonoBehaviour
 
 			isPlaying = false;
 			eventBroker.Publish(this, new PlayerEvents.Die(numBunny, numChicken, numCrab, numFrog, numShark, numSquid, numHippo));
+			eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.PlayerDie));
 		}
 		else
 		{
 			StartCoroutine(HitCoroutine());
+			StartCoroutine(ShakeCamera());
+			eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.PlayerHit));
 		}
 	}
 

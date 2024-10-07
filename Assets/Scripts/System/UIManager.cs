@@ -192,6 +192,8 @@ public class UIManager : MonoBehaviour
 		{
 			gameplaySFXButton.GetComponent<Image>().sprite = newState ? sfxOff : sfxOn;
 		}));
+
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
 
 	private void OnMusicButton()
@@ -200,6 +202,8 @@ public class UIManager : MonoBehaviour
 		{
 			gameplayMusicButton.GetComponent<Image>().sprite = newState ? musicOff : musicOn;
 		}));
+
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
 
 	private void OnPauseButton()
@@ -217,6 +221,8 @@ public class UIManager : MonoBehaviour
 			pausePanel.SetActive(false);
 			Time.timeScale = 1f;
 		}
+
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
 
 	private void HandlePlayerUpgrade(BrokerEvent<PlayerEvents.Upgrade> inEvent)

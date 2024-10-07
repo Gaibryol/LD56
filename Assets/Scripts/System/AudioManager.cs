@@ -12,6 +12,16 @@ public class AudioManager : MonoBehaviour
 	[SerializeField, Header("Music")] private AudioClip mainMenu;
 
 	[SerializeField, Header("SFX")] private AudioClip buttonPress;
+	[SerializeField] private AudioClip bunnyShoot;
+	[SerializeField] private AudioClip clawExtend;
+	[SerializeField] private AudioClip clawGrab;
+	[SerializeField] private AudioClip clawRetract;
+	[SerializeField] private AudioClip frogTongue;
+	[SerializeField] private AudioClip hippoBurst;
+	[SerializeField] private AudioClip playerDie;
+	[SerializeField] private AudioClip playerHit;
+	[SerializeField] private AudioClip squidInk;
+
 	private float musicVolume;
 	private float sfxVolume;
 
@@ -31,6 +41,15 @@ public class AudioManager : MonoBehaviour
 		music.Add(Constants.Audio.Music.MainMenuTheme, mainMenu);
 
 		sfx.Add(Constants.Audio.SFX.ButtonPress, buttonPress);
+		sfx.Add(Constants.Audio.SFX.BunnyShoot, bunnyShoot);
+		sfx.Add(Constants.Audio.SFX.ClawExtend, clawExtend);
+		sfx.Add(Constants.Audio.SFX.ClawGrab, clawGrab);
+		sfx.Add(Constants.Audio.SFX.ClawRetract, clawRetract);
+		sfx.Add(Constants.Audio.SFX.FrogTongue, frogTongue);
+		sfx.Add(Constants.Audio.SFX.HippoBurst, hippoBurst);
+		sfx.Add(Constants.Audio.SFX.PlayerDie, playerDie);
+		sfx.Add(Constants.Audio.SFX.PlayerHit, playerHit);
+		sfx.Add(Constants.Audio.SFX.SquidInk, squidInk);
 	}
 
 	private void ChangeMusicVolumeHandler(BrokerEvent<AudioEvents.ChangeMusicVolume> inEvent)
