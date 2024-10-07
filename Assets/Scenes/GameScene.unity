@@ -680,6 +680,7 @@ MonoBehaviour:
   levelUpPopup: {fileID: 212532513}
   levelUpPopup2: {fileID: 212532512}
   pausePanel: {fileID: 413083555}
+  healthWarning: {fileID: 1867551090}
   endPanel: {fileID: 369818161}
   endFinalScore: {fileID: 816762495}
   endNumBunny: {fileID: 1454565616}
@@ -6779,6 +6780,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2084086194}
     m_Modifications:
+    - target: {fileID: 148045686240845266, guid: e06a376509687314d99bc6e62816ae65, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 377311208484837914, guid: e06a376509687314d99bc6e62816ae65, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -7946,6 +7951,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 1507319238273178602, guid: e06a376509687314d99bc6e62816ae65, type: 3}
   m_PrefabInstance: {fileID: 1628175584}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1867551090 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 148045686240845266, guid: e06a376509687314d99bc6e62816ae65, type: 3}
+  m_PrefabInstance: {fileID: 1628175584}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1981837466 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 324731426174193836, guid: e06a376509687314d99bc6e62816ae65, type: 3}

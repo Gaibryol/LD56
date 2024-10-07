@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private Animator levelUpPopup;
 	[SerializeField] private Animator levelUpPopup2;
 	[SerializeField] private GameObject pausePanel;
+	[SerializeField] private Image healthWarning;
 
 	[SerializeField, Header("End UI")] private GameObject endPanel;
 	[SerializeField] private TMP_Text endFinalScore;
@@ -65,6 +66,8 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private GameObject achievementListContent;
 	[SerializeField] private GameObject achievementListItemPrefab;
 
+	private Coroutine healthWarningCoroutine;
+
 	private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
 
     // Start is called before the first frame update
@@ -87,11 +90,52 @@ public class UIManager : MonoBehaviour
 		scoreMultiplierText.text = "x" + game.scoreMultiplier.ToString();
 		heartsText.text = "x" + player.health.ToString();
 
+		if (player.health == 1 && healthWarningCoroutine == null)
+		{
+			healthWarningCoroutine = StartCoroutine(FlashHealthWarning());
+		}
+
 		for (int i = 0; i < player.passengers.Count; i++)
 		{
 			gameplaySlots[i].sprite = GetAnimalSprite(player.passengers[i]);
 			gameplaySlots[i].color = new Color(gameplaySlots[i].color.r, gameplaySlots[i].color.g, gameplaySlots[i].color.b, gameplaySlots[i].sprite == null ? 0f : 1f);
 		}
+	}
+
+	private IEnumerator FlashHealthWarning()
+	{
+		healthWarning.gameObject.SetActive(true);
+
+		while (player.health == 1)
+		{
+			Color color = healthWarning.color;
+			while (color.a < Constants.UI.HealthWarningMaxAlpha)
+			{
+				color.a += Time.deltaTime * Constants.UI.HealthWarningFlashSpeed;
+
+				healthWarning.color = color;
+				yield return null;
+			}
+
+			color.a = Constants.UI.HealthWarningMaxAlpha;
+			healthWarning.color = color;
+
+			while (color.a > Constants.UI.HealthWarningMinAlpha)
+			{
+				color.a -= Time.deltaTime * Constants.UI.HealthWarningFlashSpeed;
+
+				healthWarning.color = color;
+				yield return null;
+			}
+
+			color.a = Constants.UI.HealthWarningMinAlpha;
+			healthWarning.color = color;
+
+			yield return null;
+		}
+
+		healthWarning.gameObject.SetActive(false);
+		healthWarning.color = new Color(healthWarning.color.r, healthWarning.color.g, healthWarning.color.b, Constants.UI.HealthWarningMinAlpha);
 	}
 
 	private Sprite GetAnimalSprite(Constants.Enemy.EnemyType enemyType)
