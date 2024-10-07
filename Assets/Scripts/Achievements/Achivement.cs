@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Achivement : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class Achivement : MonoBehaviour
     [SerializeField] protected string achievementKey;
     [SerializeField] private bool displayMax;
     [SerializeField] private GameObject obtainedBadge;
+
+    [SerializeField] private Image icon;
+    [SerializeField] private Sprite iconEmpty;
+    [SerializeField] private Sprite iconFilled;
 
     private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
 
@@ -36,10 +41,12 @@ public class Achivement : MonoBehaviour
         bool hasKey = PlayerPrefs.HasKey(key);
         if (!hasKey)
         {
+            icon.sprite = iconEmpty;
             obtainedBadge.SetActive(false);
             return;
         }
 
+        icon.sprite = iconFilled;
         obtainedBadge.SetActive(true);
 
         float value = PlayerPrefs.GetFloat(key);
