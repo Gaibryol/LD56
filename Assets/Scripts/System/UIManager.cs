@@ -43,7 +43,10 @@ public class UIManager : MonoBehaviour
 
 	[SerializeField, Header("End UI")] private GameObject endPanel;
 	[SerializeField] private TMP_Text endFinalScore;
-	[SerializeField] private TMP_Text endNumBunny;
+	[SerializeField] private TMP_Text endHighScore;
+	[SerializeField] private TMP_Text endTimeSurvived;
+	[SerializeField] private GameObject endNewHighScore;
+    [SerializeField] private TMP_Text endNumBunny;
 	[SerializeField] private TMP_Text endNumChicken;
 	[SerializeField] private TMP_Text endNumCrab;
 	[SerializeField] private TMP_Text endNumFrog;
@@ -388,13 +391,18 @@ public class UIManager : MonoBehaviour
 	private void HandleEndGame(BrokerEvent<GameEvents.EndGame> inEvent)
 	{
 		endFinalScore.text = inEvent.Payload.FinalScore.ToString();
+		endHighScore.text = PlayerPrefs.GetFloat(Constants.Game.HighscorePP, 0f).ToString();
 
-		if (inEvent.Payload.IsHighscore)
+		TimeSpan time = TimeSpan.FromSeconds(inEvent.Payload.TotalGameTime);
+		endTimeSurvived.text = time.ToString(@"mm\:ss");
+
+        if (inEvent.Payload.IsHighscore)
 		{
 			highscoreText.text = inEvent.Payload.FinalScore.ToString();
 		}
 
 		endPanel.SetActive(true);
+		endNewHighScore.SetActive(inEvent.Payload.IsHighscore);
 		gameplayPanel.SetActive(false);
 	}
 

@@ -42,12 +42,18 @@ public class Achivement : MonoBehaviour
         if (!hasKey)
         {
             icon.sprite = iconEmpty;
-            obtainedBadge.SetActive(false);
+            if (obtainedBadge != null)
+            {
+                obtainedBadge.SetActive(false);
+            }
             return;
         }
 
         icon.sprite = iconFilled;
-        obtainedBadge.SetActive(true);
+        if (obtainedBadge != null)
+        {
+            obtainedBadge.SetActive(true);
+        }
 
         float value = PlayerPrefs.GetFloat(key);
     }
