@@ -138,6 +138,25 @@ public class PlayerController : MonoBehaviour
 		rbody.velocity = move.ReadValue<Vector2>() * moveSpeed;
 	}
 
+	private IEnumerator ShakeCamera()
+	{
+		Vector3 originalPosition = Camera.main.transform.localPosition;
+
+		float timer = 0f;
+		while (timer < Constants.Player.ScreenShakeDuration)
+		{
+			Vector3 randomPosition = UnityEngine.Random.insideUnitCircle * Constants.Player.ScreenShakeAmount;
+			randomPosition.z = originalPosition.z;
+
+			Camera.main.transform.localPosition = randomPosition;
+
+			timer += Time.deltaTime;
+			yield return null;
+		}
+
+		Camera.main.transform.localPosition = originalPosition;
+	}
+	
 	private IEnumerator RainbowAttack()
 	{
 		StartCoroutine(RainbowMoveLockout());
@@ -533,6 +552,7 @@ public class PlayerController : MonoBehaviour
 		else
 		{
 			StartCoroutine(HitCoroutine());
+			StartCoroutine(ShakeCamera());
 			eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.PlayerHit));
 		}
 	}
