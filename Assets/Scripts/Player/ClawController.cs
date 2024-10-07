@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerEvents;
 
 public class ClawController : MonoBehaviour
 {
@@ -53,9 +54,11 @@ public class ClawController : MonoBehaviour
 	private void HandleUpgradeBulletBlocks(BrokerEvent<PlayerEvents.UpgradeBulletBlocks> inEvent)
 	{
 		numBulletBlocks += inEvent.Payload.Amount;
-	}
+        eventBroker.Publish(this, new GameEvents.NotifyAchievementObtained(Constants.Achievements.UpgradeSeries.ClawDurability, numBulletBlocks));
 
-	private void OnTriggerEnter2D(Collider2D collision)
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.GetComponent<EnemyAbstract>() != null && isGrabbing)
 		{

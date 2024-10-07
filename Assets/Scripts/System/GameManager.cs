@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
 	private void HandleEarnScoreMultiplier(BrokerEvent<GameEvents.EarnScoreMultiplier> inEvent)
 	{
 		scoreMultiplier += inEvent.Payload.Amount;
+
+		eventBroker.Publish(this, new GameEvents.NotifyAchievementObtained(Constants.Achievements.UpgradeSeries.ScoreMultiplier, scoreMultiplier));
 	}
 
 	private void HandlePlayerDie(BrokerEvent<PlayerEvents.Die> inEvent)
@@ -68,11 +70,11 @@ public class GameManager : MonoBehaviour
 			PlayerPrefs.SetFloat(Constants.Game.HighscorePP, score);
 			PlayerPrefs.Save();
 
-			eventBroker.Publish(this, new GameEvents.EndGame(score, true, Time.time - startTime));
+			eventBroker.Publish(this, new GameEvents.EndGame(score, true, Time.time - startTime, Constants.Difficulty.Easy));
 		}
 		else
 		{
-			eventBroker.Publish(this, new GameEvents.EndGame(score, false, Time.time - startTime));
+			eventBroker.Publish(this, new GameEvents.EndGame(score, false, Time.time - startTime, Constants.Difficulty.Easy));
 		}
 	}
 
