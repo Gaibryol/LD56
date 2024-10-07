@@ -3653,6 +3653,13 @@ MonoBehaviour:
   playerDie: {fileID: 8300000, guid: e6b7aae950e7b9d40911bc778cbbee08, type: 3}
   playerHit: {fileID: 8300000, guid: a21bdd8fa2b1a634d8ea5d74c47244ab, type: 3}
   squidInk: {fileID: 8300000, guid: 5001f2100fcc59b4895faa50b4828dc3, type: 3}
+  sharkSpray: {fileID: 8300000, guid: 25fae2b39007d784880241472ffe2aac, type: 3}
+  crabGun: {fileID: 8300000, guid: 2360cf7a0fb01394a9b8b119fcd67476, type: 3}
+  eggLaid: {fileID: 8300000, guid: 11f5a560a87241147ad878ba6fb1af27, type: 3}
+  eggsplosion: {fileID: 8300000, guid: c77fc3848d8ac2241b356df091909ac3, type: 3}
+  eggCountdown: {fileID: 8300000, guid: 692950e2ccae6be4a8f400a4ceccb305, type: 3}
+  upgrade: {fileID: 8300000, guid: 3070b9f6af6965946a22cd4994d9a8d8, type: 3}
+  rainbowAttack: {fileID: 8300000, guid: 3f768fcd9e22434489375ce0507d889b, type: 3}
 --- !u!1 &625984632
 GameObject:
   m_ObjectHideFlags: 0
