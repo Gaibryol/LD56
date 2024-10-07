@@ -20,7 +20,7 @@ public class AO_ChickenEgg : AO_Persistent
         base.Update();
         if (exploded && !EnemyAttackBehaviour.CurrentlyAttacking)
         {
-			eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.EggCountdown));
+			eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.Eggsplosion));
 			Destroy(gameObject);
         }
     }
@@ -35,7 +35,7 @@ public class AO_ChickenEgg : AO_Persistent
     private float StartAnimation()
     {
         animator.SetTrigger("Explode");
-		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.EggCountdown));
+		//eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.EggCountdown));
 		return .5f;
     }
 }

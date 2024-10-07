@@ -71,11 +71,13 @@ public class EnemyManager : MonoBehaviour
 		{
 			enemiesKilledScaling = 1f;
 			timeScaling = 0.075f;
+			startingNumberOfEnemies = 10;
 		}
 		else if (@event.Payload.Difficulty == Constants.Difficulty.Hard)
 		{
-			enemiesKilledScaling = 1.2f;
-			timeScaling = 0.1f;
+			enemiesKilledScaling = 1.35f;
+			timeScaling = 0.15f;
+			startingNumberOfEnemies = 15;
 		}
 
         foreach (EnemyAbstract enemy in enemyTypesToSpawn)

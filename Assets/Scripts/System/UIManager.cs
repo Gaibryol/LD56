@@ -74,6 +74,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private GameObject achievementListItemPrefab;
 
 	private Coroutine healthWarningCoroutine;
+	private Coroutine upgradeCoroutine;
 
 	private Constants.Difficulty lastDifficulty;
 
@@ -283,7 +284,13 @@ public class UIManager : MonoBehaviour
         achievementPanel.SetActive(false);
 		pausePanel.SetActive(false);
 
-        eventBroker.Publish(this, new GameEvents.StartGame(lastDifficulty));
+		Color offColor = upgradePopup.GetComponent<Image>().color;
+		offColor.a = 0f;
+		upgradePopup.GetComponent<Image>().color = offColor;
+		levelUpPopup.GetComponent<Image>().color = offColor;
+		levelUpPopup2.GetComponent<Image>().color = offColor;
+
+		eventBroker.Publish(this, new GameEvents.StartGame(lastDifficulty));
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
 
@@ -334,7 +341,13 @@ public class UIManager : MonoBehaviour
 			gameplayAnims[indexes[i]].SetTrigger(Constants.Game.UpgradeAnimTrigger);
 		}
 
-		StartCoroutine(UpgradePopup(inEvent.Payload.Type));
+		if (upgradeCoroutine != null)
+		{
+			StopCoroutine(upgradeCoroutine);
+			upgradeCoroutine = null;
+		}
+
+		upgradeCoroutine = StartCoroutine(UpgradePopup(inEvent.Payload.Type));
 	}
 
 	private IEnumerator UpgradePopup(Constants.Enemy.EnemyType enemyType)
@@ -379,13 +392,13 @@ public class UIManager : MonoBehaviour
 		levelUpPopup.SetTrigger(Constants.UI.UpgradePopups.LevelUp);
 		levelUpPopup2.SetTrigger(Constants.UI.UpgradePopups.LevelUp);
 
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(0.25f);
 
 		Color offColor = upgradePopup.GetComponent<Image>().color;
 		offColor.a = 0f;
 		upgradePopup.GetComponent<Image>().color = offColor;
 		levelUpPopup.GetComponent<Image>().color = offColor;
-		levelUpPopup2.GetComponent<Image>().color = onColor;
+		levelUpPopup2.GetComponent<Image>().color = offColor;
 	}
 
 	private void HandleEndGame(BrokerEvent<GameEvents.EndGame> inEvent)
