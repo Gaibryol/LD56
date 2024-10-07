@@ -567,6 +567,8 @@ public class PlayerController : MonoBehaviour
 			if (grabCoroutine != null)
 			{
 				StopCoroutine(grabCoroutine);
+				grabCoroutine = null;
+
 				retractCoroutine = StartCoroutine(RetractCoroutine(inEvent.Payload.GrabbedObj.transform));
 			}
 		}
@@ -591,6 +593,9 @@ public class PlayerController : MonoBehaviour
 		clawSpeed = Constants.Claw.BaseClawSpeed;
 		clawDistance = Constants.Claw.BaseClawDistance;
 		invulnerabilityDuration = Constants.Player.BaseInvulnerabilityDuration;
+
+		claw.transform.localScale = baseClawScale;
+		clawHead.transform.localScale = baseHeadScale;
 
 		numBunny = 0;
 		numChicken = 0;
