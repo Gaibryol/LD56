@@ -161,7 +161,19 @@ public class UIManager : MonoBehaviour
         eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
     }
 
-	private void OnRestartButton()
+	private void OnAchievementsEasyButtion()
+	{
+        eventBroker.Publish(this, new GameEvents.NotifyAchievementButtonPressed(Constants.Difficulty.Easy));
+        eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
+    }
+
+    private void OnAchievementsHardButtion()
+    {
+        eventBroker.Publish(this, new GameEvents.NotifyAchievementButtonPressed(Constants.Difficulty.Hard));
+        eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
+    }
+
+    private void OnRestartButton()
 	{
 		mainMenuPanel.SetActive(false);
 		creditsPanel.SetActive(false);
@@ -320,6 +332,9 @@ public class UIManager : MonoBehaviour
 		gameplayMusicButton.onClick.AddListener(OnMusicButton);
 		gameplaySFXButton.onClick.AddListener(OnSFXButton);
 
+		achievementEasyButton.onClick.AddListener(OnAchievementsEasyButtion);
+		achievementHardButton.onClick.AddListener(OnAchievementsHardButtion);
+
 		gameplayMusicButton.GetComponent<Image>().sprite = PlayerPrefs.GetInt(Constants.Audio.MusicMutedPP, 0) == 1 ? musicOff : musicOn;
 		gameplaySFXButton.GetComponent<Image>().sprite = PlayerPrefs.GetInt(Constants.Audio.SFXMutedPP, 0) == 1 ? sfxOff : sfxOn;
 	}
@@ -342,5 +357,8 @@ public class UIManager : MonoBehaviour
 		gameplayPauseButton.onClick.RemoveListener(OnPauseButton);
 		gameplayMusicButton.onClick.RemoveListener(OnMusicButton);
 		gameplaySFXButton.onClick.RemoveListener(OnSFXButton);
-	}
+
+        achievementEasyButton.onClick.RemoveListener(OnAchievementsEasyButtion);
+        achievementHardButton.onClick.RemoveListener(OnAchievementsHardButtion);
+    }
 }

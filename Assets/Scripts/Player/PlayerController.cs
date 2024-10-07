@@ -212,7 +212,8 @@ public class PlayerController : MonoBehaviour
 		{
 			case Constants.Enemy.EnemyType.Bunny:
 				clawDistance += Constants.Claw.ClawDistanceIncrement;
-				break;
+                eventBroker.Publish(this, new GameEvents.NotifyAchievementObtained(Constants.Achievements.UpgradeSeries.ClawLength, clawDistance));
+                break;
 
 			case Constants.Enemy.EnemyType.Chicken:
 				eventBroker.Publish(this, new GameEvents.EarnScoreMultiplier(Constants.Player.ScoreMultiplierIncrement));
@@ -220,11 +221,12 @@ public class PlayerController : MonoBehaviour
 
 			case Constants.Enemy.EnemyType.Crab:
 				eventBroker.Publish(this, new PlayerEvents.UpgradeBulletBlocks(Constants.Claw.NumBulletBlocksIncrement));
-				break;
+                break;
 
 			case Constants.Enemy.EnemyType.Frog:
 				clawSpeed += Constants.Claw.ClawSpeedIncrement;
-				break;
+                eventBroker.Publish(this, new GameEvents.NotifyAchievementObtained(Constants.Achievements.UpgradeSeries.ClawSpeed, clawSpeed));
+                break;
 
 			case Constants.Enemy.EnemyType.Hippo:
 				if (health < Constants.Player.BaseHealth)
@@ -232,15 +234,18 @@ public class PlayerController : MonoBehaviour
 					health += Constants.Player.HealthIncrement;
 					eventBroker.Publish(this, new PlayerEvents.Heal(Constants.Player.HealthIncrement));
 				}
-				break;
+                eventBroker.Publish(this, new GameEvents.NotifyAchievementObtained(Constants.Achievements.UpgradeSeries.Health, health));
+                break;
 
 			case Constants.Enemy.EnemyType.Shark:
 				moveSpeed += Constants.Player.MoveSpeedIncrement;
-				break;
+                eventBroker.Publish(this, new GameEvents.NotifyAchievementObtained(Constants.Achievements.UpgradeSeries.MoveSpeed, moveSpeed));
+                break;
 
 			case Constants.Enemy.EnemyType.Squid:
 				invulnerabilityDuration += Constants.Player.InvulnerabilityDurationIncrement;
-				break;
+                eventBroker.Publish(this, new GameEvents.NotifyAchievementObtained(Constants.Achievements.UpgradeSeries.Invulnerability, invulnerabilityDuration));
+                break;
 		}
 	}
 
