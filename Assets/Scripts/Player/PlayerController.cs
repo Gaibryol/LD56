@@ -117,17 +117,6 @@ public class PlayerController : MonoBehaviour
 
 		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 		claw.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90f));
-
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			// Rainbow attack
-			StartCoroutine(RainbowAttack());
-		}
-		if (Input.GetKeyDown(KeyCode.Alpha1))
-		{
-			health += Constants.Player.HealthIncrement;
-			eventBroker.Publish(this, new PlayerEvents.Heal(Constants.Player.HealthIncrement));
-		}
     }
 
 	private void FixedUpdate()
@@ -578,6 +567,8 @@ public class PlayerController : MonoBehaviour
 			if (grabCoroutine != null)
 			{
 				StopCoroutine(grabCoroutine);
+				grabCoroutine = null;
+
 				retractCoroutine = StartCoroutine(RetractCoroutine(inEvent.Payload.GrabbedObj.transform));
 			}
 		}
@@ -602,6 +593,9 @@ public class PlayerController : MonoBehaviour
 		clawSpeed = Constants.Claw.BaseClawSpeed;
 		clawDistance = Constants.Claw.BaseClawDistance;
 		invulnerabilityDuration = Constants.Player.BaseInvulnerabilityDuration;
+
+		claw.transform.localScale = baseClawScale;
+		clawHead.transform.localScale = baseHeadScale;
 
 		numBunny = 0;
 		numChicken = 0;

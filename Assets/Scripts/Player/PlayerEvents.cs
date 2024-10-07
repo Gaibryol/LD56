@@ -95,4 +95,14 @@ public class PlayerEvents
 	{
 		public RainbowAttack() { }
 	}
+
+	public class RainbowKilledEnemy
+	{
+		public RainbowKilledEnemy(EnemyAbstract enemy)
+		{
+			Enemy = enemy;
+		}
+
+		public readonly EnemyAbstract Enemy;
+	}
 }

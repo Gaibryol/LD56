@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+	[SerializeField] private Texture2D cursor;
+
 	public float score;
 	public float scoreMultiplier;
 
@@ -16,8 +18,13 @@ public class GameManager : MonoBehaviour
 
 	private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
 
-    // Start is called before the first frame update
-    void Start()
+	private void Awake()
+	{
+		Cursor.SetCursor(cursor, new Vector2(cursor.width / 2f, cursor.height / 2f), CursorMode.Auto);
+	}
+
+	// Start is called before the first frame update
+	void Start()
     {
 		isPlaying = false;
 		score = 0f;
