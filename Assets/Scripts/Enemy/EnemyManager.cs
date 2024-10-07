@@ -31,14 +31,13 @@ public class EnemyManager : MonoBehaviour
         eventBroker.Subscribe<GameEvents.EndGame>(EndGameHandler);
         eventBroker.Subscribe<PlayerEvents.Die>(PlayerDieHandler);
     }
+
     private void OnDisable()
     {
         eventBroker.Unsubscribe<GameEvents.StartGame>(StartGameHandler);
         eventBroker.Unsubscribe<GameEvents.EndGame>(EndGameHandler);
         eventBroker.Unsubscribe<PlayerEvents.Die>(PlayerDieHandler);
     }
-
-   
 
     // Update is called once per frame
     void Update()
@@ -68,6 +67,17 @@ public class EnemyManager : MonoBehaviour
         enemiesSpawned = 0;
         activeEnemies = new Dictionary<EnemyAbstract, List<EnemyAbstract>>();
 
+		if (@event.Payload.Difficulty == Constants.Difficulty.Easy)
+		{
+			enemiesKilledScaling = 1f;
+			timeScaling = 0.075f;
+		}
+		else if (@event.Payload.Difficulty == Constants.Difficulty.Hard)
+		{
+			enemiesKilledScaling = 1.2f;
+			timeScaling = 0.1f;
+		}
+
         foreach (EnemyAbstract enemy in enemyTypesToSpawn)
         {
             activeEnemies[enemy] = new List<EnemyAbstract>();
@@ -91,7 +101,6 @@ public class EnemyManager : MonoBehaviour
         }
     }
     
-
     private void ScaleDifficulty()
     {
         // based on enemies killed, and game time

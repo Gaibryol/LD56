@@ -123,6 +123,11 @@ public class PlayerController : MonoBehaviour
 			// Rainbow attack
 			StartCoroutine(RainbowAttack());
 		}
+		if (Input.GetKeyDown(KeyCode.Alpha1))
+		{
+			health += Constants.Player.HealthIncrement;
+			eventBroker.Publish(this, new PlayerEvents.Heal(Constants.Player.HealthIncrement));
+		}
     }
 
 	private void FixedUpdate()

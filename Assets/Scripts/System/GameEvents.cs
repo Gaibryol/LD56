@@ -7,7 +7,12 @@ public class GameEvents
 {
 	public class StartGame
 	{
-		public StartGame() { }
+		public StartGame(Constants.Difficulty difficulty) 
+		{
+			Difficulty = difficulty;
+		}
+
+		public readonly Constants.Difficulty Difficulty;
 	}
 
 	public class EndGame

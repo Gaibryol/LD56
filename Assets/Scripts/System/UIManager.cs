@@ -15,6 +15,10 @@ public class UIManager : MonoBehaviour
 	[SerializeField, Header("Credits UI")] private GameObject creditsPanel;
 	[SerializeField] private Button creditsMainMenuButton;
 
+	[SerializeField, Header("Difficulty UI")] private GameObject difficultyPanel;
+	[SerializeField] private Button difficultyNormalStartButton;
+	[SerializeField] private Button difficultyHardStartButton;
+
 	[SerializeField, Header("Gameplay UI")] private GameObject gameplayPanel;
 	[SerializeField] private TMP_Text scoreText;
 	[SerializeField] private TMP_Text scoreMultiplierText;
@@ -68,6 +72,8 @@ public class UIManager : MonoBehaviour
 
 	private Coroutine healthWarningCoroutine;
 
+	private Constants.Difficulty lastDifficulty;
+
 	private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
 
     // Start is called before the first frame update
@@ -78,6 +84,7 @@ public class UIManager : MonoBehaviour
 
 		mainMenuPanel.SetActive(true);
 		creditsPanel.SetActive(false);
+		difficultyPanel.SetActive(false);
 		gameplayPanel.SetActive(false);
 		endPanel.SetActive(false);
 		achievementPanel.SetActive(false);
@@ -134,8 +141,18 @@ public class UIManager : MonoBehaviour
 			yield return null;
 		}
 
+		Color endColor = healthWarning.color;
+		while (endColor.a > 0)
+		{
+			endColor.a -= Time.deltaTime * Constants.UI.HealthWarningFlashSpeed;
+
+			healthWarning.color = endColor;
+			yield return null;
+		}
+
+		healthWarning.color = new Color(healthWarning.color.r, healthWarning.color.g, healthWarning.color.b, 0f);
 		healthWarning.gameObject.SetActive(false);
-		healthWarning.color = new Color(healthWarning.color.r, healthWarning.color.g, healthWarning.color.b, Constants.UI.HealthWarningMinAlpha);
+		healthWarningCoroutine = null;
 	}
 
 	private Sprite GetAnimalSprite(Constants.Enemy.EnemyType enemyType)
@@ -154,19 +171,52 @@ public class UIManager : MonoBehaviour
 		};
 	}
 
-	private void OnStartButton()
+	private void OnMainMenuStartButton()
+	{
+		mainMenuPanel.SetActive(false);
+		creditsPanel.SetActive(false);
+		difficultyPanel.SetActive(true);
+		gameplayPanel.SetActive(false);
+		endPanel.SetActive(false);
+        achievementPanel.SetActive(false);
+		pausePanel.SetActive(false);
+	}
+
+	private void OnDifficultyNormalStartButton()
 	{
 		float highscore = PlayerPrefs.GetFloat(Constants.Game.HighscorePP, 0f);
 		highscoreText.text = highscore.ToString();
 
 		mainMenuPanel.SetActive(false);
 		creditsPanel.SetActive(false);
+		difficultyPanel.SetActive(false);
 		gameplayPanel.SetActive(true);
 		endPanel.SetActive(false);
-        achievementPanel.SetActive(false);
+		achievementPanel.SetActive(false);
 		pausePanel.SetActive(false);
 
-        eventBroker.Publish(this, new GameEvents.StartGame());
+		lastDifficulty = Constants.Difficulty.Easy;
+
+		eventBroker.Publish(this, new GameEvents.StartGame(Constants.Difficulty.Easy));
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
+	}
+
+	private void OnDifficultyHardStartButton()
+	{
+		float highscore = PlayerPrefs.GetFloat(Constants.Game.HighscorePP, 0f);
+		highscoreText.text = highscore.ToString();
+
+		mainMenuPanel.SetActive(false);
+		creditsPanel.SetActive(false);
+		difficultyPanel.SetActive(false);
+		gameplayPanel.SetActive(true);
+		endPanel.SetActive(false);
+		achievementPanel.SetActive(false);
+		pausePanel.SetActive(false);
+
+		lastDifficulty = Constants.Difficulty.Hard;
+
+		eventBroker.Publish(this, new GameEvents.StartGame(Constants.Difficulty.Hard));
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
 
@@ -174,6 +224,7 @@ public class UIManager : MonoBehaviour
 	{
 		mainMenuPanel.SetActive(true);
 		creditsPanel.SetActive(false);
+		difficultyPanel.SetActive(false);
 		gameplayPanel.SetActive(false);
 		endPanel.SetActive(false);
 		achievementPanel.SetActive(false);
@@ -186,6 +237,7 @@ public class UIManager : MonoBehaviour
 	{
 		mainMenuPanel.SetActive(false);
 		creditsPanel.SetActive(true);
+		difficultyPanel.SetActive(false);
 		gameplayPanel.SetActive(false);
 		endPanel.SetActive(false);
 		achievementPanel.SetActive(false);
@@ -198,6 +250,7 @@ public class UIManager : MonoBehaviour
 	{
         mainMenuPanel.SetActive(false);
         creditsPanel.SetActive(false);
+		difficultyPanel.SetActive(false);
         gameplayPanel.SetActive(false);
         endPanel.SetActive(false);
         achievementPanel.SetActive(true);
@@ -221,12 +274,13 @@ public class UIManager : MonoBehaviour
 	{
 		mainMenuPanel.SetActive(false);
 		creditsPanel.SetActive(false);
+		difficultyPanel.SetActive(false);
 		gameplayPanel.SetActive(true);
 		endPanel.SetActive(false);
         achievementPanel.SetActive(false);
 		pausePanel.SetActive(false);
 
-        eventBroker.Publish(this, new GameEvents.StartGame());
+        eventBroker.Publish(this, new GameEvents.StartGame(lastDifficulty));
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
 
@@ -370,13 +424,16 @@ public class UIManager : MonoBehaviour
 		eventBroker.Subscribe<PlayerEvents.Upgrade>(HandlePlayerUpgrade);
 		eventBroker.Subscribe<PlayerEvents.RainbowAttack>(HandleRainbowAttack);
 
-		mainMenuStartButton.onClick.AddListener(OnStartButton);
+		mainMenuStartButton.onClick.AddListener(OnMainMenuStartButton);
         mainMenuAchievementButton.onClick.AddListener(OnAchievementsButton);
         mainMenuCreditsButton.onClick.AddListener(OnCreditsButton);
 		creditsMainMenuButton.onClick.AddListener(OnMainMenuButton);
 		achievementCloseButton.onClick.AddListener(OnMainMenuButton);
 		endMainMenuButton.onClick.AddListener(OnMainMenuButton);
 		endRestartButton.onClick.AddListener(OnRestartButton);
+
+		difficultyNormalStartButton.onClick.AddListener(OnDifficultyNormalStartButton);
+		difficultyHardStartButton.onClick.AddListener(OnDifficultyHardStartButton);
 
 		gameplayPauseButton.onClick.AddListener(OnPauseButton);
 		gameplayMusicButton.onClick.AddListener(OnMusicButton);
@@ -396,13 +453,16 @@ public class UIManager : MonoBehaviour
 		eventBroker.Unsubscribe<PlayerEvents.Upgrade>(HandlePlayerUpgrade);
 		eventBroker.Unsubscribe<PlayerEvents.RainbowAttack>(HandleRainbowAttack);
 
-		mainMenuStartButton.onClick.RemoveListener(OnStartButton);
+		mainMenuStartButton.onClick.RemoveListener(OnMainMenuStartButton);
         mainMenuAchievementButton.onClick.RemoveListener(OnAchievementsButton);
         mainMenuCreditsButton.onClick.RemoveListener(OnCreditsButton);
 		creditsMainMenuButton.onClick.RemoveListener(OnMainMenuButton);
         achievementCloseButton.onClick.RemoveListener(OnMainMenuButton);
         endMainMenuButton.onClick.RemoveListener(OnMainMenuButton);
 		endRestartButton.onClick.RemoveListener(OnRestartButton);
+
+		difficultyNormalStartButton.onClick.RemoveListener(OnDifficultyNormalStartButton);
+		difficultyHardStartButton.onClick.RemoveListener(OnDifficultyHardStartButton);
 
 		gameplayPauseButton.onClick.RemoveListener(OnPauseButton);
 		gameplayMusicButton.onClick.RemoveListener(OnMusicButton);
