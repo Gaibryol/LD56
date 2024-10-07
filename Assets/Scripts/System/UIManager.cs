@@ -281,7 +281,13 @@ public class UIManager : MonoBehaviour
         achievementPanel.SetActive(false);
 		pausePanel.SetActive(false);
 
-        eventBroker.Publish(this, new GameEvents.StartGame(lastDifficulty));
+		Color offColor = upgradePopup.GetComponent<Image>().color;
+		offColor.a = 0f;
+		upgradePopup.GetComponent<Image>().color = offColor;
+		levelUpPopup.GetComponent<Image>().color = offColor;
+		levelUpPopup2.GetComponent<Image>().color = offColor;
+
+		eventBroker.Publish(this, new GameEvents.StartGame(lastDifficulty));
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
 
