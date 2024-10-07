@@ -6,6 +6,8 @@ public class RainbowAttackProjectile : MonoBehaviour
 {
 	private float timer;
 
+	private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +36,15 @@ public class RainbowAttackProjectile : MonoBehaviour
 		if (collision.GetComponent<EnemyAbstract>() != null || collision.GetComponent<EnemyAttackObject>() != null)
 		{
 			// Collided with enemy
+			eventBroker.Publish(this, new PlayerEvents.RainbowKilledEnemy(collision.GetComponent<EnemyAbstract>()));
+
 			Destroy(collision.gameObject);
 		}
 		else if (collision.GetComponentInParent<EnemyAbstract>() != null || collision.GetComponentInParent<EnemyAttackObject>() != null)
 		{
 			// Collided with child enemy
+			eventBroker.Publish(this, new PlayerEvents.RainbowKilledEnemy(collision.GetComponentInParent<EnemyAbstract>()));
+
 			Destroy(collision.transform.parent.gameObject);
 		}
 	}

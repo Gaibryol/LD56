@@ -17,12 +17,14 @@ public class EnemyManager : MonoBehaviour
     private int enemiesSpawned = 0;
     private int currentDifficultyRating = 1;
 
+	private List<EnemyAbstract> enemiesKilledByRainbow;
+
     private Dictionary<EnemyAbstract, List<EnemyAbstract>> activeEnemies = new Dictionary<EnemyAbstract, List<EnemyAbstract>>();
     private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
 
     void Start()
     {
-        
+		enemiesKilledByRainbow = new List<EnemyAbstract>();
     }
 
     private void OnEnable()
@@ -30,14 +32,16 @@ public class EnemyManager : MonoBehaviour
         eventBroker.Subscribe<GameEvents.StartGame>(StartGameHandler);
         eventBroker.Subscribe<GameEvents.EndGame>(EndGameHandler);
         eventBroker.Subscribe<PlayerEvents.Die>(PlayerDieHandler);
+		eventBroker.Subscribe<PlayerEvents.RainbowKilledEnemy>(RainbowKilledEnemyHandler);
     }
 
-    private void OnDisable()
+	private void OnDisable()
     {
         eventBroker.Unsubscribe<GameEvents.StartGame>(StartGameHandler);
         eventBroker.Unsubscribe<GameEvents.EndGame>(EndGameHandler);
         eventBroker.Unsubscribe<PlayerEvents.Die>(PlayerDieHandler);
-    }
+		eventBroker.Unsubscribe<PlayerEvents.RainbowKilledEnemy>(RainbowKilledEnemyHandler);
+	}
 
     // Update is called once per frame
     void Update()
@@ -66,6 +70,7 @@ public class EnemyManager : MonoBehaviour
         gameTime = 0;
         enemiesSpawned = 0;
         activeEnemies = new Dictionary<EnemyAbstract, List<EnemyAbstract>>();
+		enemiesKilledByRainbow = new List<EnemyAbstract>();
 
 		if (@event.Payload.Difficulty == Constants.Difficulty.Easy)
 		{
@@ -90,7 +95,20 @@ public class EnemyManager : MonoBehaviour
         gameStarted = true;
     }
 
-    private void CleanUp()
+	private void RainbowKilledEnemyHandler(BrokerEvent<PlayerEvents.RainbowKilledEnemy> inEvent)
+	{
+		foreach (KeyValuePair<EnemyAbstract, List<EnemyAbstract>> pair in activeEnemies)
+		{
+			int index = pair.Value.IndexOf(inEvent.Payload.Enemy);
+			if (index != -1)
+			{
+				// Found enemy
+				enemiesKilledByRainbow.Add(inEvent.Payload.Enemy);
+			}
+		}
+	}
+
+	private void CleanUp()
     {
         foreach (EnemyAbstract enemy in FindObjectsByType<EnemyAbstract>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID))
         {
@@ -122,7 +140,16 @@ public class EnemyManager : MonoBehaviour
                 {
                     // Enemy has been destroyed by player.
                     keyValuePair.Value.RemoveAt(i);
-                    enemiesKilled++;
+
+					int index = enemiesKilledByRainbow.IndexOf(enemy);
+					if (index != - 1)
+					{
+						enemiesKilledByRainbow.RemoveAt(index);
+					}
+					else
+					{
+						enemiesKilled++;
+					}
                     continue;
                 }
                 if (EnemyUtilities.OutOfBounds(enemy.transform.position, Constants.EnemyManager.maxValidDistanceAwayFromScreen))
