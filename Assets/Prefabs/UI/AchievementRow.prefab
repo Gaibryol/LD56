@@ -128,6 +128,9 @@ MonoBehaviour:
   achievementKey: 
   displayMax: 0
   obtainedBadge: {fileID: 6903396854956953543}
+  icon: {fileID: 6706395821027805286}
+  iconEmpty: {fileID: 0}
+  iconFilled: {fileID: 0}
 --- !u!1 &2729725092839631530
 GameObject:
   m_ObjectHideFlags: 0

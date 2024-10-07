@@ -1602,6 +1602,14 @@ PrefabInstance:
       value: Immortal
       objectReference: {fileID: 0}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 27e7aca4bd9321042816ed5767670d68, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: 75ab57d2fbb6a9f4083c185603e01574, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_US_H
       objectReference: {fileID: 0}
@@ -1771,6 +1779,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chicken Lover
       objectReference: {fileID: 0}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: de22fe50db15be04ebe9dbce94b99961, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: f286d851f0cca524eb11465051613628, type: 3}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_LS_Chicken
@@ -1942,6 +1958,14 @@ PrefabInstance:
       value: Size Matters
       objectReference: {fileID: 0}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 27e7aca4bd9321042816ed5767670d68, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: 99b9d240c0be63744b2686b73e4e8eb1, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_US_CL
       objectReference: {fileID: 0}
@@ -2111,6 +2135,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cadet
       objectReference: {fileID: 0}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: cd22dbd24dcbba543986871055bbdd46, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: e60fae476c1e20e409f31f6d779ca96e, type: 3}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_SurS_2
@@ -2282,6 +2314,14 @@ PrefabInstance:
       value: Iron Claw
       objectReference: {fileID: 0}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 27e7aca4bd9321042816ed5767670d68, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: b634b87025da7ac4ca25fb6326afd01c, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_US_CD
       objectReference: {fileID: 0}
@@ -2451,6 +2491,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kaleidoscopic
       objectReference: {fileID: 0}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cb3e57aaa81bc54b9b7e9f5f1aa0a46, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: d24de9b72e6301d4cb6f6f9c6f750007, type: 3}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_RS_3
@@ -2622,6 +2670,14 @@ PrefabInstance:
       value: Multiplication Expert
       objectReference: {fileID: 0}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 27e7aca4bd9321042816ed5767670d68, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: 7a2929ec8fd8c9f47a4158177063f8be, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_US_SM
       objectReference: {fileID: 0}
@@ -2791,6 +2847,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bunny Lover
       objectReference: {fileID: 0}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c4fe1d2854208e4d852d7853f27157d, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: 2720970899ac5ee438e5809080b8f38d, type: 3}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_LS_Bunny
@@ -2962,6 +3026,14 @@ PrefabInstance:
       value: Frog Lover
       objectReference: {fileID: 0}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 705772d0aea60e744a3862724426028a, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: f805a12b763ee7c429a2bd7c878e07fb, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_LS_Frog
       objectReference: {fileID: 0}
@@ -3131,6 +3203,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quickdraw Champion
       objectReference: {fileID: 0}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 27e7aca4bd9321042816ed5767670d68, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: 1e05aeee8b933404fa4209cd3cedb2f2, type: 3}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_US_CS
@@ -3302,6 +3382,14 @@ PrefabInstance:
       value: Crab Lover
       objectReference: {fileID: 0}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: c4d9825d5c1821640b04a147bcc54f96, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: 774cb6df3b070d7419b8abc26a5a5982, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_LS_Crab
       objectReference: {fileID: 0}
@@ -3471,6 +3559,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Squid Lover
       objectReference: {fileID: 0}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 72ffbf91487959941a1c4ea6508d7d8d, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: b6fc147586c7cb84387462475a3a4554, type: 3}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_LS_Squid
@@ -3642,6 +3738,14 @@ PrefabInstance:
       value: Line
       objectReference: {fileID: 0}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ff77a1a1d96431468b0f572d4561416, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: 2e1154ae7005fac4c9371eae7edc14e6, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_SS_2
       objectReference: {fileID: 0}
@@ -3811,6 +3915,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sinker
       objectReference: {fileID: 0}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ff77a1a1d96431468b0f572d4561416, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: 0095cd193e63af84bbef3fbf9ac78f77, type: 3}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_SS_3
@@ -3982,6 +4094,14 @@ PrefabInstance:
       value: Hook
       objectReference: {fileID: 0}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ff77a1a1d96431468b0f572d4561416, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: 6363ec7849b426645a781f1fddc43441, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_SS_1
       objectReference: {fileID: 0}
@@ -4151,6 +4271,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star Power
       objectReference: {fileID: 0}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 27e7aca4bd9321042816ed5767670d68, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: ac8998491594d4741a22794458ac9dc1, type: 3}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_US_I
@@ -4322,6 +4450,14 @@ PrefabInstance:
       value: Shark Lover
       objectReference: {fileID: 0}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 585669899bb3b4841a16306c451b9ae9, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: 9b6d18598fd09784c900fe8c493e08a5, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_LS_Shark
       objectReference: {fileID: 0}
@@ -4491,6 +4627,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: cd22dbd24dcbba543986871055bbdd46, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: f53810a1b11ef7848af73642af514841, type: 3}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_SurS_3
@@ -4662,6 +4806,14 @@ PrefabInstance:
       value: Prismatic
       objectReference: {fileID: 0}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cb3e57aaa81bc54b9b7e9f5f1aa0a46, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: a37924926eb72ab47a4a279c136190cc, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_RS_2
       objectReference: {fileID: 0}
@@ -4831,6 +4983,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lightspeed
       objectReference: {fileID: 0}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 27e7aca4bd9321042816ed5767670d68, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: 379f412260ed07542af60ec879423c1d, type: 3}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_US_MS
@@ -5002,6 +5162,14 @@ PrefabInstance:
       value: The First Hurrah
       objectReference: {fileID: 0}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cb3e57aaa81bc54b9b7e9f5f1aa0a46, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: c16b46f3a4b2c4347ade51a9afd795cc, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_RS_1
       objectReference: {fileID: 0}
@@ -5172,6 +5340,14 @@ PrefabInstance:
       value: Hippo Lover
       objectReference: {fileID: 0}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: da4b0d191074ac94290b80a40704b0ff, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: 191cb8d07d32ce841b19e745b867f6ef, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_LS_Hippo
       objectReference: {fileID: 0}
@@ -5341,6 +5517,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Civilian
       objectReference: {fileID: 0}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconEmpty
+      value: 
+      objectReference: {fileID: 21300000, guid: cd22dbd24dcbba543986871055bbdd46, type: 3}
+    - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
+      propertyPath: iconFilled
+      value: 
+      objectReference: {fileID: 21300000, guid: cdb11c20653f64e49afb0908371bf317, type: 3}
     - target: {fileID: 2150150063179616545, guid: 27a92bf188f0a394fb22291a04acb4dc, type: 3}
       propertyPath: achievementKey
       value: A_SurS_1
