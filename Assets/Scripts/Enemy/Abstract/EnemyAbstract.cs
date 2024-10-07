@@ -16,6 +16,8 @@ public abstract class EnemyAbstract : MonoBehaviour
 
 	private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
 
+    private float squidAudioTimer = 0;
+
     protected virtual void Awake()
     {
         moveBehaviour = GetComponent<EnemyMoveBehaviour>();
@@ -26,6 +28,7 @@ public abstract class EnemyAbstract : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        squidAudioTimer = Time.time;
     }
 
     // Update is called once per frame
@@ -82,6 +85,11 @@ public abstract class EnemyAbstract : MonoBehaviour
 				break;
 
 			case Constants.Enemy.EnemyType.Squid:
+                if (squidAudioTimer + 7 > Time.time)
+                {
+                    break;
+                }
+                squidAudioTimer = Time.time;
 				eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.SquidInk));
 				break;
 		}

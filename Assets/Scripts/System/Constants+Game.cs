@@ -60,16 +60,16 @@ public partial class Constants
         public static class ScoreSeries
 		{
 			public static (string, float) FirstThreshold = ("A_SS_1", 5000);
-			public static (string, float) SecondThreshold = ("A_SS_2", 10000);
-			public static (string, float) ThirdThreshold = ("A_SS_3", 20000);
+			public static (string, float) SecondThreshold = ("A_SS_2", 30000);
+			public static (string, float) ThirdThreshold = ("A_SS_3", 100000);
 		}
 
         public static class SurvivalSeries
         {
 			// in seconds
-            public static (string, float) FirstThreshold = ("A_SurS_1", 5 * 60);
-            public static (string, float) SecondThreshold = ("A_SurS_2", 10 * 60);
-            public static (string, float) ThirdThreshold = ("A_SurS_3", 15 * 60);
+            public static (string, float) FirstThreshold = ("A_SurS_1", 3 * 60);
+            public static (string, float) SecondThreshold = ("A_SurS_2", 5 * 60);
+            public static (string, float) ThirdThreshold = ("A_SurS_3", 10 * 60);
         }
 
 		public static class RainbowSeries

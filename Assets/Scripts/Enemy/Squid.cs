@@ -25,7 +25,7 @@ public class Squid : EnemyAbstract
     public override float OnAttack()
     {
         base.OnAttack();
-        animator.SetTrigger("Attack");
+        //animator.SetTrigger("Attack");
         return animationAttackDelay;
     }
 }
