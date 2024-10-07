@@ -441,21 +441,26 @@ public class UIManager : MonoBehaviour
 
 	private void HandleEndGame(BrokerEvent<GameEvents.EndGame> inEvent)
 	{
-		endFinalScore.text = inEvent.Payload.FinalScore.ToString();
-		endHighScore.text = PlayerPrefs.GetFloat(Constants.Game.HighscorePP, 0f).ToString();
+		StartCoroutine(EndGameDelay(inEvent));
+    }
+    private IEnumerator EndGameDelay(BrokerEvent<GameEvents.EndGame> inEvent)
+	{
+		yield return new WaitForSeconds(.1f);
+        endFinalScore.text = inEvent.Payload.FinalScore.ToString();
+        endHighScore.text = PlayerPrefs.GetFloat(Constants.Game.HighscorePP, 0f).ToString();
 
-		TimeSpan time = TimeSpan.FromSeconds(inEvent.Payload.TotalGameTime);
-		endTimeSurvived.text = time.ToString(@"mm\:ss");
+        TimeSpan time = TimeSpan.FromSeconds(inEvent.Payload.TotalGameTime);
+        endTimeSurvived.text = time.ToString(@"mm\:ss");
 
         if (inEvent.Payload.IsHighscore)
-		{
-			highscoreText.text = inEvent.Payload.FinalScore.ToString();
-		}
+        {
+            highscoreText.text = inEvent.Payload.FinalScore.ToString();
+        }
 
-		endPanel.SetActive(true);
-		endNewHighScore.SetActive(inEvent.Payload.IsHighscore);
-		gameplayPanel.SetActive(false);
-	}
+        endPanel.SetActive(true);
+        endNewHighScore.SetActive(inEvent.Payload.IsHighscore);
+        gameplayPanel.SetActive(false);
+    }
 
 	private void HandlePlayerDie(BrokerEvent<PlayerEvents.Die> inEvent)
 	{

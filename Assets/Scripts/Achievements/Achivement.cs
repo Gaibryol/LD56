@@ -48,22 +48,34 @@ public class Achivement : MonoBehaviour
         bool hasKey = PlayerPrefs.HasKey(key);
         if (!hasKey)
         {
-            rowImage.sprite = rowSpriteLocked;
+            if (rowImage != null)
+            {
+                rowImage.sprite = rowSpriteLocked;
+            }
             icon.sprite = iconEmpty;
-            scoreText.text = "";
+            if (scoreText != null)
+            {
+                scoreText.text = "";
+            }
             return;
         }
 
         float value = PlayerPrefs.GetFloat(key);
-        if (displayMax)
+        if (scoreText != null)
         {
-            scoreText.text = "Score " + value;
-        } else
-        {
-            scoreText.text = "";
+            if (displayMax)
+            {
+                scoreText.text = "Score " + value;
+            } else
+            {
+                scoreText.text = "";
+            }
         }
 
-        rowImage.sprite = rowSpriteUnlocked;
+        if (rowImage != null)
+        {
+            rowImage.sprite = rowSpriteUnlocked;
+        }
         icon.sprite = iconFilled;
 
     }
