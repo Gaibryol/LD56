@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private Button mainMenuStartButton;
 	[SerializeField] private Button mainMenuAchievementButton;
     [SerializeField] private Button mainMenuCreditsButton;
+	[SerializeField] private Button mainMenuTutorialButton;
 
 	[SerializeField, Header("Credits UI")] private GameObject creditsPanel;
 	[SerializeField] private Button creditsMainMenuButton;
@@ -18,6 +19,10 @@ public class UIManager : MonoBehaviour
 	[SerializeField, Header("Difficulty UI")] private GameObject difficultyPanel;
 	[SerializeField] private Button difficultyNormalStartButton;
 	[SerializeField] private Button difficultyHardStartButton;
+	[SerializeField] private Sprite normalSprite;
+	[SerializeField] private Sprite normalHoverSprite;
+	[SerializeField] private Sprite hardSprite;
+	[SerializeField] private Sprite hardHoverSprite;
 
 	[SerializeField, Header("Gameplay UI")] private GameObject gameplayPanel;
 	[SerializeField] private TMP_Text scoreText;
@@ -40,6 +45,9 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private Animator levelUpPopup2;
 	[SerializeField] private GameObject pausePanel;
 	[SerializeField] private Image healthWarning;
+
+	[SerializeField, Header("Tutorial")] private GameObject tutorialPanel;
+	[SerializeField] private Button tutorialMainMenuButton;
 
 	[SerializeField, Header("End UI")] private GameObject endPanel;
 	[SerializeField] private TMP_Text endFinalScore;
@@ -92,6 +100,7 @@ public class UIManager : MonoBehaviour
 
 		mainMenuPanel.SetActive(true);
 		creditsPanel.SetActive(false);
+		tutorialPanel.SetActive(false);
 		difficultyPanel.SetActive(false);
 		gameplayPanel.SetActive(false);
 		endPanel.SetActive(false);
@@ -183,6 +192,7 @@ public class UIManager : MonoBehaviour
 	{
 		mainMenuPanel.SetActive(false);
 		creditsPanel.SetActive(false);
+		tutorialPanel.SetActive(false);
 		difficultyPanel.SetActive(true);
 		gameplayPanel.SetActive(false);
 		endPanel.SetActive(false);
@@ -197,6 +207,7 @@ public class UIManager : MonoBehaviour
 
 		mainMenuPanel.SetActive(false);
 		creditsPanel.SetActive(false);
+		tutorialPanel.SetActive(false);
 		difficultyPanel.SetActive(false);
 		gameplayPanel.SetActive(true);
 		endPanel.SetActive(false);
@@ -216,6 +227,7 @@ public class UIManager : MonoBehaviour
 
 		mainMenuPanel.SetActive(false);
 		creditsPanel.SetActive(false);
+		tutorialPanel.SetActive(false);
 		difficultyPanel.SetActive(false);
 		gameplayPanel.SetActive(true);
 		endPanel.SetActive(false);
@@ -232,6 +244,7 @@ public class UIManager : MonoBehaviour
 	{
 		mainMenuPanel.SetActive(true);
 		creditsPanel.SetActive(false);
+		tutorialPanel.SetActive(false);
 		difficultyPanel.SetActive(false);
 		gameplayPanel.SetActive(false);
 		endPanel.SetActive(false);
@@ -245,6 +258,7 @@ public class UIManager : MonoBehaviour
 	{
 		mainMenuPanel.SetActive(false);
 		creditsPanel.SetActive(true);
+		tutorialPanel.SetActive(false);
 		difficultyPanel.SetActive(false);
 		gameplayPanel.SetActive(false);
 		endPanel.SetActive(false);
@@ -258,6 +272,7 @@ public class UIManager : MonoBehaviour
 	{
         mainMenuPanel.SetActive(false);
         creditsPanel.SetActive(false);
+		tutorialPanel.SetActive(false);
 		difficultyPanel.SetActive(false);
         gameplayPanel.SetActive(false);
         endPanel.SetActive(false);
@@ -286,6 +301,7 @@ public class UIManager : MonoBehaviour
 	{
 		mainMenuPanel.SetActive(false);
 		creditsPanel.SetActive(false);
+		tutorialPanel.SetActive(false);
 		difficultyPanel.SetActive(false);
 		gameplayPanel.SetActive(true);
 		endPanel.SetActive(false);
@@ -299,6 +315,20 @@ public class UIManager : MonoBehaviour
 		levelUpPopup2.GetComponent<Image>().color = offColor;
 
 		eventBroker.Publish(this, new GameEvents.StartGame(lastDifficulty));
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
+	}
+
+	private void OnTutorialButton()
+	{
+		mainMenuPanel.SetActive(false);
+		creditsPanel.SetActive(false);
+		tutorialPanel.SetActive(true);
+		difficultyPanel.SetActive(false);
+		gameplayPanel.SetActive(false);
+		endPanel.SetActive(false);
+		achievementPanel.SetActive(false);
+		pausePanel.SetActive(false);
+
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
 
@@ -456,7 +486,9 @@ public class UIManager : MonoBehaviour
 		mainMenuStartButton.onClick.AddListener(OnMainMenuStartButton);
         mainMenuAchievementButton.onClick.AddListener(OnAchievementsButton);
         mainMenuCreditsButton.onClick.AddListener(OnCreditsButton);
+		mainMenuTutorialButton.onClick.AddListener(OnTutorialButton);
 		creditsMainMenuButton.onClick.AddListener(OnMainMenuButton);
+		tutorialMainMenuButton.onClick.AddListener(OnMainMenuButton);
 		achievementCloseButton.onClick.AddListener(OnMainMenuButton);
 		endMainMenuButton.onClick.AddListener(OnMainMenuButton);
 		endRestartButton.onClick.AddListener(OnRestartButton);
@@ -485,8 +517,10 @@ public class UIManager : MonoBehaviour
 		mainMenuStartButton.onClick.RemoveListener(OnMainMenuStartButton);
         mainMenuAchievementButton.onClick.RemoveListener(OnAchievementsButton);
         mainMenuCreditsButton.onClick.RemoveListener(OnCreditsButton);
+		mainMenuTutorialButton.onClick.RemoveListener(OnTutorialButton);
 		creditsMainMenuButton.onClick.RemoveListener(OnMainMenuButton);
-        achievementCloseButton.onClick.RemoveListener(OnMainMenuButton);
+		tutorialMainMenuButton.onClick.RemoveListener(OnMainMenuButton);
+		achievementCloseButton.onClick.RemoveListener(OnMainMenuButton);
         endMainMenuButton.onClick.RemoveListener(OnMainMenuButton);
 		endRestartButton.onClick.RemoveListener(OnRestartButton);
 
