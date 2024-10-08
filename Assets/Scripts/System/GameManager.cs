@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
 	private float startTime;
 
+	private Constants.Difficulty currentDifficulty;
+
 	private readonly EventBrokerComponent eventBroker = new EventBrokerComponent();
 
 	private void Awake()
@@ -56,6 +58,7 @@ public class GameManager : MonoBehaviour
 			scoreMultiplier = Constants.Player.BaseScoreMultiplierHard;
 		}
 
+		currentDifficulty = inEvent.Payload.Difficulty;
 		isPlaying = true;
 		startTime = Time.time;
 		scoreCoroutine = StartCoroutine(IncrementScore());
@@ -86,11 +89,11 @@ public class GameManager : MonoBehaviour
 			PlayerPrefs.SetFloat(Constants.Game.HighscorePP, score);
 			PlayerPrefs.Save();
 
-			eventBroker.Publish(this, new GameEvents.EndGame(score, true, Time.time - startTime, Constants.Difficulty.Easy));
+			eventBroker.Publish(this, new GameEvents.EndGame(score, true, Time.time - startTime, currentDifficulty));
 		}
 		else
 		{
-			eventBroker.Publish(this, new GameEvents.EndGame(score, false, Time.time - startTime, Constants.Difficulty.Easy));
+			eventBroker.Publish(this, new GameEvents.EndGame(score, false, Time.time - startTime, currentDifficulty));
 		}
 	}
 
