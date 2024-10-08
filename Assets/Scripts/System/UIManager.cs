@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Dan.Main;
+using Dan.Models;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private Button mainMenuAchievementButton;
     [SerializeField] private Button mainMenuCreditsButton;
 	[SerializeField] private Button mainMenuTutorialButton;
+	[SerializeField] private Button mainMenuLeaderboardButton;
 
 	[SerializeField, Header("Credits UI")] private GameObject creditsPanel;
 	[SerializeField] private Button creditsMainMenuButton;
@@ -63,6 +66,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private TMP_Text endNumSquid;
 	[SerializeField] private Button endRestartButton;
 	[SerializeField] private Button endMainMenuButton;
+	[SerializeField] private Button endLeaderboardButton;
 
 	[SerializeField, Header("References")] private GameManager game;
 	[SerializeField] private PlayerController player;
@@ -85,7 +89,32 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite hardButton;
     [SerializeField] private Sprite hardButtonActive;
 
-    private Coroutine healthWarningCoroutine;
+	[SerializeField, Header("Leaderboard")] private GameObject leaderboardPanel;
+	[SerializeField] private Button leaderboardMainMenuButton;
+	[SerializeField] private Button leaderboardGameButton;
+	[SerializeField] private GameObject leaderboardContent;
+	[SerializeField] private TournamentLeaderboardEntry tournamentLeaderboardEntry;
+	[SerializeField] private GameObject leaderboardListObject;
+	[SerializeField] private GameObject leaderboardLoadingObject;
+	[SerializeField] private GameObject leaderboardErrorObject;
+
+	[SerializeField, Header("Entry")] private GameObject entryPanel;
+	[SerializeField] private TMP_InputField entryNameInput;
+	[SerializeField] private Toggle entryBunnyToggle;
+	[SerializeField] private Toggle entryChickenToggle;
+	[SerializeField] private Toggle entryCrabToggle;
+	[SerializeField] private Toggle entryFrogToggle;
+	[SerializeField] private Toggle entryHippoToggle;
+	[SerializeField] private Toggle entrySharkToggle;
+	[SerializeField] private Toggle entrySquidToggle;
+	[SerializeField] private Button entryConfirmButton;
+	[SerializeField] private Button entryCancelButton;
+
+	private string leaderboardUserIcon;
+	private string leaderboardUsername;
+	private int leaderboardUserScore;
+
+	private Coroutine healthWarningCoroutine;
 	private Coroutine upgradeCoroutine;
 
 	private Constants.Difficulty lastDifficulty;
@@ -106,6 +135,12 @@ public class UIManager : MonoBehaviour
 		endPanel.SetActive(false);
 		achievementPanel.SetActive(false);
 		pausePanel.SetActive(false);
+		leaderboardPanel.SetActive(false);
+		entryPanel.SetActive(false);
+
+		leaderboardUserIcon = Constants.UI.LeaderboardIcons.Bunny;
+		leaderboardUsername = PlayerPrefs.GetString(Constants.UI.LeaderboardUsernamePP, Constants.UI.LeaderboardDefaultUsername);
+		leaderboardUserScore = 0;
 	}
 
 	private void Update()
@@ -124,6 +159,60 @@ public class UIManager : MonoBehaviour
 			gameplaySlots[i].sprite = GetAnimalSprite(player.passengers[i]);
 			gameplaySlots[i].color = new Color(gameplaySlots[i].color.r, gameplaySlots[i].color.g, gameplaySlots[i].color.b, gameplaySlots[i].sprite == null ? 0f : 1f);
 		}
+	}
+
+	private void GetLeaderboard()
+	{
+		leaderboardLoadingObject.SetActive(true);
+		leaderboardListObject.SetActive(false);
+		leaderboardErrorObject.SetActive(false);
+		leaderboardPanel.SetActive(true);
+
+		Leaderboards.TinyGalaxiesLeaderboard.GetEntries(OnGotLeaderboardEntries, OnGotLeaderboardError);
+	}
+
+	private void OnGotLeaderboardError(string error)
+	{
+		leaderboardListObject.SetActive(false);
+		leaderboardLoadingObject.SetActive(false);
+		leaderboardErrorObject.SetActive(true);
+	}
+
+	private void OnGotLeaderboardEntries(Entry[] entries)
+	{
+		leaderboardListObject.SetActive(true);
+		leaderboardLoadingObject.SetActive(false);
+		leaderboardErrorObject.SetActive(false);
+
+		// Clear leaderboard
+		foreach (Transform child in leaderboardContent.transform)
+		{
+			Destroy(child.gameObject);
+		}
+
+		for (int i = 0; i < entries.Length; i++)
+		{
+			TournamentLeaderboardEntry entry = Instantiate(tournamentLeaderboardEntry);
+			entry.Init(entries[i].Extra, entries[i].Rank, entries[i].Username, entries[i].Score);
+			entry.transform.parent = leaderboardContent.transform;
+
+			Debug.Log($"{entries[i].Rank}. {entries[i].Username} - {entries[i].Score}");
+		}
+	}
+
+	private void SetLeaderboardEntry(string username, int score, string icon)
+	{
+		Leaderboards.TinyGalaxiesLeaderboard.UploadNewEntry(username, score, icon, OnSetLeaderboardEntry, OnSetEntryError);
+	}
+
+	private void OnSetEntryError(string error)
+	{
+		Debug.LogWarning("Error setting entry: " + error);
+	}
+
+	private void OnSetLeaderboardEntry(bool obj)
+	{
+		GetLeaderboard();
 	}
 
 	private IEnumerator FlashHealthWarning()
@@ -198,6 +287,7 @@ public class UIManager : MonoBehaviour
 		endPanel.SetActive(false);
         achievementPanel.SetActive(false);
 		pausePanel.SetActive(false);
+		leaderboardPanel.SetActive(false);
 	}
 
 	private void OnDifficultyNormalStartButton()
@@ -213,6 +303,7 @@ public class UIManager : MonoBehaviour
 		endPanel.SetActive(false);
 		achievementPanel.SetActive(false);
 		pausePanel.SetActive(false);
+		leaderboardPanel.SetActive(false);
 
 		lastDifficulty = Constants.Difficulty.Easy;
 
@@ -233,6 +324,7 @@ public class UIManager : MonoBehaviour
 		endPanel.SetActive(false);
 		achievementPanel.SetActive(false);
 		pausePanel.SetActive(false);
+		leaderboardPanel.SetActive(false);
 
 		lastDifficulty = Constants.Difficulty.Hard;
 
@@ -250,6 +342,7 @@ public class UIManager : MonoBehaviour
 		endPanel.SetActive(false);
 		achievementPanel.SetActive(false);
 		pausePanel.SetActive(false);
+		leaderboardPanel.SetActive(false);
 
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
@@ -264,6 +357,7 @@ public class UIManager : MonoBehaviour
 		endPanel.SetActive(false);
 		achievementPanel.SetActive(false);
 		pausePanel.SetActive(false);
+		leaderboardPanel.SetActive(false);
 
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
@@ -277,8 +371,9 @@ public class UIManager : MonoBehaviour
         gameplayPanel.SetActive(false);
         endPanel.SetActive(false);
         achievementPanel.SetActive(true);
+		leaderboardPanel.SetActive(false);
 
-        eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
     }
 
 	private void OnAchievementsEasyButtion()
@@ -307,6 +402,7 @@ public class UIManager : MonoBehaviour
 		endPanel.SetActive(false);
         achievementPanel.SetActive(false);
 		pausePanel.SetActive(false);
+		leaderboardPanel.SetActive(false);
 
 		Color offColor = upgradePopup.GetComponent<Image>().color;
 		offColor.a = 0f;
@@ -328,7 +424,36 @@ public class UIManager : MonoBehaviour
 		endPanel.SetActive(false);
 		achievementPanel.SetActive(false);
 		pausePanel.SetActive(false);
+		leaderboardPanel.SetActive(false);
 
+		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
+	}
+
+	private void OnLeaderboardButtonFromGame()
+	{
+		GetLeaderboard();
+
+		leaderboardMainMenuButton.gameObject.SetActive(false);
+		leaderboardGameButton.gameObject.SetActive(true);
+	}
+
+	private void OnLeaderboardButtonFromMainMenu()
+	{
+		GetLeaderboard();
+
+		leaderboardMainMenuButton.gameObject.SetActive(true);
+		leaderboardGameButton.gameObject.SetActive(false);
+	}
+
+	private void OnLeaderboardMainMenuButton()
+	{
+		OnMainMenuButton();
+	}
+
+	private void OnLeaderboardGameButton()
+	{
+		endPanel.SetActive(true);
+		leaderboardPanel.SetActive(false);
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
 	}
 
@@ -369,6 +494,85 @@ public class UIManager : MonoBehaviour
 		}
 
 		eventBroker.Publish(this, new AudioEvents.PlaySFX(Constants.Audio.SFX.ButtonPress));
+	}
+
+	private void OnBunnyToggle(bool isOn)
+	{
+		if (isOn)
+		{
+			leaderboardUserIcon = Constants.UI.LeaderboardIcons.Bunny;
+		}
+	}
+
+	private void OnChickenToggle(bool isOn)
+	{
+		if (isOn)
+		{
+			leaderboardUserIcon = Constants.UI.LeaderboardIcons.Chicken;
+		}
+	}
+
+	private void OnCrabToggle(bool isOn)
+	{
+		if (isOn)
+		{
+			leaderboardUserIcon = Constants.UI.LeaderboardIcons.Crab;
+		}
+	}
+
+	private void OnFrogToggle(bool isOn)
+	{
+		if (isOn)
+		{
+			leaderboardUserIcon = Constants.UI.LeaderboardIcons.Frog;
+		}
+	}
+
+	private void OnHippoToggle(bool isOn)
+	{
+		if (isOn)
+		{
+			leaderboardUserIcon = Constants.UI.LeaderboardIcons.Hippo;
+		}
+	}
+
+	private void OnSharkToggle(bool isOn)
+	{
+		if (isOn)
+		{
+			leaderboardUserIcon = Constants.UI.LeaderboardIcons.Shark;
+		}
+	}
+
+	private void OnSquidToggle(bool isOn)
+	{
+		if (isOn)
+		{
+			leaderboardUserIcon = Constants.UI.LeaderboardIcons.Squid;
+		}
+	}
+
+	private void OnEntryCancel()
+	{
+		entryPanel.SetActive(false);
+	}
+
+	private void OnEntryConfirm()
+	{
+		LeaderboardCreator.Ping((isOnline) => 
+		{
+			if (isOnline)
+			{
+				leaderboardUsername = entryNameInput.text;
+				SetLeaderboardEntry(leaderboardUsername, leaderboardUserScore, leaderboardUserIcon);
+			}
+			else
+			{
+				Debug.LogWarning("Leaderboard could not be reached");
+			}
+		});
+		
+		entryPanel.SetActive(false);
 	}
 
 	private void HandlePlayerUpgrade(BrokerEvent<PlayerEvents.Upgrade> inEvent)
@@ -443,6 +647,7 @@ public class UIManager : MonoBehaviour
 	{
 		StartCoroutine(EndGameDelay(inEvent));
     }
+
     private IEnumerator EndGameDelay(BrokerEvent<GameEvents.EndGame> inEvent)
 	{
 		yield return new WaitForSeconds(.1f);
@@ -455,6 +660,22 @@ public class UIManager : MonoBehaviour
         if (inEvent.Payload.IsHighscore)
         {
             highscoreText.text = inEvent.Payload.FinalScore.ToString();
+
+			LeaderboardCreator.Ping((isOnline) => 
+			{ 
+				if (isOnline)
+				{
+					if (leaderboardUsername == Constants.UI.LeaderboardDefaultUsername)
+					{
+						leaderboardUserScore = (int)inEvent.Payload.FinalScore;
+						entryPanel.SetActive(true);
+					}
+					else
+					{
+						SetLeaderboardEntry(leaderboardUsername, (int)inEvent.Payload.FinalScore, leaderboardUserIcon);
+					}
+				}
+			});
         }
 
         endPanel.SetActive(true);
@@ -492,11 +713,25 @@ public class UIManager : MonoBehaviour
         mainMenuAchievementButton.onClick.AddListener(OnAchievementsButton);
         mainMenuCreditsButton.onClick.AddListener(OnCreditsButton);
 		mainMenuTutorialButton.onClick.AddListener(OnTutorialButton);
+		mainMenuLeaderboardButton.onClick.AddListener(OnLeaderboardButtonFromMainMenu);
 		creditsMainMenuButton.onClick.AddListener(OnMainMenuButton);
 		tutorialMainMenuButton.onClick.AddListener(OnMainMenuButton);
 		achievementCloseButton.onClick.AddListener(OnMainMenuButton);
 		endMainMenuButton.onClick.AddListener(OnMainMenuButton);
 		endRestartButton.onClick.AddListener(OnRestartButton);
+		endLeaderboardButton.onClick.AddListener(OnLeaderboardButtonFromGame);
+		leaderboardMainMenuButton.onClick.AddListener(OnLeaderboardMainMenuButton);
+		leaderboardGameButton.onClick.AddListener(OnLeaderboardGameButton);
+
+		entryBunnyToggle.onValueChanged.AddListener(OnBunnyToggle);
+		entryChickenToggle.onValueChanged.AddListener(OnChickenToggle);
+		entryCrabToggle.onValueChanged.AddListener(OnCrabToggle);
+		entryFrogToggle.onValueChanged.AddListener(OnFrogToggle);
+		entryHippoToggle.onValueChanged.AddListener(OnHippoToggle);
+		entrySharkToggle.onValueChanged.AddListener(OnSharkToggle);
+		entrySquidToggle.onValueChanged.AddListener(OnSquidToggle);
+		entryConfirmButton.onClick.AddListener(OnEntryConfirm);
+		entryCancelButton.onClick.AddListener(OnEntryCancel);
 
 		difficultyNormalStartButton.onClick.AddListener(OnDifficultyNormalStartButton);
 		difficultyHardStartButton.onClick.AddListener(OnDifficultyHardStartButton);
@@ -523,11 +758,25 @@ public class UIManager : MonoBehaviour
         mainMenuAchievementButton.onClick.RemoveListener(OnAchievementsButton);
         mainMenuCreditsButton.onClick.RemoveListener(OnCreditsButton);
 		mainMenuTutorialButton.onClick.RemoveListener(OnTutorialButton);
+		mainMenuLeaderboardButton.onClick.RemoveListener(OnLeaderboardButtonFromMainMenu);
 		creditsMainMenuButton.onClick.RemoveListener(OnMainMenuButton);
 		tutorialMainMenuButton.onClick.RemoveListener(OnMainMenuButton);
 		achievementCloseButton.onClick.RemoveListener(OnMainMenuButton);
         endMainMenuButton.onClick.RemoveListener(OnMainMenuButton);
 		endRestartButton.onClick.RemoveListener(OnRestartButton);
+		endLeaderboardButton.onClick.RemoveListener(OnLeaderboardButtonFromGame);
+		leaderboardMainMenuButton.onClick.RemoveListener(OnLeaderboardMainMenuButton);
+		leaderboardGameButton.onClick.RemoveListener(OnLeaderboardGameButton);
+
+		entryBunnyToggle.onValueChanged.RemoveListener(OnBunnyToggle);
+		entryChickenToggle.onValueChanged.RemoveListener(OnChickenToggle);
+		entryCrabToggle.onValueChanged.RemoveListener(OnCrabToggle);
+		entryFrogToggle.onValueChanged.RemoveListener(OnFrogToggle);
+		entryHippoToggle.onValueChanged.RemoveListener(OnHippoToggle);
+		entrySharkToggle.onValueChanged.RemoveListener(OnSharkToggle);
+		entrySquidToggle.onValueChanged.RemoveListener(OnSquidToggle);
+		entryConfirmButton.onClick.RemoveListener(OnEntryConfirm);
+		entryCancelButton.onClick.RemoveListener(OnEntryCancel);
 
 		difficultyNormalStartButton.onClick.RemoveListener(OnDifficultyNormalStartButton);
 		difficultyHardStartButton.onClick.RemoveListener(OnDifficultyHardStartButton);
