@@ -37,6 +37,20 @@ public partial class Constants
 		public const float HealthWarningFlashSpeed = 0.8f;
 		public const float HealthWarningMinAlpha = 0.25f;
 		public const float HealthWarningMaxAlpha = 0.75f;
+
+		public class LeaderboardIcons
+		{
+			public const string Bunny = "Bunny";
+			public const string Chicken = "Chicken";
+			public const string Crab = "Crab";
+			public const string Frog = "Frog";
+			public const string Hippo = "Hippo";
+			public const string Shark = "Shark";
+			public const string Squid = "Squid";
+		}
+
+		public const string LeaderboardUsernamePP = "LeaderboardUsername";
+		public const string LeaderboardDefaultUsername = "leaderboardusernamenotset10072024";
 	}
 
 	public static class Achievements
